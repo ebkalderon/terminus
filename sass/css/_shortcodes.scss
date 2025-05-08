@@ -1,0 +1,42 @@
+figure.mastodon-post {
+    position: relative;
+    border: 1px solid var(--accent-color);
+    margin: 0;
+    padding: 60px 25px 25px;
+
+    &::before {
+        content: '> From Mastodon:';
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        color: var(--accent-color);
+        font-weight: bold;
+    }
+
+    blockquote {
+        border: unset;
+        padding: unset;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    figcaption {
+        margin-top: 25px;
+    }
+}
+
+.references-list p {
+    text-indent: -2.4rem;
+    margin-left: 2.4rem;
+}
+
+.wide-container {
+    margin: 0;
+
+    @media (max-width: 684px) {
+        overflow-x: auto;
+    }
+}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{%- block title -%}
+{{ section.title }} | {{ config.title }}
+{%- endblock -%}
+
+{%- block description -%}
+    {%- if section.description %}
+    <meta name="description" content="{{ section.description | markdown(inline=true) | striptags | safe }}">
+    {%- elif config.description %}
+    <meta name="description" content="{{ config.description | safe }}">
+    {%- endif %}
+{%- endblock -%}
+
+{%- block main -%}
+{%- filter indent -%}{%- filter indent -%}
+{%- if section.content -%}
+<header {%- if section.extra.framed %} class="framed"{%- endif -%}>
+    {{ section.content | safe -}}
+</header>
+{% endif -%}
+
+{% for page in paginator.pages | default(value=section.pages) -%}
+{{ post_macros::excerpt(page=page) }}
+{% endfor -%}
+
+{%- if paginator and paginator.number_pagers > 1 %}
+<nav class="pagination">
+    <ul>
+        {%- if paginator.previous %}
+        <li><a rel="prev" href="{{ paginator.previous | safe }}">← newer posts</a></li>
+        {%- endif %}
+        {%- if paginator.next %}
+        <li><a rel="next" href="{{ paginator.next | safe }}">older posts →</a></li>
+        {%- endif %}
+    </ul>
+</nav>
+{%- endif %}
+{% endfilter %}{% endfilter %}
+{%- endblock -%}

@@ -1,0 +1,40 @@
+{% if config.extra.content_security_policy.enable == true -%}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'
+    {%- set allowed_domains = [] -%}
+
+    {#- Allow WebSocket protocol if served via `zola serve` -#}
+    {%- if config.mode == "serve" -%}
+        {%- set connect_src = load_data(literal=`{"directive": "connect-src", "domains": ["'self'", "ws:"]}`, format="json") -%}
+        {%- set script_src_elem = load_data(literal=`{"directive": "script-src-elem", "domains": ["'self'", "'unsafe-inline'"]}`, format="json") -%}
+        {%- set allowed_domains = allowed_domains | concat(with=connect_src) | concat(with=script_src_elem) -%}
+    {%- endif -%}
+
+    {#- Allow `data:` URL scheme if emoji-based favicon is used -#}
+    {%- if config.extra.favicon_emoji -%}
+        {%- set img_src = load_data(literal=`{"directive": "img-src", "domains":["'self'", "data:"]}`, format="json") -%}
+        {%- set allowed_domains = allowed_domains | concat(with=img_src) -%}
+    {%- endif -%}
+
+    {#- Allow inline CSS if Zola syntax highlighting is enabled -#}
+    {%- if config.markdown.highlight_code == true -%}
+        {%- set style_src = load_data(literal=`{"directive": "style-src-attr", "domains": ["'unsafe-inline'"]}`, format="json") -%}
+        {%- set allowed_domains = allowed_domains | concat(with=style_src) -%}
+    {%- endif -%}
+
+    {%- set extra_domains = config.extra.content_security_policy.allowed_domains -%}
+    {%- set allowed_domains = allowed_domains | concat(with=extra_domains) -%}
+
+    {%- for directive, entries in allowed_domains | group_by(attribute="directive") -%}
+        {%- set_global domains = [] -%}
+
+        {%- for entry in entries -%}
+            {%- set_global domains = domains | concat(with=entry.domains) -%}
+        {%- endfor -%}
+
+        {%- set domains = domains | join(sep=" ") -%}
+        {%- if domains -%}
+            ; {{ directive }} {{ domains | safe }}
+        {%- endif -%}
+    {%- endfor -%}
+">
+{% endif -%}

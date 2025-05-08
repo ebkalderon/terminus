@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{%- block main -%}
+{%- filter indent -%}{%- filter indent -%}
+{%- if section.content -%}
+<header {%- if section.extra.framed %} class="framed"{%- endif -%}>
+    {{ section.content | indent | safe }}
+</header>
+{% endif -%}
+
+{#- Display partial content from "featured section", e.g. "/blog/". -#}
+{#- Otherwise, render as a normal Zola homepage (only show posts under "/"). -#}
+{%- if section.extra.section_path -%}
+    {%- set blog_section = get_section(path=section.extra.section_path) -%}
+    {%- set num_top_posts = section.extra.max_posts | default(value=blog_section.pages | length) -%}
+    {%- if blog_section.paginate_reversed == true -%}
+        {%- set top_posts = blog_section.pages | reverse | slice(end=num_top_posts) -%}
+    {%- else -%}
+        {%- set top_posts = blog_section.pages | slice(end=num_top_posts) -%}
+    {%- endif -%}
+{%- else -%}
+    {%- set blog_section = section -%}
+    {%- set top_posts = blog_section.pages -%}
+{%- endif -%}
+
+{% for page in paginator.pages | default(value=top_posts) -%}
+{{ post_macros::excerpt(page=page) }}
+{% endfor -%}
+
+{%- if paginator and paginator.number_pagers > 1 %}
+<nav class="pagination">
+    <ul>
+        {%- if paginator.previous %}
+        <li>
+            <span aria-hidden="true">&lt;&nbsp;[</span>
+            <a rel="prev" href="{{ paginator.previous | safe }}">newer posts</a>
+            <span aria-hidden="true">]</span>
+        </li>
+        {%- endif %}
+        {%- if paginator.next %}
+        <li>
+            <span aria-hidden="true">[</span>
+            <a rel="next" href="{{ paginator.previous | safe }}">newer posts</a>
+            <span aria-hidden="true">]&nbsp;&gt;</span>
+        </li>
+        {%- endif %}
+    </ul>
+</nav>
+{%- elif blog_section.paginate_by and blog_section.paginate_by < blog_section.pages | length %}
+<nav class="pagination">
+    <ul>
+        <li><a href="{{ blog_section.permalink | safe }}">all posts →</a></li>
+    </ul>
+</nav>
+{%- endif %}
+{%- endfilter -%}{%- endfilter -%}
+{%- endblock -%}

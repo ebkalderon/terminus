@@ -1,0 +1,10 @@
+{%- macro link_alternate(filename, title) -%}
+    {%- if filename is ending_with("atom.xml") -%}
+        {%- set type = 'type="application/atom+xml" ' -%}
+    {%- elif filename is ending_with("rss.xml") -%}
+        {%- set type = 'type="application/rss+xml" ' -%}
+    {%- elif filename is ending_with(".json") -%}
+        {%- set type = 'type="application/feed+json" ' -%}
+    {%- endif -%}
+    <link rel="alternate" {{ type | default(value="") | safe -}} href="{{ get_url(path=filename) }}" title="{{ title | safe }}">
+{%- endmacro -%}

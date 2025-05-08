@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{%- block title -%}
+{{ page.title }} | {{ config.title }}
+{%- endblock -%}
+
+{%- block description -%}
+    {%- if page.description %}
+    <meta name="description" content="{{ page.description | markdown(inline=true) | striptags }}">
+    {%- elif page.summary %}
+    <meta name="description" content="{{ page.summary | linebreaksbr | replace(from="<br>", to=" ") | striptags | trim_end_matches(pat=".") | safe }}…">
+    {%- endif %}
+{%- endblock -%}
+
+{%- block main -%}
+{%- filter indent -%}{%- filter indent -%}
+<article class="post">
+    {{ post_macros::header(page=page, heading="h1") | indent | safe }}
+{%- endfilter %}{%- endfilter %}
+
+{{ page.content | safe }}
+
+{%- filter indent -%}{%- filter indent %}
+</article>
+{%- if page.lower or page.higher %}
+<nav class="post-navigation">
+    <header class="post-navigation-title">
+        <h2>Read More Posts</h2>
+        <hr>
+    </header>
+    <div class="post-navigation-buttons">
+        {%- if page.lower %}
+        <a class="read-more" rel="next" href="{{ page.lower.permalink | safe }}" aria-label="Next article">
+            <span aria-hidden="true">&lt;&nbsp;[</span>
+            {{ page.lower.title | truncate(value=100, end="…") }}
+            <span aria-hidden="true">]</span>
+        </a>
+        {%- endif %}
+        {%- if page.lower and page.higher %}
+            <span aria-hidden="true" role="separator">::</span>
+        {% endif -%}
+        {%- if page.higher %}
+            <a class="read-more" rel="prev" href="{{ page.higher.permalink | safe }}" aria-label="Prev article">
+            <span aria-hidden="true">[</span>
+            {{ page.higher.title | truncate(value=100, end="…") }}
+            <span aria-hidden="true">]&nbsp;&gt;</span>
+        </a>
+        {%- endif %}
+    </div>
+</nav>
+{%- endif %}
+{% include "partials/comments.html" -%}
+{% endfilter %}{% endfilter %}
+{%- endblock -%}

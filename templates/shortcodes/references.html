@@ -1,0 +1,9 @@
+{# Formats each paragraph in the shortcode body with a hanging indent. -#}
+
+{#- Adapted from this shortcode included with the "tabi" theme: -#}
+{#- https://github.com/welpo/tabi/blob/84c67ab/templates/shortcodes/references.html -#}
+{#- Copyright (c) 2025 Óscar Fernández -#}
+
+<section class="references-list">
+    {{ body | markdown | indent | safe }}
+</section>

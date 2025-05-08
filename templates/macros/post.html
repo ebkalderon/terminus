@@ -1,0 +1,72 @@
+{%- macro excerpt(page) -%}
+<article class="post">
+    {{ post_macros::header(page=page, heading="h2") | indent | safe }}
+
+    {%- set permalink = page.permalink -%}
+
+    {%- if page.description %}
+    <p>{{ page.description | markdown(inline=true) | safe }}</p>
+    {%- elif page.summary %}
+    {%- set permalink = permalink ~ "#continue-reading" %}
+    {{ page.summary | safe }}
+    {%- endif %}
+    <a class="read-more" href="{{ permalink | safe }}" aria-label="Read more about {{ page.title }}">read more →</a>
+</article>
+{%- endmacro -%}
+
+{%- macro header(page, heading) -%}
+<header>
+    <{{ heading }} class="post-title">
+        <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    </{{ heading }}>
+    <ul class="post-meta">
+        {% if page.draft -%}
+        <li class="draft-label">DRAFT</li>
+        {% endif -%}
+
+        <li title="Published on {{ page.date }}{%- if page.updated %}, last updated {{ page.updated }}{%- endif -%}">
+            {{- post_macros::date(value=page.date) }}
+            {%- if page.updated %}&nbsp;[Updated: {{ post_macros::date(value=page.updated) }}]{%- endif -%}
+        </li>
+
+        {%- if page.authors %}
+        <li role="separator" aria-hidden="true">::</li>
+        <li title="Authors">
+            {%- for author in page.authors -%}
+            {{ author }}{%- if not loop.last -%}, {% endif -%}
+            {%- endfor -%}
+        </li>
+        {%- elif config.author and config.extra.show_default_author %}
+        <li role="separator" aria-hidden="true">::</li>
+        <li title="Author">{{ config.author }}</li>
+        {%- endif %}
+        <li role="separator" aria-hidden="true">::</li>
+
+        {%- set reading_time = page.reading_time ~ " min" | replace(from="0 min", to="<1 min") -%}
+        {%- set word_count = [page.word_count ~ " word", page.word_count | pluralize] | join %}
+        <li title="{{ word_count }}"><time datetime="PT{{ page.reading_time }}M">{{ reading_time }}</time> read</li>
+    </ul>
+
+    {%- if page.taxonomies %}
+    <div class="post-tags">
+        {%- for category in page.taxonomies.categories | default(value=[]) %}
+        {% set category_url = get_taxonomy_url(kind="categories", name=category, lang=page.lang) -%}
+        <span>&lbrace;<a href="{{ category_url | safe }}">{{ category }}</a>&rbrace;</span>
+        {%- endfor %}
+
+        {%- if page.taxonomies.categories and page.taxonomies.tags %}
+        <span role="separator">::</span>
+        {%- endif %}
+
+        {%- for tag in page.taxonomies.tags | default(value=[]) %}
+        {% set tag_url = get_taxonomy_url(kind="tags", name=tag, lang=page.lang) -%}
+        <span>#<a href="{{ tag_url | safe }}">{{ tag }}</a></span>
+        {%- endfor %}
+    </div>
+    {%- endif %}
+</header>
+{%- endmacro -%}
+
+{%- macro date(value) -%}
+<time datetime="{{ value }}">{{ value | date(format="%Y.%m.%d") }}</time>
+{%- endmacro -%}

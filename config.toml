@@ -1,0 +1,73 @@
+# The URL the site will be built for
+base_url = "https://example.com"
+
+# The site title and description; used in feeds by default.
+title = "Terminal"
+description = "Demo website for zola-theme-terminal"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# When set to "true", a feed is automatically generated.
+generate_feeds = true
+
+# The default author for pages
+author = "Eyal Kalderon"
+
+# The taxonomies to be rendered for the site and their configuration of the default languages
+# Example:
+#     taxonomies = [
+#       {name = "tags", feed = true}, # each tag will have its own feed
+#       {name = "tags"}, # you can have taxonomies with the same name in multiple languages
+#       {name = "categories", paginate_by = 5},  # 5 items per page for a term
+#       {name = "authors"}, # Basic definition: no feed or pagination
+#     ]
+#
+taxonomies = [
+    { name = "tags", feed = true },
+    { name = "categories", feed = true, paginate_by = 5 },
+]
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+# The theme to use for code highlighting.
+# See below for list of allowed values.
+highlight_theme = "monokai"
+
+# Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
+bottom_footnotes = true
+
+[extra]
+favicon_emoji = "👨‍💻"
+layout = "center"
+show_default_author = false
+
+main_menu = [
+    { name = "blog", url = "blog", trailing_slash = true },
+    { name = "archive", url = "archive", trailing_slash = true },
+    { name = "tags", url = "tags", trailing_slash = true },
+    { name = "projects", url = "projects", trailing_slash = true },
+    { name = "blah", url = "https://github.com", new_tab = true },
+]
+
+socials = [
+    { name = "email", url = "mailto:hello@example.com" },
+    { name = "github", url = "https://github.com/ebkalderon" },
+    { name = "linkedin", url = "https://www.linkedin.com/in/ebkalderon" },
+    { name = "mastodon", url = "https://hachyderm.io/@ebkalderon" },
+    { name = "keybase", url = "https://keybase.io/ebkalderon" },
+]
+
+[extra.content_security_policy]
+enable = true
+allowed_domains = []
+
+[extra.responsive_images]
+widths = [640, 1280, 1920, 2560]
+fallback_width = 2560

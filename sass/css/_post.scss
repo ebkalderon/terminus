@@ -1,0 +1,219 @@
+.framed {
+    border: 1px solid var(--accent-color);
+    padding: 20px;
+    margin: 25px 0;
+
+    & *:first-child {
+        margin-top: 0;
+    }
+
+    & *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.post {
+    width: 100%;
+    text-align: left;
+    padding: 30px 0;
+
+    &:not(:last-of-type) {
+        border-bottom: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+    }
+
+    ul {
+        list-style: none;
+
+        li::before {
+            content: '⦿';
+            position: absolute;
+            left: -20px;
+            color: var(--accent-color);
+        }
+
+        ul {
+            li::before {
+                content: '■';
+                position: absolute;
+                left: -20px;
+                color: var(--accent-color);
+            }
+
+            ul {
+                li::before {
+                    content: '►';
+                    position: absolute;
+                    left: -20px;
+                    color: var(--accent-color);
+                }
+            }
+        }
+    }
+}
+
+.post-title {
+    position: relative;
+    margin-block: 0 15px !important;
+    padding-bottom: 15px;
+    border-bottom: 3px dotted var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none !important;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        display: block;
+        width: 100%;
+        border-bottom: 3px dotted var(--accent-color);
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+ul.post-meta {
+    list-style: none;
+    display: block;
+    margin: 0 0 8px;
+    color: color-mix(in srgb, var(--text-color) 65%, transparent);
+
+    >li {
+        display: inline;
+
+        &::before {
+            content: '';
+        }
+
+        &[role="separator"] {
+            user-select: none;
+        }
+
+        &.draft-label {
+            display: block;
+            float: right;
+            margin-top: -2px;
+            padding-block: 2px;
+            padding-inline: 8px;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+        }
+    }
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+
+    &>[role="separator"] {
+        user-select: none;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    .post-anchor {
+        padding-left: 10px;
+        opacity: 0%;
+        color: var(--accent-color);
+        text-decoration: none;
+        user-select: none;
+
+        @media screen and (max-width: 684px) {
+            opacity: 100%;
+        }
+
+        @media print {
+            display: none;
+        }
+    }
+
+    &:hover {
+        .post-anchor {
+            opacity: 100%;
+        }
+    }
+}
+
+// Inline footnotes
+
+.footnote-reference {
+    font-family: var(--serif-font);
+    font-size: 0.7rem;
+}
+
+.footnote-definition {
+    color: var(--footnote-color);
+    margin-block-end: 0.6rem;
+
+    sup {
+        color: var(--accent-color);
+        margin-inline-end: 0.15rem;
+        font-size: 0.75rem;
+    }
+
+    p {
+        display: inline;
+    }
+}
+
+// GitHub-style bottom footnotes
+
+.footnotes-list p {
+    color: var(--footnote-color);
+    text-align: start;
+}
+
+.post-navigation {
+    @media print {
+        display: none;
+    }
+
+    &-title {
+        display: flex;
+        text-align: center;
+        position: relative;
+        margin: 40px 0 20px;
+
+        h2 {
+            text-align: center;
+            margin: 0 auto;
+            padding: 5px 10px;
+            background: var(--background-color);
+            color: color-mix(in srgb var(--text-color) 30%, transparent);
+            font-size: calc(var(--font-size) * 0.8);
+            font-weight: normal;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            z-index: 1;
+        }
+
+        hr {
+            background: var(--accent-color);
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin-top: 15px;
+            z-index: 0;
+        }
+    }
+
+    &-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        gap: 10px;
+        padding-bottom: 30px;
+    }
+}

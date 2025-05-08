@@ -1,0 +1,32 @@
+.pagination {
+    margin-top: 50px;
+
+    @media print {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        padding-bottom: 30px;
+        list-style: none;
+        margin: 0;
+
+        >*:not(:first-child)::before {
+            content: '::';
+            margin: 0 10px;
+        }
+
+        li {
+            display: inline-flex;
+
+            a {
+                display: inline-flex;
+                text-wrap: nowrap;
+                text-decoration: none;
+            }
+        }
+    }
+}

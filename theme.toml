@@ -1,0 +1,45 @@
+name = "zola-theme-terminal"
+description = "A classic blog theme"
+tags = []
+license = "MIT"
+homepage = "https://github.com/ebkalderon/zola-theme-terminal"
+min_version = "0.20.0"
+# demo = ""
+
+[author]
+name = "Eyal Kalderon"
+homepage = "https://eyalkalderon.com"
+
+[original]
+author =  "panr"
+homepage = "https://radekkoziel.pl"
+repo = "https://github.com/panr/hugo-theme-terminal"
+
+[extra]
+# favicon = "images/favicon.png"
+# favicon_emoji = "👨‍💻"
+
+# Valid options are "center", "left", or "full-width"
+layout = "center"
+
+# Display default author on all pages without `authors = [...]` in frontmatter
+show_default_author = true
+
+# main_menu = [
+#     { name = "internal link 1", url = "resume.pdf" },
+#     { name = "internal link 2", url = "blog", trailing_slash = true },
+#     { name = "external link", url = "https://github.com", new_tab = true },
+# }
+
+# socials = [
+#     { name = "email", url = "mailto:hello@example.com" },
+#     { name = "github", url = "https://github.com/ebkalderon" },
+# ]
+
+[extra.content_security_policy]
+enable = true
+allowed_domains = []
+
+[extra.responsive_images]
+widths = [640, 1280, 1920, 2560]
+fallback_width = 2560

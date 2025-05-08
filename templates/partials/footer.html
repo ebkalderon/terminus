@@ -1,0 +1,27 @@
+{%- if config.generate_feeds or config.extra.socials -%}
+<address class="socials">
+    <ul>
+        {%- if config.generate_feeds -%}
+        {%- for feed in config.feed_filenames %}
+        <li>
+            <a class="social-link" href="{{ get_url(path=feed) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed">
+                <img loading="lazy" alt="feed" src="{{ get_url(path="images/social_icons/rss.svg") }}">
+            </a>
+        </li>
+        {%- endfor %}
+        {%- endif -%}
+        {%- for social in config.extra.socials | default(value=[]) %}
+        <li>
+            <a class="social-link" rel="me" href="{{ social.url | safe }}" title="{{ social.name }}">
+                <img loading="lazy" alt="{{ social.name }}" src="{{ get_url(path="images/social_icons/" ~ social.name ~ ".svg") }}">
+            </a>
+        </li>
+        {%- endfor %}
+    </ul>
+</address>
+{% endif -%}
+
+<p class="copyright">
+    <span>© <time>{{ now() | date(format="%Y") }}</time> {{ config.author }}</span>
+    <span>Powered by <a href="https://www.getzola.org">Zola</a></span>
+</p>

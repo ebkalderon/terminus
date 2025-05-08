@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% import "page.html" as macros %}
+
+{%- block title -%}
+{{ term.name | title }} | {{ config.title }}
+{%- endblock -%}
+
+{%- block feeds -%}
+    {%- if taxonomy.feed -%}
+        {%- for filename in config.feed_filenames -%}
+            {#- The logic below is very simplistic; just a fallback for less common taxonomies -#}
+            {%- if taxonomy.name is ending_with("ies") -%}
+                {%- set singular_name = taxonomy.name | replace(from="ies", to="y") -%}
+            {%- else -%}
+                {%- set singular_name = taxonomy.name | trim_end_matches(pat="s") -%}
+            {%- endif -%}
+            {%- set feed_title = config.title ~ " | Posts in the '" ~ term.name ~ "' " ~ singular_name -%}
+            {%- set feed_filename = taxonomy.name ~ "/" ~ term.name ~ "/" ~ filename -%}
+            {{ feed_macros::link_alternate(filename=feed_filename, title=feed_title) }}
+        {% endfor -%}
+    {%- endif -%}
+{%- endblock -%}
+
+{%- block main -%}
+{%- filter indent -%}{%- filter indent -%}
+<h1>Posts for: {{ term.name }}</h1>
+{%- for page in paginator.pages | default(value=term.pages) %}
+{{ post_macros::excerpt(page=page) }}
+{%- endfor %}
+{%- if paginator and paginator.number_pagers > 1 %}
+<nav class="pagination">
+    <ul>
+        {%- if paginator.previous %}
+        <li><a rel="prev" href="{{ paginator.previous | safe }}">← newer posts</a></li>
+        {%- endif %}
+        {%- if paginator.next %}
+        <li><a rel="next" href="{{ paginator.next | safe }}">older posts →</a></li>
+        {%- endif %}
+    </ul>
+</nav>
+{%- endif %}
+{% endfilter %}{% endfilter %}
+{%- endblock -%}

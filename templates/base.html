@@ -1,0 +1,70 @@
+{%- import "macros/feed.html" as feed_macros -%}
+{%- import "macros/post.html" as post_macros -%}
+
+<!doctype html>
+<html lang="{{ lang }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include "partials/content_security_policy.html" %}
+    <title>{%- block title -%}{{ config.title }}{%- endblock -%}</title>
+
+    <link rel="preload" href="/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ get_url(path="css/style.css", cachebust=true) }}">
+
+    {%- if config.extra.favicon %}
+    <link rel="icon" type="image/png" href="{{ get_url(path=config.extra.favicon) }}">
+    {%- elif config.extra.favicon_emoji %}
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{{ config.extra.favicon_emoji }}</text></svg>">
+    {%- endif %}
+
+    {# Canonical and alternate links -#}
+    {% if current_url -%}
+    <link rel="canonical" href="{{ current_url | safe }}">
+    {% endif -%}
+    {%- if config.generate_feeds %}
+    {%- for feed in config.feed_filenames -%}
+    {{ feed_macros::link_alternate(filename=feed, title=config.title) }}
+    {% endfor -%}
+    {%- block feeds -%}{%- endblock -%}
+    {% endif %}
+
+    {#- Standard meta tags -#}
+    {%- if page.authors or config.author %}
+    <meta name="author" content="{{ page.authors[0] | default(value=config.author) }}">
+    {%- endif %}
+    {%- block description -%}
+    {%- if config.description %}
+    <meta name="description" content="{{ config.description | safe }}">
+    {%- endif %}
+    {%- endblock %}
+    {% block robots -%}
+    <meta name="robots" content="index, follow">
+    {%- endblock %}
+    <meta name="theme-color" content="#211f1a">
+    <meta name="color-scheme" content="dark">
+</head>
+
+<body class="layout-{{ config.extra.layout }}">
+    <header class="header">
+        {% filter indent -%}{%- filter indent -%}
+        {%- block header -%}
+        {% include "partials/header.html" %}
+        {%- endblock -%}
+        {%- endfilter -%}{%- endfilter %}
+    </header>
+    <main id="main">
+        {% block main %}{% endblock %}
+    </main>
+    <footer class="footer">
+        {% filter indent -%}{%- filter indent -%}
+        {%- block footer -%}
+        {% include "partials/footer.html" %}
+        {%- endblock -%}
+        {%- endfilter -%}{%- endfilter %}
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{#- Wraps the given content in a responsive container -#}
+{#- Makes several wider items, e.g. tables, scroll horizontally on mobile -#}
+
+<div class="wide-container">
+    {{ body | markdown(inline=true) | safe }}
+</div>

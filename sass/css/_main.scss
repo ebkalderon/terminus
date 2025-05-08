@@ -1,0 +1,300 @@
+:root {
+    --background-color: #211f1a;
+    --text-color: whitesmoke;
+    --accent-color: rgb(255, 168, 106);
+    --footnote-color: rgba(255, 255, 255, .5);
+
+    --font-size: 1rem;
+    --line-height: 1.54em;
+    --radius: 0;
+
+    --max-layout-width: 864px;
+
+    @media (max-width: 684px) {
+        --font-size: 0.95rem;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    accent-color: var(--accent-color);
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Code', Monaco, Consolas, 'Ubuntu Mono', monospace;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    background: var(--background-color);
+    color: var(--text-color);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    text-size-adjust: 100%;
+    font-feature-settings: 'liga';
+
+    &.layout-left,
+    &.layout-center,
+    &.layout-full-width {
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+        max-width: var(--max-layout-width);
+        min-height: 100vh;
+        border-right: 1px solid color-mix(in srgb, var(--accent-color) 10%, transparent);
+
+        @media (max-width: 684px) {
+            padding: 20px;
+        }
+    }
+
+    &.layout-center,
+    &.layout-full-width {
+        border: none;
+        margin: 0 auto;
+    }
+
+    &.layout-full-width {
+        max-width: 100%;
+    }
+}
+
+main {
+    overflow-wrap: break-word;
+}
+
+h1 {
+    font-size: calc(var(--font-size) * 1.45);
+    letter-spacing: 0;
+}
+
+h2 {
+    font-size: calc(var(--font-size) * 1.35);
+    letter-spacing: 0;
+}
+
+h3 {
+    font-size: calc(var(--font-size) * 1.15);
+    letter-spacing: 0;
+}
+
+h4,
+h5,
+h6 {
+    font-size: calc(var(--font-size) * 1);
+    letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+img,
+figure,
+video,
+table {
+    margin: 25px 0;
+}
+
+a {
+    color: var(--accent-color);
+    outline: none;
+}
+
+button {
+    position: relative;
+    font: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    background: transparent;
+    color: var(--accent-color);
+    padding: 5px 18px;
+    border: 4px solid var(--accent-color);
+    border-radius: var(--radius);
+    transition: background 0.15s linear;
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+        background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+    }
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 1px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+ol {
+    margin-left: 4ch;
+    padding: 0;
+
+    ul,
+    ol {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    li {
+        position: relative;
+
+        &::marker {
+            color: var(--accent-color);
+        }
+    }
+}
+
+@mixin preformatted {
+    --code-border: color-mix(in srgb, var(--text-color) 10%, transparent);
+
+    font-family:
+        'Fira Code',
+        Monaco,
+        Consolas,
+        'Ubuntu Mono',
+        monospace !important;
+    font-feature-settings: normal;
+    background: color-mix(in srgb, var(--text-color) 5%, transparent);
+    border: 1px solid var(--code-border);
+    padding: 1px 6px;
+    margin: 0 2px;
+    font-size: calc(var(--font-size) * 0.95);
+}
+
+code {
+    @include preformatted;
+
+    color: var(--accent-color);
+
+    code {
+        background: transparent;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+kbd {
+    @include preformatted;
+
+    border-top: 1px solid color-mix(in srgb, var(--accent-color) 25%, transparent);
+    border-left: 1px solid var(--accent-color);
+    border-right: 1px solid var(--accent-color);
+    border-bottom: 4px solid var(--accent-color);
+    border-radius: 4px;
+}
+
+pre {
+    tab-size: 4;
+    background: color-mix(in srgb, var(--text-color) 5%, transparent);
+    color: var(--text-color);
+    padding: 10px;
+    font-size: calc(var(--font-size) * 0.95) !important;
+    overflow: auto;
+    border-radius: var(--radius);
+    border: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+
+    code {
+        background: unset;
+        color: unset;
+        margin: 0;
+        padding: 0;
+        border: none;
+
+        mark {
+            display: block;
+        }
+    }
+}
+
+abbr {
+    position: relative;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--accent-color);
+    cursor: help;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    line-height: 0;
+    top: -0.25em;
+}
+
+mark {
+    background: color-mix(in srgb, var(--accent-color) 45%, transparent);
+    color: var(--text-color);
+}
+
+blockquote {
+    position: relative;
+    border-top: 1px solid var(--accent-color);
+    border-bottom: 1px solid var(--accent-color);
+    margin: 0;
+    padding: 25px;
+
+    &::before {
+        content: '>';
+        display: block;
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+    }
+
+    p:first-child {
+        margin-top: 0;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+table {
+    border-collapse: collapse;
+
+    th,
+    td {
+        border: 2px solid var(--text-color);
+        padding: 10px;
+    }
+
+    th {
+        border-style: solid;
+        color: var(--text-color);
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+}
+
+hr {
+    width: 100%;
+    border: none;
+    background: color-mix(in srgb, var(--text-color) 50%, transparent);
+    height: 2px;
+}

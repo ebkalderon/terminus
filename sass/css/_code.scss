@@ -1,0 +1,81 @@
+pre[data-lang] {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    overflow-x: auto;
+
+    &[data-linenos] {
+        padding: 10px 0;
+    }
+
+    code[data-lang] {
+        $header-padding-vertical: 6px;
+        $header-border-thickness: 1px;
+        $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
+
+        display: block;
+        padding-top: calc(var(--line-height) + $header-padding-vertical * 2 + $header-border-thickness);
+        overflow-x: auto;
+
+        &::before {
+            content: attr(data-lang);
+            display: block;
+            inset-inline-start: 0;
+            padding: $header-padding-vertical 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            border-bottom: $header-border-thickness solid var(--code-border);
+            color: $line-number-color;
+            font-size: calc(var(--font-size) * 0.8);
+            text-transform: uppercase;
+        }
+
+        &[data-name]::after {
+            content: attr(data-name);
+            display: block;
+            inset-inline-start: 0;
+            padding: $header-padding-vertical 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            text-align: right;
+            color: $line-number-color;
+            font-size: calc(var(--font-size) * 0.8);
+        }
+
+        mark {
+            color: unset;
+            display: block;
+        }
+
+        table {
+            margin: 0;
+            width: 100%;
+            border-collapse: collapse;
+
+            td,
+            th,
+            tr {
+                border: none;
+                padding: 0;
+            }
+
+            tr td:first-child {
+                color: $line-number-color;
+                text-align: right;
+                user-select: none;
+
+                &:not(:has(mark)) {
+                    padding-left: 10px;
+                    padding-right: 1.2em;
+                }
+
+                &>mark {
+                    padding-left: 10px;
+                    padding-right: 1.2em;
+                }
+            }
+        }
+    }
+}
