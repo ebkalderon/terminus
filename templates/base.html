@@ -57,7 +57,7 @@
     {%- set page_title = config.title -%}
     <meta property="og:title" content="{{ page_title }}">
     {% elif current_path -%}
-    {%- set page_title = page.title | default(value=section.title | default(value=config.title)) -%}
+    {%- set page_title = page.title | default(value=section.title | default(value=taxonomy.name | capitalize | default(value=config.title))) -%}
     <meta property="og:title" content="{{ page_title | replace(from='"', to="&quot;") | safe }}">
     {% endif -%}
 
