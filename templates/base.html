@@ -32,12 +32,16 @@
     {% endif %}
 
     {#- Standard meta tags -#}
-    {%- if page.authors or config.author %}
-    <meta name="author" content="{{ page.authors[0] | default(value=config.author) }}">
+    {%- if page.authors -%}
+    {%- for author in page.authors %}
+    <meta name="author" content="{{ author }}">
+    {%- endfor -%}
+    {%- elif page and config.author %}
+    <meta name="author" content="{{ config.author }}">
     {%- endif %}
     {%- block description -%}
     {%- if config.description %}
-    <meta name="description" content="{{ config.description | safe }}">
+    <meta name="description" content="{{ config.description }}">
     {%- endif %}
     {%- endblock %}
     {% block robots -%}
@@ -51,10 +55,10 @@
     {#- See this GitHub comment: https://github.com/Keats/tera/issues/637#issuecomment-2974769236 -#}
     {%- if current_path and current_path == "/" -%}
     {%- set page_title = config.title -%}
-    <meta property="og:title" content="{{ page_title | safe }}">
+    <meta property="og:title" content="{{ page_title }}">
     {% elif current_path -%}
     {%- set page_title = page.title | default(value=section.title | default(value=config.title)) -%}
-    <meta property="og:title" content="{{ page_title | safe }}">
+    <meta property="og:title" content="{{ page_title | replace(from='"', to="&quot;") | safe }}">
     {% endif -%}
 
     {% if page -%}
@@ -66,17 +70,16 @@
     {%- if page.extra.social_media_image.path or section.extra.social_media_image.path -%}
     {%- set relative_path = page.extra.social_media_image.path | default(value=section.extra.social_media_image.path) -%}
     {%- set absolute_path = current_path ~ relative_path -%}
-    {%- set image_meta = get_image_metadata(path=absolute_path) -%}
+    {%- set image_meta = get_image_metadata(path=absolute_path, allow_missing=true) -%}
 
     {%- if image_meta -%}
     {%- set resized_image = resize_image(path=absolute_path, width=1200, height=675, op="fit") -%}
     <meta property="og:image" content="{{ resized_image.url | safe }}">
-    <meta property="og:image:type" content="{{ image_meta.mime | safe }}">
     <meta property="og:image:width" content="{{ resized_image.width }}">
     <meta property="og:image:height" content="{{ resized_image.height }}">
     {% if page.extra.social_media_image.alt_text or page.extra.social_media_image.alt_text -%}
     {%- set alt_text = page.extra.social_media_image.alt_text | default(value=page.extra.social_media_image.alt_text) -%}
-    <meta property="og:image:alt" content="{{ alt_text }}">
+    <meta property="og:image:alt" content="{{ alt_text | replace(from='"', to="&quot;") | safe }}">
     {% endif -%}
     <meta name="twitter:card" content="summary_large_image">
     {% endif -%}
@@ -96,18 +99,15 @@
     <meta property="og:description" content="{{ config.description }}">
     {% endif -%}
     <meta property="og:site_name" content="{{ config.title }}">
+    <meta property="og:updated_time" content="{{ now() }}">
     {%- if page.date %}
-    <meta property="article:published_time" content="{{ page.date }}">
+    <meta property="article:published_time" content="{{ page.date | date(format="%+") }}">
     {%- endif -%}
     {%- if page.updated %}
-    <meta property="article:modified_time" content="{{ page.updated }}">
+    <meta property="article:modified_time" content="{{ page.updated | date(format="%+") }}">
     {%- endif -%}
-    {%- if page.authors -%}
-    {%- for author in page.authors %}
-    <meta property="article:author" content="{{ author }}">
-    {%- endfor -%}
-    {%- elif page and config.author %}
-    <meta property="article:author" content="{{ config.author }}">
+    {%- if page.taxonomies and page.taxonomies.categories %}
+    <meta property="article:section" content="{{ page.taxonomies.categories[0] }}">
     {%- endif -%}
     {%- if page.taxonomies and page.taxonomies.tags -%}
     {%- for tag in page.taxonomies.tags %}

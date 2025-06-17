@@ -2,7 +2,7 @@
 title = "Markdown Syntax Guide"
 description = "This is an article description _with_ **some** ~~Markdown~~."
 date = 2025-05-18
-updated = 2025-05-18
+updated = 2025-06-17
 
 [taxonomies]
 tags = ["showcase", "markdown"]

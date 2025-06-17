@@ -6,5 +6,5 @@
     {%- elif filename is ending_with(".json") -%}
         {%- set type = 'type="application/feed+json" ' -%}
     {%- endif -%}
-    <link rel="alternate" {{ type | default(value="") | safe -}} href="{{ get_url(path=filename) }}" title="{{ title | safe }}">
+    <link rel="alternate" {{ type | default(value="") | safe -}} href="{{ get_url(path=filename) }}" title="{{ title | replace(from='"', to="&quot;") | safe }}">
 {%- endmacro -%}
