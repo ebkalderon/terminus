@@ -16,6 +16,13 @@ homepage = "https://radekkoziel.pl"
 repo = "https://github.com/panr/hugo-theme-terminal"
 
 [extra]
+# Customize the copyright text shown in the site footer using markdown.
+#
+# Strings delimited by `::` will be split into mobile-responsive HTML spans. If
+# present, the placeholder values `$YEAR` and `$AUTHOR` are templated with the
+# current year and the site author defined in your `config.toml`, respectively.
+copyright = "© $YEAR $AUTHOR :: Powered by [Zola](https://www.getzola.org) :: Theme by [ebkalderon](https://eyalkalderon.com)"
+
 # favicon = "images/favicon.png"
 # favicon_emoji = "👨‍💻"
 

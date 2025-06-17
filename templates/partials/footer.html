@@ -21,7 +21,18 @@
 </address>
 {% endif -%}
 
+{%- if config.extra.copyright -%}
+<p class="copyright">
+    {%- for line in config.extra.copyright | split(pat="::") %}
+    {% set year_string = ["<time>", now() | date(format="%Y"), "</time>"] | join -%}
+    {%- set templated = line | trim | replace(from="$YEAR", to=year_string) | replace(from="$AUTHOR", to=config.author) -%}
+    <span>{{ templated | markdown(inline=true) | safe }}</span>
+    {%- endfor %}
+</p>
+{% else -%}
 <p class="copyright">
     <span>© <time>{{ now() | date(format="%Y") }}</time> {{ config.author }}</span>
     <span>Powered by <a href="https://www.getzola.org">Zola</a></span>
+    <span>Theme by <a href="https://eyalkalderon.com">ebkalderon</a></span>
 </p>
+{% endif -%}
