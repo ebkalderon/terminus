@@ -45,6 +45,75 @@
     {%- endblock %}
     <meta name="theme-color" content="#211f1a">
     <meta name="color-scheme" content="dark">
+
+    {# Social media meta tags -#}
+    {#- FIXME: Refactor all of these to blocks/set-blocks when Tera V2 is available. -#}
+    {#- See this GitHub comment: https://github.com/Keats/tera/issues/637#issuecomment-2974769236 -#}
+    {%- if current_path and current_path == "/" -%}
+    {%- set page_title = config.title -%}
+    <meta property="og:title" content="{{ page_title | safe }}">
+    {% elif current_path -%}
+    {%- set page_title = page.title | default(value=section.title | default(value=config.title)) -%}
+    <meta property="og:title" content="{{ page_title | safe }}">
+    {% endif -%}
+
+    {% if page -%}
+    <meta property="og:type" content="article">
+    {% else -%}
+    <meta property="og:type" content="website">
+    {% endif -%}
+
+    {%- if page.extra.social_media_image.path or section.extra.social_media_image.path -%}
+    {%- set relative_path = page.extra.social_media_image.path | default(value=section.extra.social_media_image.path) -%}
+    {%- set absolute_path = current_path ~ relative_path -%}
+    {%- set image_meta = get_image_metadata(path=absolute_path) -%}
+
+    {%- if image_meta -%}
+    {%- set resized_image = resize_image(path=absolute_path, width=1200, height=675, op="fit") -%}
+    <meta property="og:image" content="{{ resized_image.url | safe }}">
+    <meta property="og:image:type" content="{{ image_meta.mime | safe }}">
+    <meta property="og:image:width" content="{{ resized_image.width }}">
+    <meta property="og:image:height" content="{{ resized_image.height }}">
+    {% if page.extra.social_media_image.alt_text or page.extra.social_media_image.alt_text -%}
+    {%- set alt_text = page.extra.social_media_image.alt_text | default(value=page.extra.social_media_image.alt_text) -%}
+    <meta property="og:image:alt" content="{{ alt_text }}">
+    {% endif -%}
+    <meta name="twitter:card" content="summary_large_image">
+    {% endif -%}
+    {% endif -%}
+
+    {%- if current_url -%}
+    {% set permalink = page.permalink | default(value=section.permalink | default(value=current_url)) -%}
+    <meta property="og:url" content="{{ permalink | safe }}">
+    {% endif -%}
+
+    {%- if page.description -%}
+    <meta property="og:description" content="{{ page.description | markdown(inline=true) | striptags }}">
+    {% elif page.summary -%}
+    {%- set inline_summary = page.summary | linebreaksbr | replace(from="<br>", to=" ") | striptags -%}
+    <meta property="og:description" content="{{ inline_summary | trim_end_matches(pat=".") | safe }}…">
+    {% elif config.description -%}
+    <meta property="og:description" content="{{ config.description }}">
+    {% endif -%}
+    <meta property="og:site_name" content="{{ config.title }}">
+    {%- if page.date %}
+    <meta property="article:published_time" content="{{ page.date }}">
+    {%- endif -%}
+    {%- if page.updated %}
+    <meta property="article:modified_time" content="{{ page.updated }}">
+    {%- endif -%}
+    {%- if page.authors -%}
+    {%- for author in page.authors %}
+    <meta property="article:author" content="{{ author }}">
+    {%- endfor -%}
+    {%- elif page and config.author %}
+    <meta property="article:author" content="{{ config.author }}">
+    {%- endif -%}
+    {%- if page.taxonomies and page.taxonomies.tags -%}
+    {%- for tag in page.taxonomies.tags %}
+    <meta property="article:tag" content="{{ tag }}">
+    {%- endfor -%}
+    {%- endif %}
 </head>
 
 <body class="layout-{{ config.extra.layout }}">

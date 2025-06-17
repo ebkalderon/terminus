@@ -5,6 +5,10 @@ authors = ["Eyal Kalderon", "John Smith"]
 
 [taxonomies]
 tags = ["showcase", "shortcodes"]
+
+[extra.social_media_image]
+path = "example-hi-res-image.jpg"
+alt_text = "A high-resolution photo of a partially disassembled mini PC"
 +++
 
 This theme includes some useful custom shortcodes that you can use to enhance
