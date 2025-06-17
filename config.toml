@@ -45,6 +45,7 @@ bottom_footnotes = true
 
 [extra]
 favicon_emoji = "👨‍💻"
+fediverse_creator = "@ebkalderon@hachyderm.io"
 layout = "center"
 show_default_author = false
 

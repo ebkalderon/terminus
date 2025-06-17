@@ -19,10 +19,14 @@ repo = "https://github.com/panr/hugo-theme-terminal"
 # favicon = "images/favicon.png"
 # favicon_emoji = "👨‍💻"
 
-# Valid options are "center", "left", or "full-width"
+# Enable Mastodon link attribution. See here for details:
+# https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
+# fediverse_creator = "@user@mastodon.social"
+
+# Valid options are "center", "left", or "full-width".
 layout = "center"
 
-# Display default author on all pages without `authors = [...]` in frontmatter
+# Display default author on all pages without `authors = [...]` in frontmatter.
 show_default_author = true
 
 # main_menu = [

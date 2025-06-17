@@ -113,6 +113,9 @@
     {%- for tag in page.taxonomies.tags %}
     <meta property="article:tag" content="{{ tag }}">
     {%- endfor -%}
+    {%- endif -%}
+    {%- if config.extra.fediverse_creator %}
+    <meta name="fediverse:creator" content="{{ config.extra.fediverse_creator }}">
     {%- endif %}
 </head>
 
