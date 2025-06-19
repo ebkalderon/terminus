@@ -3,7 +3,7 @@
 {%- block main -%}
 {%- filter indent -%}{%- filter indent -%}
 {%- if section.content -%}
-<header {%- if section.extra.framed %} class="framed"{%- endif -%}>
+<header class="content {%- if section.extra.framed %} framed{%- endif -%}">
     {{ section.content | indent | safe }}
 </header>
 {% endif -%}

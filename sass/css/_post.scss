@@ -1,3 +1,38 @@
+.content {
+    ul {
+        list-style: none;
+
+        li {
+            &:not(:last-of-type) {
+                margin-bottom: 3px;
+            }
+
+            &::before {
+                content: '⦿';
+                position: absolute;
+                left: -20px;
+                color: var(--accent-color);
+            }
+        }
+
+        ul {
+            li::before {
+                content: '■';
+                position: absolute;
+                left: -20px;
+                color: var(--accent-color);
+            }
+
+            ul li::before {
+                content: '►';
+                position: absolute;
+                left: -20px;
+                color: var(--accent-color);
+            }
+        }
+    }
+}
+
 .framed {
     border: 1px solid var(--accent-color);
     padding: 20px;
@@ -19,35 +54,6 @@
 
     &:not(:last-of-type) {
         border-bottom: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
-    }
-
-    ul {
-        list-style: none;
-
-        li::before {
-            content: '⦿';
-            position: absolute;
-            left: -20px;
-            color: var(--accent-color);
-        }
-
-        ul {
-            li::before {
-                content: '■';
-                position: absolute;
-                left: -20px;
-                color: var(--accent-color);
-            }
-
-            ul {
-                li::before {
-                    content: '►';
-                    position: absolute;
-                    left: -20px;
-                    color: var(--accent-color);
-                }
-            }
-        }
     }
 }
 
