@@ -27,6 +27,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
+    - name: Patch CSS font-face paths
+      run: sed -i "s,url('/,url('/terminus/,g" ./sass/css/_fonts.scss
     - name: Build and deploy
       uses: shalzz/zola-deploy-action@v0.20.0
       env:

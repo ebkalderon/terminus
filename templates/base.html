@@ -10,8 +10,8 @@
     {% include "partials/content_security_policy.html" %}
     <title>{%- block title -%}{{ config.title }}{%- endblock -%}</title>
 
-    <link rel="preload" href="/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ get_url(path="fonts/FiraCode-Regular.woff2") }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ get_url(path="fonts/FiraCode-Bold.woff2") }}" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ get_url(path="css/style.css", cachebust=true) }}">
 
     {%- if config.extra.favicon %}
