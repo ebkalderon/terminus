@@ -25,7 +25,7 @@
 <p class="copyright">
     {%- for line in config.extra.copyright | split(pat="::") %}
     {% set year_string = ["<time>", now() | date(format="%Y"), "</time>"] | join -%}
-    {%- set templated = line | trim | replace(from="$YEAR", to=year_string) | replace(from="$AUTHOR", to=config.author) -%}
+    {%- set templated = line | trim | replace(from="$YEAR", to=year_string) | replace(from="$AUTHOR", to=config.author | default(value="")) -%}
     <span>{{ templated | markdown(inline=true) | safe }}</span>
     {%- endfor %}
 </p>
