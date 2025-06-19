@@ -9,7 +9,7 @@ max_posts = 3
 
 # Hello there! 👋🏼
 
-Welcome to a demo of `zola-theme-terminal`, a minimal dark theme for the
+Welcome to a demo of `terminus`, a minimal dark theme for the
 [Zola](https://www.getzola.org/) static site generator. This theme was loosely
 inspired by these sources:
 

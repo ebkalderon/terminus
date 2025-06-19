@@ -1,8 +1,8 @@
-name = "zola-theme-terminal"
-description = "A classic blog theme"
+name = "terminus"
+description = "A dark duotone retro theme for Zola"
 tags = []
 license = "MIT"
-homepage = "https://github.com/ebkalderon/zola-theme-terminal"
+homepage = "https://github.com/ebkalderon/terminus"
 min_version = "0.20.0"
 # demo = ""
 

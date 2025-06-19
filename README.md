@@ -1,4 +1,4 @@
-# zola-theme-terminal
+# Terminus
 
 Description pending. This theme is incomplete. Here be dragons...
 

@@ -2,8 +2,8 @@
 base_url = "https://example.com"
 
 # The site title and description; used in feeds by default.
-title = "Terminal"
-description = "Demo website for zola-theme-terminal"
+title = "Terminus"
+description = "Demo website for the Terminus theme for Zola"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
