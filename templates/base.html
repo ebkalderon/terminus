@@ -15,7 +15,12 @@
     <link rel="stylesheet" href="{{ get_url(path="css/style.css", cachebust=true) }}">
 
     {%- if config.extra.favicon %}
-    <link rel="icon" type="image/png" href="{{ get_url(path=config.extra.favicon) }}">
+    {% set image_meta = get_image_metadata(path=config.extra.favicon) -%}
+    <link rel="icon" type="{{ image_meta.mime | safe }}" href="{{ get_url(path=config.extra.favicon) }}">
+    {%- if image_meta.mime is ending_with("png") %}
+    {% set resized_image = resize_image(path=config.extra.favicon, width=180, height=180, op="fit") -%}
+    <link rel="apple-touch-icon" href="{{ resized_image.url | safe }}">
+    {%- endif -%}
     {%- elif config.extra.favicon_emoji %}
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{{ config.extra.favicon_emoji }}</text></svg>">
     {%- endif %}
