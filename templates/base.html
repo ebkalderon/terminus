@@ -100,6 +100,8 @@
     {% elif page.summary -%}
     {%- set inline_summary = page.summary | linebreaksbr | replace(from="<br>", to=" ") | striptags -%}
     <meta property="og:description" content="{{ inline_summary | trim_end_matches(pat=".") | safe }}…">
+    {%- elif section.description -%}
+    <meta property="og:description" content="{{ section.description | markdown(inline=true) | striptags }}">
     {% elif config.description -%}
     <meta property="og:description" content="{{ config.description }}">
     {% endif -%}
