@@ -1,4 +1,4 @@
-{%- set source_image_path = "./" ~ page.path ~ src -%}
+{%- set source_image_path = page.colocated_path ~ src -%}
 {%- set alt_text = alt -%}
 {%- set caption = caption | default(value="") -%}
 
