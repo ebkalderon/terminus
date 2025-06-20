@@ -1,0 +1,18 @@
+{#- Copyright (c) 2023 Óscar Fernández -#}
+{#- Derived from this shortcode in Tabi theme: -#}
+{#- https://github.com/welpo/tabi/blob/93af295/templates/shortcodes/admonition.html -#}
+
+{%- set type = type | default(value="info") -%}
+{%- set title = title | default(value=type | upper) -%}
+{%- set icon = icon | default(value=type) -%}
+{%- set text = text | default(value=body) -%}
+
+{%- set label_id = get_hash(literal=type ~ title ~ icon ~ text, sha_type=256) | truncate(length=8, end="") -%}
+
+<section class="alert {{ type }}" role="note" aria-labelledby="{{ label_id }}">
+    <div class="alert-icon alert-icon-{{ icon }}"></div>
+    <div class="alert-content" role="presentation">
+        <strong id="{{ label_id }}" class="alert-title" aria-hidden="true">{{ title | safe }}</strong>
+        {{ text | markdown | safe }}
+    </div>
+</section>

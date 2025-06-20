@@ -18,6 +18,58 @@ covered.
 
 <!-- more -->
 
+## Alert Shortcode
+
+Bring attention to information with these GitHub-style alert shortcodes. They
+come in five `type`s: `note`, `tip`, `info`, `warning`, and `danger`.
+
+{{ alert(type="note", text="Some **content** with _Markdown_ `syntax`. Here is [a `link`](#alert-shortcode).") }}
+{{ alert(type="tip", text="Some **content** with _Markdown_ `syntax`. Here is [a `link`](#alert-shortcode).") }}
+{{ alert(type="info", text="Some **content** with _Markdown_ `syntax`. Here is [a `link`](#alert-shortcode).") }}
+{{ alert(type="warning", text="Some **content** with _Markdown_ `syntax`. Here is [a `link`](#alert-shortcode).") }}
+{{ alert(type="danger", text="Some **content** with _Markdown_ `syntax`. Here is [a `link`](#alert-shortcode).") }}
+
+You can change the `title` and `icon` of the alert. Both parameters take a
+string and default to the type of alert. `icon` can be any of the available
+alert types.
+
+{{ alert(type="note", title="Custom title and icon", icon="tip", text="Some **content** with _Markdown_ `syntax`. Here is [a `link`](#alert-shortcode).") }}
+
+### Usage
+
+You can use alerts in two ways:
+
+1. Inline with parameters:
+
+   ```jinja
+   {{/* alert(type="danger", icon="tip", title="An important tip", text="Stay hydrated~") */}}
+   ```
+
+2. With a content body:
+
+   ```jinja
+   {%/* alert(type="danger", icon="tip", title="An important tip") */%}
+   Stay hydrated~
+
+   This method is particularly useful for longer content or multiple paragraphs.
+   {%/* end */%}
+   ```
+
+Both methods support the same parameters (`type`, `icon`, and `title`), with the
+content either passed as the `text` parameter or as the body between tags.
+
+{% alert(type="note") %}
+Zola will add GitHub-flavored Markdown alerts in a later release, such as:
+
+```markdown
+[!NOTE]
+This is a note.
+```
+
+See [getzola/zola#2817](https://github.com/getzola/zola/issues/2817) for
+details. When this feature is available upstream, the `alert` shortcode will be
+deprecated. {% end %}
+
 ## Mastodon Shortcode
 
 Embed a Mastodon post into your content using the `mastodon` shortcode.
