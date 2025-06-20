@@ -1,5 +1,6 @@
 {%- set source_image_path = "./" ~ page.path ~ src -%}
 {%- set alt_text = alt -%}
+{%- set caption = caption | default(value="") -%}
 
 {#- Generates responsive images from a given high-resolution source image -#}
 
@@ -17,6 +18,17 @@
 
 {%- set fallback_image = resize_image(path=source_image_path, width=config.extra.responsive_images.fallback_width, op="fit_width") -%}
 
+{%- if caption -%}
+<figure>
+{% endif -%}
+
 <img src="{{ fallback_image.url | safe }}" alt="{{ alt_text }}"
      sizes="(max-width: 684px) 634px, 784px" {# Browser hint: content width maxes out at 784px in practice (except in full-width layout) #}
      srcset="{{ image_candidates | join(sep=",\n             ") | safe }}">
+
+{%- if caption %}
+    <figcaption>
+        <p>{{ caption | markdown(inline=true) | safe }}</p>
+    </figcaption>
+</figure>
+{% endif -%}

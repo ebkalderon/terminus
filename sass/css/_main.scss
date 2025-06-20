@@ -147,6 +147,37 @@ img {
     max-width: 100%;
 }
 
+figure {
+    margin: 0 auto;
+    width: fit-content;
+
+    img,
+    video {
+        margin: 0 auto;
+    }
+
+    &:not(.mastodon-post) {
+        figcaption {
+            background: var(--accent-color);
+            color: var(--background-color);
+            text-align: center;
+            font-size: var(--font-size);
+            font-weight: normal;
+            margin-top: 5px;
+            padding: 5px 8px;
+            border-radius: 0 0 var(--radius) var(--radius);
+
+            a {
+                color: var(--background-color);
+            }
+
+            p:first-child {
+                margin: 0;
+            }
+        }
+    }
+}
+
 ul,
 ol {
     margin-left: 4ch;
