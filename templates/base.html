@@ -74,20 +74,19 @@
 
     {%- if page.extra.social_media_image.path or section.extra.social_media_image.path -%}
     {%- set relative_path = page.extra.social_media_image.path | default(value=section.extra.social_media_image.path) -%}
-    {%- set absolute_path = current_path ~ relative_path -%}
-    {%- set image_meta = get_image_metadata(path=absolute_path, allow_missing=true) -%}
-
-    {%- if image_meta -%}
+    {%- set absolute_path = page.colocated_path ~ relative_path -%}
+    {%- set image_meta = get_image_metadata(path=absolute_path) -%}
     {%- set resized_image = resize_image(path=absolute_path, width=1200, height=675, op="fit") -%}
+
     <meta property="og:image" content="{{ resized_image.url | safe }}">
     <meta property="og:image:width" content="{{ resized_image.width }}">
     <meta property="og:image:height" content="{{ resized_image.height }}">
+    <meta property="og:image:type" content="{{ image_meta.mime | safe }}">
     {% if page.extra.social_media_image.alt_text or page.extra.social_media_image.alt_text -%}
     {%- set alt_text = page.extra.social_media_image.alt_text | default(value=page.extra.social_media_image.alt_text) -%}
     <meta property="og:image:alt" content="{{ alt_text | replace(from='"', to="&quot;") | safe }}">
     {% endif -%}
     <meta name="twitter:card" content="summary_large_image">
-    {% endif -%}
     {% endif -%}
 
     {%- if current_url -%}
