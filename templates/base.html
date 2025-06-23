@@ -74,7 +74,8 @@
 
     {%- if page.extra.social_media_image.path or section.extra.social_media_image.path -%}
     {%- set relative_path = page.extra.social_media_image.path | default(value=section.extra.social_media_image.path) -%}
-    {%- set absolute_path = page.colocated_path ~ relative_path -%}
+    {%- set base_path = page.colocated_path | default(value=section.relative_path | trim_end_matches(pat="_index.md")) -%}
+    {%- set absolute_path = base_path ~ relative_path -%}
     {%- set image_meta = get_image_metadata(path=absolute_path) -%}
     {%- set resized_image = resize_image(path=absolute_path, width=1200, height=675, op="fit") -%}
 
