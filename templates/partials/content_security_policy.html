@@ -28,7 +28,7 @@
         {%- set_global domains = [] -%}
 
         {%- for entry in entries -%}
-            {%- set_global domains = domains | concat(with=entry.domains) -%}
+            {%- set_global domains = domains | concat(with=entry.domains) | unique -%}
         {%- endfor -%}
 
         {%- set domains = domains | join(sep=" ") -%}
