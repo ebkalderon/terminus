@@ -67,7 +67,10 @@ socials = [
 
 [extra.content_security_policy]
 enable = true
-allowed_domains = []
+allowed_domains = [
+    { directive = "connect-src", domains = ["'self'", "cloudflareinsights.com"] },
+    { directive = "script-src", domains = ["'self'", "static.cloudflareinsights.com"] },
+]
 
 [extra.responsive_images]
 widths = [640, 1280, 1920, 2560]
