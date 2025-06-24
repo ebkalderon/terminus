@@ -32,7 +32,7 @@
         {%- if page.lower %}
         <a rel="next" href="{{ page.lower.permalink | safe }}" aria-label="Next article">
             <span aria-hidden="true">&lt;&nbsp;[</span>
-            {{ page.lower.title | truncate(value=100, end="…") }}
+            {{- page.lower.title | truncate(value=100, end="…") -}}
             <span aria-hidden="true">]</span>
         </a>
         {%- endif %}
@@ -42,7 +42,7 @@
         {%- if page.higher %}
             <a rel="prev" href="{{ page.higher.permalink | safe }}" aria-label="Prev article">
             <span aria-hidden="true">[</span>
-            {{ page.higher.title | truncate(value=100, end="…") }}
+            {{- page.higher.title | truncate(value=100, end="…") -}}
             <span aria-hidden="true">]&nbsp;&gt;</span>
         </a>
         {%- endif %}
