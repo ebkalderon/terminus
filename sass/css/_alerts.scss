@@ -6,17 +6,23 @@
 // upcoming native Zola support for GitHub-style Markdown alerts. See ticket:
 // https://github.com/getzola/zola/issues/2817
 
-// TODO: Improve appearance and colors to better fit overall visual design.
-
 @mixin alert-type($type) {
     border-color: var(--alert-#{$type}-border);
-    background-color: var(--alert-#{$type}-bg);
+    background-color: color-mix(in srgb, var(--alert-#{$type}-bg) 15%, transparent);
 
     >.alert-content>p>code {
         background-color: var(--alert-#{$type}-code);
     }
 
     a {
+        color: var(--alert-#{$type}-border);
+
+        code {
+            background-color: var(--alert-#{$type}-bg);
+        }
+    }
+
+    .alert-title {
         color: var(--alert-#{$type}-border);
     }
 
@@ -25,31 +31,38 @@
     }
 }
 
+// Color relationships:
+//
+// Variable | Computed Value
+// ---------|-----------------------------------------------------------------------------------------------------
+// `border` | Base color to use for alert.
+// `bg`     | `border` darkened until contrast is >=5:1 with `border` and >=4.5:1 with `text-color`.
+// `code`   | `bg` brightened until contrast is >=1.3:1 with `bg` and >=4.5:1 with `text-color`.
 :root {
     // Note
-    --alert-note-border: #d0d1d4;
-    --alert-note-bg: #3d3e40;
-    --alert-note-code: #495057;
+    --alert-note-border: #F5F5F5;
+    --alert-note-bg: #696969;
+    --alert-note-code: #707070;
 
     // Tip
-    --alert-tip-border: #01b010;
-    --alert-tip-bg: #013100;
-    --alert-tip-code: #005f00;
+    --alert-tip-border: #A6E22E;
+    --alert-tip-bg: #405A0C;
+    --alert-tip-code: #50700F;
 
     // Info
-    --alert-info-border: #50a9d5;
-    --alert-info-bg: #193C47;
-    --alert-info-code: #245e70;
+    --alert-info-border: #66D9EF;
+    --alert-info-bg: #0B5666;
+    --alert-info-code: #0D687D;
 
     // Warning
-    --alert-warning-border: #e19d0a;
-    --alert-warning-bg: #4f3a01;
-    --alert-warning-code: #8c6b00;
+    --alert-warning-border: #EEC35E;
+    --alert-warning-bg: #61470A;
+    --alert-warning-code: #78580D;
 
     // Danger
-    --alert-danger-border: #e74f54;
-    --alert-danger-bg: #4c1012;
-    --alert-danger-code: #8c2e00;
+    --alert-danger-border: #F92672;
+    --alert-danger-bg: #28010F;
+    --alert-danger-code: #5A0222;
 }
 
 .alert {
@@ -57,22 +70,18 @@
     align-items: flex-start;
     margin-block: 25px;
     border-radius: var(--radius);
-    border-inline-start: 6px solid;
-    padding: 0.8rem;
+    border: 1px solid;
+    padding: 25px;
 
     p {
-        margin-inline-start: -1.75rem;
-        margin-block-start: 1.1rem;
+        margin-inline-start: -2rem;
+        margin-block-start: 1rem;
         margin-block-end: 0;
         font-family: inherit;
     }
 
-    a code {
-        color: inherit;
-    }
-
     pre {
-        margin-inline-start: -1.75rem;
+        margin-inline-start: -2rem;
     }
 
     code {
@@ -91,7 +100,7 @@
 .alert-icon {
     display: flex;
     align-items: center;
-    margin: 0.3rem;
+    margin-inline-end: 0.5rem;
     background-size: contain;
     background-repeat: no-repeat;
     aspect-ratio: 1/1;
@@ -101,8 +110,6 @@
 .alert-title {
     display: flex;
     align-items: center;
-    margin: 0.3rem;
-    opacity: 0.92;
     font-weight: bold;
 }
 
