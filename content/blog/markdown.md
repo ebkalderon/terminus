@@ -199,5 +199,3 @@ session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and
 other small creatures.
-
----

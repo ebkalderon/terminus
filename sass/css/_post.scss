@@ -173,9 +173,13 @@ h6 {
 
 // GitHub-style bottom footnotes
 
-.footnotes-list p {
-    color: var(--footnote-color);
-    text-align: start;
+.footnotes {
+    border-top: 2px solid var(--footnote-color);
+
+    .footnotes-list p {
+        color: var(--footnote-color);
+        text-align: start;
+    }
 }
 
 .post-navigation {
