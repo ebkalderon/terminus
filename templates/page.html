@@ -30,7 +30,7 @@
     </header>
     <div class="post-navigation-buttons">
         {%- if page.lower %}
-        <a class="read-more" rel="next" href="{{ page.lower.permalink | safe }}" aria-label="Next article">
+        <a rel="next" href="{{ page.lower.permalink | safe }}" aria-label="Next article">
             <span aria-hidden="true">&lt;&nbsp;[</span>
             {{ page.lower.title | truncate(value=100, end="…") }}
             <span aria-hidden="true">]</span>
@@ -40,7 +40,7 @@
             <span aria-hidden="true" role="separator">::</span>
         {% endif -%}
         {%- if page.higher %}
-            <a class="read-more" rel="prev" href="{{ page.higher.permalink | safe }}" aria-label="Prev article">
+            <a rel="prev" href="{{ page.higher.permalink | safe }}" aria-label="Prev article">
             <span aria-hidden="true">[</span>
             {{ page.higher.title | truncate(value=100, end="…") }}
             <span aria-hidden="true">]&nbsp;&gt;</span>

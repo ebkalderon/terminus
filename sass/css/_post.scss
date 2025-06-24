@@ -221,5 +221,11 @@ h6 {
         flex-flow: row wrap;
         gap: 10px;
         padding-bottom: 30px;
+
+        >a {
+            display: inline;
+            text-align: center;
+            text-decoration: none;
+        }
     }
 }
