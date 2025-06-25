@@ -15,8 +15,9 @@ figure.mastodon-post {
     }
 
     blockquote {
-        border: unset;
         padding: unset;
+        border: unset;
+        overflow-wrap: anywhere;
 
         &::before {
             content: none;
