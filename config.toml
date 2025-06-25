@@ -40,6 +40,10 @@ highlight_code = true
 # See below for list of allowed values.
 highlight_theme = "monokai"
 
+# When set to "true", emoji aliases translated to their corresponding
+# Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
+render_emoji = true
+
 # Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
 bottom_footnotes = true
 
