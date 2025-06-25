@@ -1,7 +1,7 @@
 .header {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
 .header-container {
@@ -16,10 +16,10 @@
 
     &::after {
         content: '';
-        background: repeating-linear-gradient(90deg, var(--accent-color), var(--accent-color) 2px, transparent 0, transparent 10px);
         display: block;
+        margin-left: 8px;
         width: 100%;
-        right: 10px;
+        background: repeating-linear-gradient(90deg, var(--accent-color), var(--accent-color) 2px, transparent 0, transparent 10px);
     }
 
     a {
@@ -32,11 +32,11 @@
 .logo {
     display: flex;
     align-items: center;
-    text-decoration: none;
+    padding: 5px 10px;
     background: var(--accent-color);
     color: var(--background-color);
     font-weight: bold;
-    padding: 5px 10px;
+    text-decoration: none;
 }
 
 @media print {

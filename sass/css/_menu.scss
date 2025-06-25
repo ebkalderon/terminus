@@ -94,7 +94,7 @@
 
     &-dropdown-button {
         border: 2px solid;
-        margin-left: 10px;
+        margin-inline-start: 8px;
         padding: 3px 8px;
         display: none;
 
@@ -119,8 +119,8 @@
     position: absolute;
     top: 0;
     left: -1vw;
-    transform: translateX(-100vw);
     z-index: 99;
+    transform: translateX(-100vw);
     text-align: center;
 
     &:focus {
