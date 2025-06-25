@@ -33,21 +33,20 @@
             background-image: unset;
             padding: 0.66rem;
 
-            & > img {
+            &>svg {
                 aspect-ratio: 1/1;
                 width: 1.5rem;
                 height: auto;
-                filter: invert(1) opacity(65%);
                 margin: 0 auto;
                 max-width: 100%;
+                fill: var(--footnote-color);
             }
 
             &:hover {
                 background: var(--accent-color);
-                color: var(--background-color);
 
-                & > img {
-                    filter: invert(0);
+                &>svg {
+                    fill: var(--background-color);
                 }
             }
         }
@@ -62,7 +61,7 @@
         align-items: center;
         justify-content: center;
 
-        & > *:not(:first-child)::before {
+        &>*:not(:first-child)::before {
             content: '::';
             margin: 0 8px;
         }

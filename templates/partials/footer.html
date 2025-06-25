@@ -5,7 +5,9 @@
         {%- for feed in config.feed_filenames %}
         <li>
             <a class="social-link" href="{{ get_url(path=feed) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed">
-                <img loading="lazy" alt="feed" src="{{ get_url(path="images/social_icons/rss.svg") }}">
+                <svg role="img" aria-label="feed">
+                    <use aria-hidden="true" href="{{ get_url(path="images/social_icons/rss.svg") | safe }}#icon" />
+                </svg>
             </a>
         </li>
         {%- endfor %}
@@ -13,7 +15,9 @@
         {%- for social in config.extra.socials | default(value=[]) %}
         <li>
             <a class="social-link" rel="me" href="{{ social.url | safe }}" title="{{ social.name }}">
-                <img loading="lazy" alt="{{ social.name }}" src="{{ get_url(path="images/social_icons/" ~ social.name ~ ".svg") }}">
+                <svg role="img" aria-label="{{ social.name }}">
+                    <use aria-hidden="true" href="{{ get_url(path="images/social_icons/" ~ social.name ~ ".svg") | safe }}#icon" />
+                </svg>
             </a>
         </li>
         {%- endfor %}
