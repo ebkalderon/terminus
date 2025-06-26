@@ -152,7 +152,7 @@ fn main() {
 
 ### With Line Numbers
 
-```rust,linenos,hl_lines=10,name=src/main.rs
+```rust,linenos,hl_lines=10,name=~/incredibly/long/file/path/src/main.rs
 use std::collections::HashMap;
 
 #[derive(Debug)]

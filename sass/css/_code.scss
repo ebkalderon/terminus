@@ -55,9 +55,12 @@ pre[data-lang] {
             position: absolute;
             top: 0;
             right: 0;
+            max-width: 60%;
             color: $line-number-color;
             font-size: calc(var(--font-size) * 0.8);
             line-height: 21px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         &:not(:has(table)) {
