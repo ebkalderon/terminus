@@ -16,6 +16,12 @@ homepage = "https://radekkoziel.pl"
 repo = "https://github.com/panr/hugo-theme-terminal"
 
 [extra]
+# Add "copy to clipboard" button to all fenced code blocks (requires JS).
+#
+# Global setting may be overridden on individual pages or sections by setting
+# `page.extra.copy_button` or `section.extra.copy_button`, respectively.
+copy_button = true
+
 # Customize the copyright text shown in the site footer using markdown.
 #
 # Strings delimited by `::` will be split into mobile-responsive HTML spans. If

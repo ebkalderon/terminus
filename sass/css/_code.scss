@@ -1,3 +1,13 @@
+// FIXME: Refactor this giant mess of CSS to use flexbox and/or relative
+// elements only once Zola outputs proper HTML for code block headings and/or a
+// "copy to clipboard" button. Until then, we make do with `::before`/`::after`
+// pseudo-elements with very hacky absolute positioning.
+//
+// Links to relevant Zola issues:
+//
+// https://github.com/getzola/zola/issues/1851
+// https://github.com/getzola/zola/issues/2586
+
 pre[data-lang] {
     display: block;
     position: relative;
@@ -29,19 +39,39 @@ pre[data-lang] {
             color: $line-number-color;
             font-size: calc(var(--font-size) * 0.8);
             text-transform: uppercase;
+            line-height: calc(var(--font-size) * 1.313);
         }
 
-        &[data-name]::after {
-            content: attr(data-name);
-            display: block;
-            inset-inline-start: 0;
-            padding: $header-padding-vertical 10px;
-            width: 100%;
+        &[data-name] {
+            &::after {
+                content: attr(data-name);
+                display: block;
+                padding: $header-padding-vertical 10px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                color: $line-number-color;
+                font-size: calc(var(--font-size) * 0.8);
+                line-height: calc(var(--font-size) * 1.313);
+            }
+
+            &:has(.copy-button)::after {
+                right: calc(4.5rem + 10px);
+            }
+        }
+
+        .copy-button {
             position: absolute;
             top: 0;
-            text-align: right;
-            color: $line-number-color;
+            right: 0;
+            z-index: 1;
+            margin: $header-padding-vertical 10px;
+            padding: 3px 8px;
+            width: 4.5rem;
+            border: 1px solid color-mix(in srgb, var(--accent-color) 15%, transparent);
             font-size: calc(var(--font-size) * 0.8);
+            font-weight: normal;
+            line-height: calc(var(--font-size) * 0.8);
         }
 
         mark {
