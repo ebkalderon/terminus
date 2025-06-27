@@ -133,6 +133,7 @@ By default, `responsive_image` will generate **at most** four versions of the
 source image, with the following maximum widths (measured in pixels):
 
 1. 640×_height_
+2. 784×_height_
 2. 1280×_height_
 3. 1920×_height_
 4. 2560×_height_
@@ -152,8 +153,8 @@ adding the following lines to your website's `config.toml`.
 
 ```toml
 [extra.responsive_images]
-widths = [640, 1280, 1920, 2560]
-fallback_width = 2560
+widths = [640, 784, 1280, 1920, 2560]
+fallback_width = 1280
 ```
 
 ## Wide Container Shortcode

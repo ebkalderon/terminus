@@ -78,5 +78,5 @@ allowed_domains = [
 ]
 
 [extra.responsive_images]
-widths = [640, 1280, 1920, 2560]
-fallback_width = 2560
+widths = [640, 784, 1280, 1920, 2560]
+fallback_width = 1280

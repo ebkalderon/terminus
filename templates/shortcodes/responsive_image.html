@@ -10,20 +10,25 @@
 {%- set image_candidates = [] -%}
 {%- for width in config.extra.responsive_images.widths -%}
     {%- if source_width >= width -%}
-        {%- set resized_image = resize_image(path=source_image_path, width=width, op="fit_width") -%}
+        {%- set resized_image = resize_image(path=source_image_path, width=width, op="fit_width", quality=80) -%}
         {%- set candidate = resized_image.url ~ " " ~ width ~ "w" -%}
         {%- set_global image_candidates = image_candidates | concat(with=candidate) -%}
     {%- endif -%}
 {%- endfor -%}
 
-{%- set fallback_image = resize_image(path=source_image_path, width=config.extra.responsive_images.fallback_width, op="fit_width") -%}
+{%- set fallback_width = config.extra.responsive_images.fallback_width -%}
+{%- set fallback_image = resize_image(path=source_image_path, width=fallback_width, height=fallback_width, op="fit") -%}
 
 {%- if caption -%}
 <figure>
 {% endif -%}
 
 <img src="{{ fallback_image.url | safe }}" alt="{{ alt_text }}"
-     sizes="(max-width: 684px) 634px, 784px" {# Browser hint: content width maxes out at 784px in practice (except in full-width layout) #}
+     {% if config.extra.layout == "full-width" -%}
+     sizes="(min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)"
+     {%- else -%}
+     sizes="(min-width: 920px) 784px, (min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)" {# Browser hint: main content width will max out at 784px in practice #}
+     {%- endif %}
      srcset="{{ image_candidates | join(sep=",\n             ") | safe }}">
 
 {%- if caption %}
@@ -31,4 +36,4 @@
         <p>{{ caption | markdown(inline=true) | safe }}</p>
     </figcaption>
 </figure>
-{% endif -%}
+{%- endif %}
