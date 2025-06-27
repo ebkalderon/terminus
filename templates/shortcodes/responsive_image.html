@@ -29,7 +29,8 @@
      {%- else -%}
      sizes="(min-width: 920px) 784px, (min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)" {# Browser hint: main content width will max out at 784px in practice #}
      {%- endif %}
-     srcset="{{ image_candidates | join(sep=",\n             ") | safe }}">
+     srcset="{{ image_candidates | join(sep=",\n             ") | safe }}"
+     loading="lazy">
 
 {%- if caption %}
     <figcaption>
