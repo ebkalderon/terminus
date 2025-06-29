@@ -129,7 +129,7 @@ Convert a high-resolution source image into a responsive image using the
 
 {{ responsive_image(src="example-hi-res-image.jpg", alt="Responsive hi-res image") }}
 
-By default, `responsive_image` will generate **at most** four versions of the
+By default, `responsive_image` will generate **at most** five versions of the
 source image, with the following maximum widths (measured in pixels):
 
 1. 640×_height_
