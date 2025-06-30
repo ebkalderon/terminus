@@ -127,7 +127,7 @@ h4,
 h5,
 h6 {
     .post-anchor {
-        padding-left: 10px;
+        margin-inline-start: 10px;
         opacity: 0%;
         color: var(--accent-color);
         text-decoration: none;
@@ -142,6 +142,7 @@ h6 {
         }
     }
 
+    &:focus-within,
     &:hover {
         .post-anchor {
             opacity: 100%;
