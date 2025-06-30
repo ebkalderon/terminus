@@ -18,6 +18,10 @@
     font-size: calc(var(--font-size) * 0.8);
     font-weight: normal;
     line-height: 1em;
+
+    @media print {
+        display: none;
+    }
 }
 
 pre[data-lang] {
@@ -63,6 +67,12 @@ pre[data-lang] {
             text-overflow: ellipsis;
         }
 
+        &:has(.copy-button)::after {
+            @media screen {
+                right: calc(4.5rem + 10px);
+            }
+        }
+
         &:not(:has(table)) {
             padding: 0 10px 10px;
 
@@ -70,10 +80,6 @@ pre[data-lang] {
                 margin: -10px -10px 20px;
                 left: -10px;
             }
-        }
-
-        &:has(.copy-button)::after {
-            right: calc(4.5rem + 10px);
         }
 
         mark {
