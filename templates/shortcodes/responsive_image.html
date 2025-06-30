@@ -24,6 +24,7 @@
 {% endif -%}
 
 <img src="{{ fallback_image.url | safe }}" alt="{{ alt_text }}"
+     width="{{ fallback_image.width }}" height="{{ fallback_image.width / (metadata.width / metadata.height) | round(method="floor") }}"
      {% if config.extra.layout == "full-width" -%}
      sizes="(min-width: 700px) calc(82vw + 46px), calc(100vw - 40px)"
      {%- else -%}

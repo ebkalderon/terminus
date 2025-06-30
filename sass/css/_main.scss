@@ -142,9 +142,11 @@ button:focus-visible {
     outline-offset: 2px;
 }
 
-img {
+img,
+video {
     display: block;
-    max-width: 100%;
+    max-inline-size: 100%;
+    block-size: auto;
 }
 
 figure {
