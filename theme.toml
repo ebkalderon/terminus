@@ -4,7 +4,7 @@ tags = []
 license = "MIT"
 homepage = "https://github.com/ebkalderon/terminus"
 min_version = "0.20.0"
-# demo = ""
+demo = "https://ebkalderon.github.io/terminus/"
 
 [author]
 name = "Eyal Kalderon"
