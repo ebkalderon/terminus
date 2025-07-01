@@ -8,9 +8,17 @@
 // https://github.com/getzola/zola/issues/1851
 // https://github.com/getzola/zola/issues/2586
 
+:root {
+    --code-border: color-mix(in srgb, var(--text-color) 10%, transparent);
+}
+
+$header-padding-vertical: 6px;
+$header-border-thickness: 1px;
+$line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
+
 .copy-button {
     position: absolute;
-    top: 6px;
+    top: $header-padding-vertical;
     right: 10px;
     padding: 3px 8px;
     width: 4.5rem;
@@ -27,32 +35,26 @@
 pre[data-lang] {
     display: block;
     position: relative;
-    overflow-y: hidden;
     padding: 0;
+    overflow-y: hidden;
+
+    &::before {
+        content: attr(data-lang);
+        display: block;
+        padding: $header-padding-vertical 10px;
+        border-bottom: $header-border-thickness solid var(--code-border);
+        color: $line-number-color;
+        font-size: calc(var(--font-size) * 0.8);
+        text-transform: uppercase;
+        line-height: 21px;
+    }
 
     code[data-lang] {
-        $header-padding-vertical: 6px;
-        $header-border-thickness: 1px;
-        $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
-
         display: block;
         overflow-x: auto;
+        padding: 10px;
 
-        &::before {
-            content: attr(data-lang);
-            display: block;
-            padding: $header-padding-vertical 10px;
-            position: sticky;
-            top: 0;
-            left: 0;
-            border-bottom: $header-border-thickness solid var(--code-border);
-            color: $line-number-color;
-            font-size: calc(var(--font-size) * 0.8);
-            text-transform: uppercase;
-            line-height: 21px;
-        }
-
-        &[data-name]::after {
+        &[data-name]::before {
             content: attr(data-name);
             display: block;
             padding: $header-padding-vertical 10px;
@@ -67,28 +69,20 @@ pre[data-lang] {
             text-overflow: ellipsis;
         }
 
-        &:has(.copy-button)::after {
+        &:has(.copy-button)::before {
             @media screen {
                 right: calc(4.5rem + 10px);
             }
         }
 
-        &:not(:has(table)) {
-            padding: 0 10px 10px;
-
-            &::before {
-                margin: -10px -10px 20px;
-                left: -10px;
-            }
-        }
-
         mark {
+            margin-inline: -10px;
+            padding-inline: 10px;
             color: unset;
-            display: block;
         }
 
         table {
-            margin-block: 10px;
+            margin-block: 0;
             width: 100%;
             border-collapse: collapse;
 
@@ -101,18 +95,9 @@ pre[data-lang] {
 
             tr td:first-child {
                 color: $line-number-color;
-                text-align: right;
+                text-align: end;
                 user-select: none;
-
-                &:not(:has(mark)) {
-                    padding-left: 10px;
-                    padding-right: 20px;
-                }
-
-                &>mark {
-                    padding-left: 10px;
-                    padding-right: 20px;
-                }
+                padding-inline-end: 20px;
             }
         }
     }

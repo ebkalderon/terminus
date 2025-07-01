@@ -201,8 +201,6 @@ ol {
 }
 
 @mixin preformatted {
-    --code-border: color-mix(in srgb, var(--text-color) 10%, transparent);
-
     font-family:
         'Fira Code',
         Monaco,
@@ -258,6 +256,7 @@ pre {
 
         mark {
             display: block;
+            min-width: fit-content;
         }
     }
 }

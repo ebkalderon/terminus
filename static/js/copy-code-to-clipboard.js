@@ -2,7 +2,7 @@ const code_blocks = document.querySelectorAll("pre code[data-lang]");
 
 for (const code_block of code_blocks) {
     let content;
-    if (code_block.hasAttribute("linenos")) {
+    if (code_block.parentElement.hasAttribute("data-linenos")) {
         content = [...code_block.querySelectorAll("tr")]
             .map((row) => row.querySelector("td:last-child")?.innerText ?? "")
             .join("");
@@ -25,6 +25,6 @@ for (const code_block of code_blocks) {
             navigator.clipboard.writeText(content);
         });
 
-        code_block.append(copyButton);
+        code_block.prepend(copyButton);
     }
 }
