@@ -59,7 +59,7 @@ main_menu = [
     { name = "archive", url = "archive", trailing_slash = true },
     { name = "tags", url = "tags", trailing_slash = true },
     { name = "projects", url = "projects", trailing_slash = true },
-    { name = "blah", url = "https://github.com", new_tab = true },
+    { name = "github", url = "https://github.com/ebkalderon/terminus", new_tab = true },
 ]
 
 socials = [
