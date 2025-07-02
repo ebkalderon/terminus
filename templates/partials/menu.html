@@ -1,9 +1,9 @@
-<nav class="main-menu" aria-label="Main Navigation">
+<nav class="main-menu" aria-label="Main Menu">
     <ul>
         <li><a class="skip-to-content" href="#main">Skip to main content</a></li>
         <li class="main-menu-dropdown">
-            <button class="main-menu-dropdown-button" aria-disabled="true">Menu</button>
-            <ul class="main-menu-items">
+            <button class="main-menu-dropdown-button" aria-haspopup="true">Menu</button>
+            <ul class="main-menu-items" aria-label="Site Navigation">
                 {%- for item in config.extra.main_menu -%}
                 {%- if item.url is starting_with("http") -%}
                     {%- set url = item.url -%}
