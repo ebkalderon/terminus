@@ -67,7 +67,7 @@ socials = [
     { name = "github", url = "https://github.com/ebkalderon" },
     { name = "linkedin", url = "https://www.linkedin.com/in/ebkalderon" },
     { name = "mastodon", url = "https://hachyderm.io/@ebkalderon" },
-    { name = "keybase", url = "https://keybase.io/ebkalderon" },
+    { name = "keyoxide", url = "https://keyoxide.org/d5ad5bd47835b0f0b0c3046c00ab4c0942dcba25" },
 ]
 
 [extra.content_security_policy]
