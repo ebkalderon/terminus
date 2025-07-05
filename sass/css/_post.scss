@@ -1,5 +1,5 @@
 .content {
-    ul {
+    ul:not(.post-meta) {
         list-style: none;
 
         li {
@@ -7,27 +7,25 @@
                 margin-bottom: 3px;
             }
 
-            &::before {
+            &:not(:has(input))::before {
                 content: '⦿';
                 position: absolute;
                 left: -20px;
                 color: var(--accent-color);
             }
+
+            &>input {
+                margin-inline-start: -4ch;
+            }
         }
 
         ul {
-            li::before {
+            li:not(:has(input))::before {
                 content: '■';
-                position: absolute;
-                left: -20px;
-                color: var(--accent-color);
             }
 
-            ul li::before {
+            ul li:not(:has(input))::before {
                 content: '►';
-                position: absolute;
-                left: -20px;
-                color: var(--accent-color);
             }
         }
     }

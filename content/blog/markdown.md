@@ -103,7 +103,7 @@ Alice | 23
 - Another item
 - And another item
 
-#### Nested Unordered list
+#### Nested Unordered List
 
 - Fruit
   - Apple
@@ -118,7 +118,7 @@ Alice | 23
      - Sub Three
      - Sub Four
 
-#### Nested Ordered list
+#### Nested Ordered List
 
 1. Fruit
     - Apple
@@ -132,6 +132,13 @@ Alice | 23
     2. Sub Two
        1. Sub Three
        2. Sub Four
+
+#### Task List
+
+- [x] Completed item
+- [ ] Incomplete item
+  - [x] Nested completed item
+  - [ ] Nested incomplete item
 
 ## Preformatted Text
 

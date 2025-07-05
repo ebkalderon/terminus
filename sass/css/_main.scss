@@ -137,9 +137,34 @@ button {
 }
 
 a:focus-visible,
-button:focus-visible {
+button:focus-visible,
+input:focus-visible {
     outline: 1px solid var(--accent-color);
     outline-offset: 2px;
+}
+
+input {
+    border: 1px solid var(--text-color);
+    border-radius: var(--radius);
+    padding: 10px;
+    background: transparent;
+    color: var(--text-color);
+    appearance: none;
+
+    &[type="checkbox"] {
+        width: auto;
+        padding: 10px;
+        vertical-align: middle;
+        box-shadow: inset 0 0 0 3px var(--background-color);
+
+        &:active {
+            box-shadow: none;
+        }
+
+        &:checked {
+            background: var(--accent-color);
+        }
+    }
 }
 
 img,
