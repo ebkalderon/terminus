@@ -1,19 +1,15 @@
 <nav class="main-menu" aria-label="Main Menu">
-    <ul>
-        <li><a class="skip-to-content" href="#main">Skip to main content</a></li>
-        <li class="main-menu-dropdown">
-            <button class="main-menu-dropdown-button" aria-haspopup="true">Menu</button>
-            <ul class="main-menu-items" aria-label="Site Navigation">
-                {%- for item in config.extra.main_menu -%}
-                {%- if item.url is starting_with("http") -%}
-                    {%- set url = item.url -%}
-                {%- else -%}
-                    {%- set trailing_slash = item.trailing_slash | default(value=false) -%}
-                    {%- set url = get_url(path=item.url, trailing_slash=trailing_slash) -%}
-                {%- endif %}
-                <li><a href="{{ url | safe }}" {%- if item.new_tab %} target="_blank" {%- endif -%}>{{ item.name }}</a></li>
-                {%- endfor %}
-            </ul>
-        </li>
+    <a class="skip-to-content" href="#main" rel="nofollow">Skip to main content</a>
+    <button class="main-menu-dropdown-button" popovertarget="nav-menu">Menu</button>
+    <ul id="nav-menu" class="main-menu-items" aria-label="Site Navigation" popover>
+        {%- for item in config.extra.main_menu -%}
+        {%- if item.url is starting_with("http") -%}
+            {%- set url = item.url -%}
+        {%- else -%}
+            {%- set trailing_slash = item.trailing_slash | default(value=false) -%}
+            {%- set url = get_url(path=item.url, trailing_slash=trailing_slash) -%}
+        {%- endif %}
+        <li><a href="{{ url | safe }}" {%- if item.new_tab %} target="_blank" {%- endif -%}>{{ item.name }}</a></li>
+        {%- endfor %}
     </ul>
 </nav>
