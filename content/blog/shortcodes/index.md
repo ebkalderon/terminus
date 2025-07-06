@@ -157,6 +157,12 @@ widths = [640, 784, 1280, 1920, 2560]
 fallback_width = 1280
 ```
 
+Responsive images are lazy-loaded by default to improve performance for
+below-the-fold content ([see MDN docs]). This behavior can be overridden on a
+case-by-case basis by passing `lazy=false` to the `responsive_image` shortcode.
+
+[see MDN docs]: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/img#loading
+
 ## Wide Container Shortcode
 
 Use this shortcode if you want to have a wider table, paragraph, code block...
