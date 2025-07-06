@@ -37,10 +37,10 @@
         </a>
         {%- endif %}
         {%- if page.lower and page.higher %}
-            <span aria-hidden="true" role="separator">::</span>
-        {% endif -%}
+        <span aria-hidden="true" role="separator">::</span>
+        {%- endif %}
         {%- if page.higher %}
-            <a rel="prev" href="{{ page.higher.permalink | safe }}" aria-label="Prev article">
+        <a rel="prev" href="{{ page.higher.permalink | safe }}" aria-label="Prev article">
             <span aria-hidden="true">[</span>
             {{- page.higher.title | truncate(value=100, end="…") -}}
             <span aria-hidden="true">]&nbsp;&gt;</span>

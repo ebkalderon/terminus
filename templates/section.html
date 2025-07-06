@@ -16,7 +16,7 @@
 {%- filter indent -%}{%- filter indent -%}
 {%- if section.content -%}
 <header class="content {%- if section.extra.framed %} framed{%- endif -%}">
-    {{ section.content | safe -}}
+    {{ section.content | indent | safe }}
 </header>
 {% endif -%}
 
