@@ -15,12 +15,7 @@
     margin: 20px 1px;
 
     @media (max-width: 684px) {
-        position: absolute;
-        right: 0;
         margin: 0;
-        padding-inline-start: 8px;
-        padding-block-end: 1px;
-        background-color: var(--background-color);
     }
 
     &-items {
@@ -42,7 +37,6 @@
             &:popover-open {
                 @include popover-menu;
 
-                position: absolute;
                 top: calc(40px + var(--line-height));
                 left: auto;
                 right: 20px;
@@ -50,7 +44,6 @@
                 column-gap: 10px;
                 flex-direction: column;
                 max-width: 33vw;
-                background: var(--background-color);
             }
 
             &>li>a {
@@ -63,6 +56,7 @@
     &-dropdown-button {
         display: none;
         border: 2px solid;
+        margin-left: 10px;
         padding: 3px 8px;
         height: 100%;
 

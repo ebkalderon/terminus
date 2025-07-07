@@ -1,13 +1,17 @@
 .header {
-    position: relative;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: 684px) {
+        flex-direction: row;
+    }
 }
 
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex: 1;
 }
 
 .header-logo-container {
