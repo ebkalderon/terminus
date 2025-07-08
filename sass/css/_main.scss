@@ -1,3 +1,5 @@
+$max-layout-width: 864px;
+
 :root {
     --background-color: #211f1a;
     --text-color: whitesmoke;
@@ -7,8 +9,6 @@
     --font-size: 1rem;
     --line-height: 1.54em;
     --radius: 0;
-
-    --max-layout-width: 864px;
 
     @media (max-width: 684px) {
         --font-size: 0.95rem;
@@ -47,7 +47,7 @@ body {
         display: flex;
         flex-direction: column;
         padding: 40px;
-        max-width: var(--max-layout-width);
+        max-width: $max-layout-width;
         min-height: 100vh;
         border-right: 1px solid color-mix(in srgb, var(--accent-color) 10%, transparent);
 
@@ -112,6 +112,10 @@ table {
 a {
     color: var(--accent-color);
     outline: none;
+
+    &.read-more {
+        text-decoration: none;
+    }
 }
 
 button {
@@ -152,7 +156,6 @@ input {
     appearance: none;
 
     &[type="checkbox"] {
-        width: auto;
         padding: 10px;
         vertical-align: middle;
         box-shadow: inset 0 0 0 3px var(--background-color);
@@ -207,13 +210,12 @@ figure {
 
 ul,
 ol {
-    margin-left: 4ch;
+    margin-inline-start: 4ch;
     padding: 0;
 
     ul,
     ol {
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-block: 5px;
     }
 
     li {

@@ -1,6 +1,5 @@
 .footer {
     padding: 40px 0;
-    flex-grow: 0;
 
     a {
         color: inherit;
@@ -10,8 +9,8 @@
         display: flex;
         flex-grow: 0;
         flex-wrap: wrap;
-        justify-content: center;
         align-items: flex-end;
+        justify-content: center;
         padding-bottom: 25px;
 
         @media print {
@@ -28,9 +27,8 @@
 
         .social-link {
             display: flex;
-            justify-content: center;
             align-items: center;
-            background-image: unset;
+            justify-content: center;
             padding: 0.66rem;
 
             &>svg {
@@ -38,7 +36,6 @@
                 width: 1.5rem;
                 height: auto;
                 margin: 0 auto;
-                max-width: 100%;
                 fill: var(--footnote-color);
             }
 
@@ -53,13 +50,13 @@
     }
 
     .copyright {
-        color: color-mix(in srgb, var(--text-color) 65%, transparent);
         margin: 0;
         display: flex;
+        align-items: center;
         flex: 1;
         flex-flow: row wrap;
-        align-items: center;
         justify-content: center;
+        color: color-mix(in srgb, var(--text-color) 65%, transparent);
 
         &>*:not(:first-child)::before {
             content: '::';

@@ -6,10 +6,10 @@ figure.mastodon-post {
 
     &::before {
         content: '> From Mastodon:';
-        display: block;
         position: absolute;
         top: 20px;
         left: 20px;
+        display: block;
         color: var(--accent-color);
         font-weight: bold;
     }
