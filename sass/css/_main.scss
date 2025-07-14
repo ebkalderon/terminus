@@ -19,6 +19,10 @@ html {
     box-sizing: border-box;
     accent-color: var(--accent-color);
     scrollbar-color: var(--accent-color) transparent;
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
 }
 
 *,
