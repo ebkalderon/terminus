@@ -30,10 +30,12 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{{ config.extra.favicon_emoji }}</text></svg>">
     {%- endif %}
 
+    {%- if config.extra.close_responsive_menu_on_resize %}
+    <script src="{{ get_url(path="js/auto-close-popover-on-resize.js", cachebust=true) }}" defer></script>
+    {%- endif %}
     {%- if page.extra.copy_button | default(value=section.extra.copy_button | default(value=config.extra.copy_button)) %}
     <script src="{{ get_url(path="js/copy-code-to-clipboard.js", cachebust=true) }}" defer></script>
     {%- endif %}
-    <script src="{{ get_url(path="js/auto-close-popover-on-resize.js", cachebust=true) }}" defer></script>
 
     {# Canonical and alternate links -#}
     {% if current_url -%}
