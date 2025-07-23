@@ -39,6 +39,9 @@ copyright = "© $YEAR $AUTHOR :: Powered by [Zola](https://www.getzola.org) :: T
 # https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
 # fediverse_creator = "@user@mastodon.social"
 
+# Sets the header text to a value other than the contents of `config.title`.
+# header_title = "My custom title"
+
 # Valid options are "center", "left", or "full-width".
 layout = "center"
 
