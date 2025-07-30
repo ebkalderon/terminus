@@ -31,10 +31,11 @@ changes.
 - [x] [Custom shortcodes](https://ebkalderon.github.io/terminus/blog/shortcodes/)
 - [x] Copy button on code blocks
 - [ ] [Comprehensive documentation] (still working on it!)
+- [ ] Searchable archive page
+- [ ] Projects portfolio page
+- [ ] Site navigation submenus
 - [ ] Customizable color schemes
 - [ ] [KaTeX](https://katex.org/) support for mathematical notation
-- [ ] Projects portfolio page
-- [ ] Searchable archive page
 
 [Comprehensive documentation]: https://ebkalderon.github.io/terminus/
 
