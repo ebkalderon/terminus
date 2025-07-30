@@ -1,6 +1,6 @@
 name = "terminus"
 description = "A dark duotone retro theme for Zola"
-tags = []
+tags = ["dark", "blog", "minimal", "personal", "responsive", "seo"]
 license = "MIT"
 homepage = "https://github.com/ebkalderon/terminus"
 min_version = "0.20.0"
