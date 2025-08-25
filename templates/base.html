@@ -36,6 +36,7 @@
     {%- if page.extra.copy_button | default(value=section.extra.copy_button | default(value=config.extra.copy_button)) %}
     <script src="{{ get_url(path="js/copy-code-to-clipboard.js", cachebust=true) }}" defer></script>
     {%- endif %}
+    <script src="{{ get_url(path="js/theme-switcher.js", cachebust=true) }}" defer></script>
 
     {# Canonical and alternate links -#}
     {% if current_url -%}
