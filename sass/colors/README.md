@@ -34,25 +34,30 @@ This directory contains alternative color schemes for the website. Each theme is
 - **Best for**: Current aesthetic preference
 - **Colors**: Dark olive-brown with orange accent
 
+### 🌑 OLED Abyss (`_oled-abyss.scss`)
+- **Personality**: Pure black for OLED displays
+- **Best for**: Battery saving, true black aesthetics
+- **Colors**: Pure black background with bright cyan accent
+
+### ☀️ Solar Flare (`_solar-flare.scss`)
+- **Personality**: Bright white eye-burner
+- **Best for**: High contrast needs, bright environments
+- **Colors**: Pure white background with orange-red accent
+
 ## How to Switch Themes
 
-To change your site's color scheme:
+### Runtime Theme Switching (Recommended)
+The site includes a dynamic theme switcher accessible via the navigation menu. Users can:
+- Click "Theme ↓" in the menu to see all available themes
+- Hover over themes to preview them instantly
+- Click to apply permanently (saved to localStorage)
+
+### Manual Theme Configuration
+To set a default theme in the code:
 
 1. **Open** `themes/terminus/sass/css/_main.scss`
-2. **Replace** the `:root` color variables (lines 3-7) with any theme from above
-3. **Or import** a theme file by adding at the top: `@use '../colors/tokyo-night';`
+2. **Find** the default theme block (lines 14-20)
+3. **Replace** the `:root` color variables with values from any theme below
 4. **Build** your site: `./zola build` or `npm run build`
 
-## Creating Custom Themes
-
-Each theme file defines these CSS custom properties:
-- `--background-color`: Main page background
-- `--text-color`: Primary text color  
-- `--accent-color`: Links, buttons, highlights
-- `--footnote-color`: Muted text, metadata
-
-Additional semantic colors are available for enhanced designs:
-- `--secondary-accent`: Alternative highlight color
-- `--success-color`: Success states (green tones)
-- `--warning-color`: Warning states (yellow/orange tones)
-- `--error-color`: Error states (red tones)
+Note: The individual theme files (`_tokyo-night.scss`, etc.) define themes using `data-theme` attributes and are automatically included in `_main.scss`.
