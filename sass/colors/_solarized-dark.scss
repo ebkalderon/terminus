@@ -1,0 +1,14 @@
+// Solarized Dark - Scientifically designed with precise contrast ratios
+// Ethan Schoonover's carefully crafted palette for reduced eye strain
+:root {
+    --background-color: #002b36;          // Deep blue-green base
+    --text-color: #839496;                // Balanced gray text
+    --accent-color: #268bd2;              // Bright blue accent
+    --footnote-color: rgba(131, 148, 150, 0.6); // Muted text
+    
+    // Solarized semantic colors
+    --secondary-accent: #2aa198;          // Cyan for secondary elements
+    --success-color: #859900;             // Green
+    --warning-color: #b58900;             // Yellow
+    --error-color: #dc322f;               // Red
+}
