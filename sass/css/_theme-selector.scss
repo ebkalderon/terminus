@@ -1,0 +1,121 @@
+// Theme selector styling - matches main menu items
+.main-menu-items {
+    position: relative;
+    
+    .theme-selector {
+        position: relative;
+        margin-left: auto; // Right align
+        
+        .theme-trigger {
+            text-decoration: none;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 3px;
+            transition: all 0.15s ease;
+            
+            // Ensure good contrast on all themes
+            color: var(--text-color);
+            
+            // Special handling for extreme themes
+            [data-theme="solar-flare"] & {
+                color: #1a1a1a;
+                background: rgba(26, 26, 26, 0.05);
+                
+                &:hover {
+                    background: rgba(255, 69, 0, 0.1);
+                    color: #ff4500;
+                }
+            }
+            
+            [data-theme="oled-abyss"] & {
+                color: #ffffff;
+                
+                &:hover {
+                    color: #00d4ff;
+                }
+            }
+            
+            &:hover {
+                color: var(--accent-color);
+            }
+        }
+        
+        .theme-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            z-index: 100;
+            display: none;
+            min-width: 160px;
+            margin: 0; // Remove gap that breaks hover
+            padding: 10px;
+            list-style: none;
+            
+            // Always use a readable background regardless of theme
+            background: #2a2a2a;
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 10px color-mix(in srgb, var(--accent-color) 70%, transparent), 
+                        -10px 10px color-mix(in srgb, var(--accent-color) 70%, transparent), 
+                        10px 10px color-mix(in srgb, var(--accent-color) 70%, transparent);
+            
+            &.show {
+                display: block;
+            }
+            
+            li {
+                margin: 0;
+            }
+            
+            a {
+                display: block;
+                padding: 5px 8px;
+                color: #e0e0e0; // Always readable light gray
+                text-decoration: none;
+                transition: all 0.15s ease;
+                border-radius: 3px;
+                
+                &:hover {
+                    background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+                    color: #ffffff; // Pure white on hover for max readability
+                }
+                
+                &.current {
+                    color: var(--accent-color);
+                    background: color-mix(in srgb, var(--accent-color) 10%, transparent);
+                    font-weight: bold;
+                    
+                    &::before {
+                        content: '→ ';
+                    }
+                }
+            }
+        }
+        
+        // Mobile styling
+        @media (max-width: 684px) {
+            .theme-dropdown {
+                position: static;
+                margin: 10px 0 0 0;
+                box-shadow: none;
+                border: 1px solid var(--accent-color);
+                
+                &.show {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// Screen reader only text
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
