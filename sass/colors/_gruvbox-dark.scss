@@ -1,0 +1,14 @@
+// Gruvbox Dark - High contrast retro groove color scheme  
+// Warm colors with excellent readability, inspired by vintage terminals
+:root {
+    --background-color: #282828;          // Dark gray background
+    --text-color: #ebdbb2;                // Warm cream text
+    --accent-color: #fe8019;              // Bright orange accent
+    --footnote-color: rgba(235, 219, 178, 0.6); // Muted cream
+    
+    // Gruvbox semantic colors
+    --secondary-accent: #fabd2f;          // Yellow
+    --success-color: #b8bb26;             // Green
+    --warning-color: #d79921;             // Orange-yellow
+    --error-color: #fb4934;               // Red
+}

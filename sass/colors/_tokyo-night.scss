@@ -1,0 +1,14 @@
+// Tokyo Night - Dark theme inspired by Tokyo's neon lights
+// High contrast, excellent for code and long reading sessions
+:root {
+    --background-color: #1a1b26;          // Deep navy background
+    --text-color: #c0caf5;                // Soft blue-white text
+    --accent-color: #7aa2f7;              // Bright blue accent
+    --footnote-color: rgba(192, 202, 245, 0.6); // Muted text color
+    
+    // Additional semantic colors for variety
+    --secondary-accent: #bb9af7;          // Purple for highlights
+    --success-color: #9ece6a;             // Green for success states
+    --warning-color: #e0af68;             // Yellow for warnings
+    --error-color: #f7768e;               // Pink-red for errors
+}
