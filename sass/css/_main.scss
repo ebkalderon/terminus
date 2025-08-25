@@ -1,11 +1,6 @@
 $max-layout-width: 864px;
 
 :root {
-    --background-color: #211f1a;
-    --text-color: whitesmoke;
-    --accent-color: rgb(255, 168, 106);
-    --footnote-color: rgba(255, 255, 255, .5);
-
     --font-size: 1rem;
     --line-height: 1.54em;
     --radius: 0;
@@ -13,6 +8,71 @@ $max-layout-width: 864px;
     @media (max-width: 684px) {
         --font-size: 0.95rem;
     }
+}
+
+// Default theme (current)
+:root,
+[data-theme="current"] {
+    --background-color: #211f1a;
+    --text-color: whitesmoke;
+    --accent-color: rgb(255, 168, 106);
+    --footnote-color: rgba(255, 255, 255, .5);
+}
+
+// Tokyo Night theme
+[data-theme="tokyo-night"] {
+    --background-color: #1a1b26;
+    --text-color: #c0caf5;
+    --accent-color: #7aa2f7;
+    --footnote-color: rgba(192, 202, 245, 0.6);
+}
+
+// Solarized Dark theme  
+[data-theme="solarized-dark"] {
+    --background-color: #002b36;
+    --text-color: #839496;
+    --accent-color: #268bd2;
+    --footnote-color: rgba(131, 148, 150, 0.6);
+}
+
+// Nord theme
+[data-theme="nord"] {
+    --background-color: #2e3440;
+    --text-color: #d8dee9;
+    --accent-color: #5e81ac;
+    --footnote-color: rgba(216, 222, 233, 0.6);
+}
+
+// One Dark theme
+[data-theme="one-dark"] {
+    --background-color: #282c34;
+    --text-color: #abb2bf;
+    --accent-color: #61afef;
+    --footnote-color: rgba(171, 178, 191, 0.6);
+}
+
+// Gruvbox Dark theme
+[data-theme="gruvbox-dark"] {
+    --background-color: #282828;
+    --text-color: #ebdbb2;
+    --accent-color: #fe8019;
+    --footnote-color: rgba(235, 219, 178, 0.6);
+}
+
+// OLED Abyss theme - Pure black for OLED displays
+[data-theme="oled-abyss"] {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #00d4ff;
+    --footnote-color: rgba(255, 255, 255, 0.7);
+}
+
+// Solar Flare theme - Bright white eye-burner
+[data-theme="solar-flare"] {
+    --background-color: #ffffff;
+    --text-color: #1a1a1a;
+    --accent-color: #ff4500;
+    --footnote-color: rgba(26, 26, 26, 0.6);
 }
 
 html {
