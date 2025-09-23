@@ -36,11 +36,11 @@ class ThemeSwitcher {
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
     ) {
-      return "tokyo-night"; // Tokyo Night for dark mode users
+      return "terminus"; // Terminus for dark mode users
     }
 
     // Fallback if no system preference detected
-    return "tokyo-night";
+    return "terminus";
   }
 
   init() {
@@ -58,7 +58,7 @@ class ThemeSwitcher {
           if (lightModeQuery.matches) {
             this.applyTheme("gruvbox-dark");
           } else if (darkModeQuery.matches) {
-            this.applyTheme("tokyo-night");
+            this.applyTheme("terminus");
           }
         }
       };
