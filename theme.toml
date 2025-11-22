@@ -48,6 +48,9 @@ layout = "center"
 # Display default author on all pages without `authors = [...]` in frontmatter.
 show_default_author = true
 
+# Enable theme switcher, using`localStorage` for persistence (requires JS).
+theme_switcher = false
+
 # main_menu = [
 #     { name = "internal link 1", url = "resume.pdf" },
 #     { name = "internal link 2", url = "blog", trailing_slash = true },
