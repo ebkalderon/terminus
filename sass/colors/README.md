@@ -1,8 +1,14 @@
 # Color Themes
 
-This directory contains alternative color schemes for the website. Each theme is designed for excellent readability and accessibility.
+This directory contains alternative color schemes for the website. Each theme is
+designed for excellent readability and accessibility.
 
 ## Available Themes
+
+### 🔥 Terminus (`_terminus.scss`)
+- **Personality**: Original warm theme
+- **Best for**: Current aesthetic preference
+- **Colors**: Dark olive-brown with orange accent
 
 ### 🌃 Tokyo Night (`_tokyo-night.scss`)
 - **Personality**: Modern, tech-focused, neon-inspired
@@ -28,11 +34,6 @@ This directory contains alternative color schemes for the website. Each theme is
 - **Personality**: Retro, high contrast, warm
 - **Best for**: Vintage aesthetic, high readability needs
 - **Colors**: Dark gray with warm cream text and orange accent
-
-### 🔥 Current (`_current.scss`)
-- **Personality**: Original warm theme
-- **Best for**: Current aesthetic preference
-- **Colors**: Dark olive-brown with orange accent
 
 ### 🌑 OLED Abyss (`_oled-abyss.scss`)
 - **Personality**: Pure black for OLED displays

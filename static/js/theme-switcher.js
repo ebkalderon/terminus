@@ -4,7 +4,7 @@
 class ThemeSwitcher {
   constructor() {
     this.themes = {
-      current: "🔥 Terminus",
+      terminus: "🔥 Terminus",
       "tokyo-night": "🌃 Tokyo Night",
       "solarized-dark": "🌅 Solarized",
       nord: "❄️ Nord",
@@ -26,52 +26,19 @@ class ThemeSwitcher {
       return stored;
     }
 
-    // Respect system preference and set appropriate defaults
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches
-    ) {
-      return "gruvbox-dark"; // Gruvbox for light mode users
-    } else if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    ) {
-      return "terminus"; // Terminus for dark mode users
-    }
-
     // Fallback if no system preference detected
-    return "terminus";
+    return document.body.getAttribute("data-theme");
   }
 
   init() {
     this.applyTheme(this.currentTheme);
     this.createThemeSelector();
-
-    // Listen for system theme changes
-    if (window.matchMedia) {
-      const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
-      const lightModeQuery = window.matchMedia("(prefers-color-scheme: light)");
-
-      const handleSystemThemeChange = () => {
-        // Only auto-switch if user hasn't manually selected a theme
-        if (!localStorage.getItem("theme")) {
-          if (lightModeQuery.matches) {
-            this.applyTheme("gruvbox-dark");
-          } else if (darkModeQuery.matches) {
-            this.applyTheme("terminus");
-          }
-        }
-      };
-
-      darkModeQuery.addEventListener("change", handleSystemThemeChange);
-      lightModeQuery.addEventListener("change", handleSystemThemeChange);
-    }
   }
 
   applyTheme(themeName) {
     if (!this.themes[themeName]) return;
 
-    document.documentElement.setAttribute("data-theme", themeName);
+    document.body.setAttribute("data-theme", themeName);
     localStorage.setItem("theme", themeName);
     this.currentTheme = themeName;
     this.originalTheme = themeName; // Track the "real" theme
@@ -95,23 +62,23 @@ class ThemeSwitcher {
     }
 
     // Apply preview theme (but don't save to localStorage)
-    document.documentElement.setAttribute("data-theme", themeName);
+    document.body.setAttribute("data-theme", themeName);
     this.updateMetaThemeColor(themeName);
   }
 
   restoreTheme() {
     if (
       this.originalTheme &&
-      this.originalTheme !== document.documentElement.getAttribute("data-theme")
+      this.originalTheme !== document.body.getAttribute("data-theme")
     ) {
-      document.documentElement.setAttribute("data-theme", this.originalTheme);
+      document.body.setAttribute("data-theme", this.originalTheme);
       this.updateMetaThemeColor(this.originalTheme);
     }
   }
 
   updateMetaThemeColor(themeName) {
     const themeColors = {
-      current: "#211f1a",
+      terminus: "#211f1a",
       "tokyo-night": "#1a1b26",
       "solarized-dark": "#002b36",
       nord: "#2e3440",
@@ -142,11 +109,11 @@ class ThemeSwitcher {
                 </a>
                 <ul class="theme-dropdown" role="menu">
                     ${Object.entries(this.themes)
-                      .map(
-                        ([key, name]) =>
-                          `<li><a href="#" class="theme-option ${key === this.currentTheme ? "current" : ""}" data-theme="${key}" role="menuitem">${name}</a></li>`,
-                      )
-                      .join("")}
+        .map(
+          ([key, name]) =>
+            `<li><a href="#" class="theme-option ${key === this.currentTheme ? "terminus" : ""}" data-theme="${key}" role="menuitem">${name}</a></li>`,
+        )
+        .join("")}
                 </ul>
             </li>
         `;

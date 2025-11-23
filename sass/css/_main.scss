@@ -10,13 +10,13 @@ $max-layout-width: 864px;
     }
 }
 
-// Default theme (current)
+// Default theme (terminus)
 :root,
-[data-theme="current"] {
+[data-theme="terminus"] {
     --background-color: #211f1a;
     --text-color: whitesmoke;
     --accent-color: rgb(255, 168, 106);
-    --footnote-color: rgba(255, 255, 255, .5);
+    --footnote-color: rgba(255, 255, 255, 0.5);
 }
 
 // Tokyo Night theme

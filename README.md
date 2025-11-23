@@ -34,7 +34,7 @@ changes.
 - [ ] Searchable archive page
 - [ ] Projects portfolio page
 - [ ] Site navigation submenus
-- [ ] Customizable color schemes
+- [x] Customizable [color schemes](./sass/colors/)
 - [ ] [KaTeX](https://katex.org/) support for mathematical notation
 
 [Comprehensive documentation]: https://ebkalderon.github.io/terminus/
