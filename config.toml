@@ -47,6 +47,9 @@ render_emoji = true
 # Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
 bottom_footnotes = true
 
+# When set to "true", support for GitHub-style alerts, a.k.a. callouts or admonitions, is enabled in the Markdown parser.
+github_alerts = true
+
 [extra]
 close_responsive_menu_on_resize = true
 copy_button = true

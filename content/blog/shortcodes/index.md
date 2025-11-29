@@ -59,16 +59,22 @@ Both methods support the same parameters (`type`, `icon`, and `title`), with the
 content either passed as the `text` parameter or as the body between tags.
 
 {% alert(type="note") %}
-Zola will add GitHub-flavored Markdown alerts in a later release, such as:
+[Zola 0.21.0](https://github.com/getzola/zola/releases/tag/v0.21.0) added
+support for GitHub-flavored Markdown alert syntax. This notation may be used in
+place of the `alert` shortcode, if desired.
 
 ```markdown
-[!NOTE]
-This is a note.
+> [!NOTE]
+> This is a note.
 ```
 
-See [getzola/zola#2817](https://github.com/getzola/zola/issues/2817) for
-details. When this feature is available upstream, the `alert` shortcode will be
-deprecated. {% end %}
+However, the quality of the generated HTML is quite poor compared to the `alert`
+shortcode, both semantics-wise and accessibility-wise, so its use is not
+recommended.
+
+See [getzola/zola#2817](https://github.com/getzola/zola/issues/2817) for more
+details.
+{% end %}
 
 ## Mastodon Shortcode
 

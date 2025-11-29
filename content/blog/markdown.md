@@ -18,7 +18,6 @@ in a Zola theme.
 The following HTML `<h1>`—`<h6>` elements represent six levels of section
 headings. `<h1>` is the highest section level while `<h6>` is the lowest.
 
-
 # H1
 
 ## H2
@@ -65,8 +64,29 @@ and optionally with in-line changes such as annotations and abbreviations.
 > — <cite>Rob Pike[^1]</cite>
 
 [^1]: The above quote is excerpted from Rob Pike's
-    [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest,
-    November 18, 2015.
+      [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest,
+      November 18, 2015.
+
+#### GitHub-style alerts
+
+Alerts, also sometimes known as callouts or admonitions, are a Markdown
+extension based on the blockquote syntax that you can use to emphasize critical
+information. **Requires Zola 0.21.0 or newer.**
+
+> [!NOTE]
+> Some **content** with _Markdown_ `syntax`. Here is [a `link`](#github-style-alerts).
+
+> [!TIP]
+> Some **content** with _Markdown_ `syntax`. Here is [a `link`](#github-style-alerts).
+
+> [!IMPORTANT]
+> Some **content** with _Markdown_ `syntax`. Here is [a `link`](#github-style-alerts).
+
+> [!WARNING]
+> Some **content** with _Markdown_ `syntax`. Here is [a `link`](#github-style-alerts).
+
+> [!CAUTION]
+> Some **content** with _Markdown_ `syntax`. Here is [a `link`](#github-style-alerts).
 
 ## Buttons and links
 
