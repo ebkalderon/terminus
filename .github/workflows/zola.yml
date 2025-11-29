@@ -15,7 +15,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@main
     - name: Build only
-      uses: shalzz/zola-deploy-action@v0.20.0
+      uses: shalzz/zola-deploy-action@v0.21.0
       env:
         BUILD_DIR: .
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,7 +30,7 @@ jobs:
     - name: Patch CSS font-face paths
       run: sed -i "s,url('/,url('/terminus/,g" ./sass/css/_fonts.scss
     - name: Build and deploy
-      uses: shalzz/zola-deploy-action@v0.20.0
+      uses: shalzz/zola-deploy-action@v0.21.0
       env:
         PAGES_BRANCH: gh-pages
         BUILD_DIR: .
