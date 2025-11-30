@@ -6,10 +6,6 @@
     }
 
     .socials {
-        display: flex;
-        align-items: flex-end;
-        flex-wrap: wrap;
-        justify-content: center;
         padding-bottom: 25px;
 
         @media print {
@@ -18,15 +14,15 @@
 
         ul {
             display: flex;
+            flex-wrap: wrap;
             gap: 5px;
+            justify-content: center;
             margin: 0;
             list-style: none;
         }
 
         .social-link {
             display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 0.66rem;
 
             &>svg {
