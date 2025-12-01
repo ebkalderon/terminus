@@ -44,16 +44,16 @@
     }
 
     .copyright {
-        display: flex;
-        align-items: center;
-        flex-flow: row wrap;
-        justify-content: center;
+        text-align: center;
         margin: 0;
         color: color-mix(in srgb, var(--text-color) 65%, transparent);
 
-        &>*:not(:first-child)::before {
-            content: '::';
-            margin: 0 8px;
+        &>* {
+            text-wrap: nowrap;
+
+            &:not(:first-child)::before {
+                content: ':: ';
+            }
         }
     }
 }
