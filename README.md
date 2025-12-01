@@ -27,7 +27,7 @@ changes.
 ## Features
 
 - [x] Perfect baseline Lighthouse score (Performance, Accessibility, Best Practices and SEO).
-- [x] [Social media icons in footer](./theme.toml#L51-L54)
+- [x] [Social media icons in footer](./theme.toml#L57-L60)
 - [x] [Custom shortcodes](https://ebkalderon.github.io/terminus/blog/shortcodes/)
 - [x] Copy button on code blocks
 - [ ] [Comprehensive documentation] (still working on it!)
