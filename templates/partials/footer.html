@@ -6,11 +6,11 @@
         <li>
             <a class="social-link" href="{{ get_url(path=feed) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed" aria-label="{{ feed | trim_end_matches(pat=".xml") }} feed">
                 <svg role="img" aria-label="feed icon">
-                    {%- if feed == "atom.xml" -%}
+                    {% if feed == "atom.xml" -%}
                     <use aria-hidden="true" href="{{ get_url(path="images/social_icons/atom.svg") | safe }}#icon" />
                     {%- else -%}
                     <use aria-hidden="true" href="{{ get_url(path="images/social_icons/rss.svg") | safe }}#icon" />
-                    {%- endif -%}
+                    {%- endif %}
                 </svg>
             </a>
         </li>
