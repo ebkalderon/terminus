@@ -20,14 +20,14 @@ class ThemeSwitcher {
   }
 
   getStoredTheme() {
-    // Priority: localStorage > system preference > default
+    // Priority: localStorage > system preference > terminus
     const stored = localStorage.getItem("theme");
     if (stored && this.themes[stored]) {
       return stored;
     }
 
     // Fallback if no system preference detected
-    return document.body.getAttribute("data-theme");
+    return document.documentElement.getAttribute("data-theme");
   }
 
   init() {
@@ -38,7 +38,7 @@ class ThemeSwitcher {
   applyTheme(themeName) {
     if (!this.themes[themeName]) return;
 
-    document.body.setAttribute("data-theme", themeName);
+    document.documentElement.setAttribute("data-theme", themeName);
     localStorage.setItem("theme", themeName);
     this.currentTheme = themeName;
     this.originalTheme = themeName; // Track the "real" theme
@@ -50,7 +50,7 @@ class ThemeSwitcher {
     }
 
     // Update meta theme-color for browser chrome
-    this.updateMetaThemeColor(themeName);
+    this.updateMetaThemeColor();
   }
 
   previewTheme(themeName) {
@@ -62,35 +62,25 @@ class ThemeSwitcher {
     }
 
     // Apply preview theme (but don't save to localStorage)
-    document.body.setAttribute("data-theme", themeName);
-    this.updateMetaThemeColor(themeName);
+    document.documentElement.setAttribute("data-theme", themeName);
+    this.updateMetaThemeColor();
   }
 
   restoreTheme() {
     if (
       this.originalTheme &&
-      this.originalTheme !== document.body.getAttribute("data-theme")
+      this.originalTheme !== document.documentElement.getAttribute("data-theme")
     ) {
-      document.body.setAttribute("data-theme", this.originalTheme);
-      this.updateMetaThemeColor(this.originalTheme);
+      document.documentElement.setAttribute("data-theme", this.originalTheme);
+      this.updateMetaThemeColor();
     }
   }
 
-  updateMetaThemeColor(themeName) {
-    const themeColors = {
-      terminus: "#211f1a",
-      "tokyo-night": "#1a1b26",
-      "solarized-dark": "#002b36",
-      nord: "#2e3440",
-      "one-dark": "#282c34",
-      "gruvbox-dark": "#282828",
-      "oled-abyss": "#000000",
-      "solar-flare": "#ffffff",
-    };
-
+  updateMetaThemeColor() {
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    if (metaTheme && themeColors[themeName]) {
-      metaTheme.setAttribute("content", themeColors[themeName]);
+    const themeColor = window.getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+    if (metaTheme && themeColor) {
+      metaTheme.setAttribute("content", themeColor);
     }
   }
 
