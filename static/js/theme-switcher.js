@@ -43,12 +43,6 @@ class ThemeSwitcher {
     this.currentTheme = themeName;
     this.originalTheme = themeName; // Track the "real" theme
 
-    // Update selector if it exists
-    const selector = document.querySelector(".theme-selector select");
-    if (selector) {
-      selector.value = themeName;
-    }
-
     // Update meta theme-color for browser chrome
     this.updateMetaThemeColor();
   }

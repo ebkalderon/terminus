@@ -46,13 +46,12 @@
       right: 0;
       z-index: 100;
       display: none;
-      min-width: 160px;
       margin: 0; // Remove gap that breaks hover
       padding: 10px;
       list-style: none;
+      text-wrap: nowrap;
 
-      // Always use a readable background regardless of theme
-      background: #2a2a2a;
+      background: var(--background-color);
       border: 2px solid var(--accent-color);
       box-shadow:
         0 10px color-mix(in srgb, var(--accent-color) 70%, transparent),
@@ -70,14 +69,14 @@
       a {
         display: block;
         padding: 5px 8px;
-        color: #e0e0e0; // Always readable light gray
+        color: var(--text-color);
         text-decoration: none;
         transition: all 0.15s ease;
         border-radius: 3px;
 
         &:hover {
           background: color-mix(in srgb, var(--accent-color) 15%, transparent);
-          color: #ffffff; // Pure white on hover for max readability
+          color: var(--text-color);
         }
 
         &.current {
