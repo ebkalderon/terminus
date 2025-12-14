@@ -101,7 +101,7 @@ class ThemeSwitcher {
                     ${Object.entries(this.themes)
         .map(
           ([key, name]) =>
-            `<li><a href="#" class="theme-option ${key === this.currentTheme ? "terminus" : ""}" data-theme="${key}" role="menuitem">${name}</a></li>`,
+            `<li><a href="#" class="theme-option ${key === this.currentTheme ? "current" : ""}" data-theme="${key}" role="menuitem">${name}</a></li>`,
         )
         .join("")}
                 </ul>
