@@ -19,6 +19,15 @@ repo = "https://github.com/panr/hugo-theme-terminal"
 # Automatically close responsive hamburger menu on window resize (requires JS).
 close_responsive_menu_on_resize = true
 
+# Customize the overall color scheme of the site.
+#
+# Supported color schemes: "terminus", "tokyo-night", "solarized-dark", "nord",
+# "one-dark", "gruvbox-dark", "oled-abyss", "solar-flare".
+color_scheme = "terminus"
+
+# Enable dynamic color scheme switcher in site navigation bar (require JS).
+color_scheme_switcher = false
+
 # Add "copy to clipboard" button to all fenced code blocks (requires JS).
 #
 # Global setting may be overridden on individual pages or sections by setting
@@ -66,7 +75,3 @@ allowed_domains = []
 [extra.responsive_images]
 widths = [640, 784, 1280, 1920, 2560]
 fallback_width = 1280
-
-[extra.theme_switcher]
-enable = false
-default = "terminus"

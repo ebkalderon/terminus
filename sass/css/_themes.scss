@@ -1,6 +1,8 @@
 :root {
+
     // Default theme (Terminus)
-    & {
+    &,
+    &[data-theme="terminus"] {
         --background-color: #211f1a;
         --text-color: whitesmoke;
         --accent-color: rgb(255, 168, 106);

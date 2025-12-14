@@ -36,7 +36,7 @@
     {%- if page.extra.copy_button | default(value=section.extra.copy_button | default(value=config.extra.copy_button)) %}
     <script src="{{ get_url(path="js/copy-code-to-clipboard.js", cachebust=true) }}" defer></script>
     {%- endif %}
-    {%- if config.extra.theme_switcher.enable %}
+    {%- if config.extra.color_scheme_switcher %}
     <script src="{{ get_url(path="js/theme-switcher.js", cachebust=true) }}" defer></script>
     {%- endif %}
 
@@ -141,8 +141,8 @@
     {%- endif %}
 </head>
 
-{% set default_theme = config.extra.theme_switcher.default | default(value = "terminus") -%}
-<body class="layout-{{ config.extra.layout }}" {%- if config.extra.theme_switcher.enable %} data-theme="{{ default_theme }}" {%- endif -%}>
+{% set default_theme = config.extra.color_scheme | default(value = "terminus") -%}
+<body class="layout-{{ config.extra.layout }}" {%- if config.extra.color_scheme_switcher %} data-theme="{{ default_theme }}" {%- endif -%}>
     <header class="header">
         {% filter indent -%}{%- filter indent -%}
         {%- block header -%}
