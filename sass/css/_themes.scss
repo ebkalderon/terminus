@@ -64,4 +64,44 @@
         --accent-color: #ff4500;
         --footnote-color: rgba(26, 26, 26, 0.6);
     }
+
+    // Catppuccin themes
+    // Per the style guide (https://github.com/catppuccin/catppuccin/blob/main/docs/style-guide.md),
+    // the following colors were chosen from the pallet (https://catppuccin.com/palette/):
+    //   background-color: base
+    //   text-color: text
+    //   accent-color: blue
+    //   footnote-color: subtext1
+
+    // Catppuccin Latte theme - Our lightest theme harmoniously inverting the essence of Catppuccin's dark themes
+    &[data-theme="catppuccin-latte"] {
+        --background-color: #eff1f5;
+        --text-color: #4c4f69;
+        --accent-color: #1e66f5;
+        --footnote-color: rgba(92, 95, 119, 0.7);
+    }
+
+    // Catppuccin Frappé theme - A less vibrant alternative using subdued colors for a muted aesthetic
+    &[data-theme="catppuccin-frappe"] {
+        --background-color: #303446;
+        --text-color: #c6d0f5;
+        --accent-color: #8caaee;
+        --footnote-color: rgba(181, 191, 226, 0.7);
+    }
+
+    // Catppuccin Macchiato theme - Medium contrast with gentle colors creating a soothing atmosphere
+    &[data-theme="catppuccin-macchiato"] {
+        --background-color: #24273a;
+        --text-color: #cad3f5;
+        --accent-color: #8aadf4;
+        --footnote-color: rgba(184, 192, 224, 0.7);
+    }
+
+    // Catppuccin Mocha theme - The Original — Our darkest variant offering a cozy feeling with color-rich accents
+    &[data-theme="catppuccin-mocha"] {
+        --background-color: #1e1e2e;
+        --text-color: #cdd6f4;
+        --accent-color: #89b4fa;
+        --footnote-color: rgba(186, 194, 222, 0.7);
+    }
 }
