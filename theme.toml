@@ -22,7 +22,8 @@ close_responsive_menu_on_resize = true
 # Customize the overall color scheme of the site.
 #
 # Supported color schemes: "terminus", "tokyo-night", "solarized-dark", "nord",
-# "one-dark", "gruvbox-dark", "oled-abyss", "solar-flare".
+# "one-dark", "gruvbox-dark", "oled-abyss", "solar-flare", "catppuccin-latte",
+# "catppuccin-frappe", "catppuccin-macchiato", "catppuccin-mocha".
 color_scheme = "terminus"
 
 # Enable dynamic color scheme switcher in site navigation bar (require JS).
