@@ -1,6 +1,6 @@
 :root {
     // Default theme (Terminus)
-    body[data-theme="terminus"] {
+    &:has(body[data-theme="terminus"]) {
         --background-color: #211f1a;
         --text-color: whitesmoke;
         --accent-color: rgb(255, 168, 106);
@@ -8,7 +8,7 @@
     }
 
     // Tokyo Night theme
-    body[data-theme="tokyo-night"] {
+    &:has(body[data-theme="tokyo-night"]) {
         --background-color: #1a1b26;
         --text-color: #c0caf5;
         --accent-color: #7aa2f7;
@@ -16,7 +16,7 @@
     }
 
     // Solarized Dark theme
-    body[data-theme="solarized-dark"] {
+    &:has(body[data-theme="solarized-dark"]) {
         --background-color: #002b36;
         --text-color: #839496;
         --accent-color: #268bd2;
@@ -24,7 +24,7 @@
     }
 
     // Nord theme
-    body[data-theme="nord"] {
+    &:has(body[data-theme="nord"]) {
         --background-color: #2e3440;
         --text-color: #d8dee9;
         --accent-color: #5e81ac;
@@ -32,7 +32,7 @@
     }
 
     // One Dark theme
-    body[data-theme="one-dark"] {
+    &:has(body[data-theme="one-dark"]) {
         --background-color: #282c34;
         --text-color: #abb2bf;
         --accent-color: #61afef;
@@ -40,7 +40,7 @@
     }
 
     // Gruvbox Dark theme
-    body[data-theme="gruvbox-dark"] {
+    &:has(body[data-theme="gruvbox-dark"]) {
         --background-color: #282828;
         --text-color: #ebdbb2;
         --accent-color: #fe8019;
@@ -48,7 +48,7 @@
     }
 
     // OLED Abyss theme - Pure black for OLED displays
-    body[data-theme="oled-abyss"] {
+    &:has(body[data-theme="oled-abyss"]) {
         --background-color: #000000;
         --text-color: #ffffff;
         --accent-color: #00d4ff;
@@ -56,7 +56,7 @@
     }
 
     // Solar Flare theme - Bright white eye-burner
-    body[data-theme="solar-flare"] {
+    &:has(body[data-theme="solar-flare"]) {
         --background-color: #ffffff;
         --text-color: #1a1a1a;
         --accent-color: #ff4500;
@@ -73,7 +73,7 @@
     //   footnote-color: subtext1
 
     // Catppuccin Latte theme - Our lightest theme harmoniously inverting the essence of Catppuccin's dark themes
-    body[data-theme="catppuccin-latte"] {
+    &:has(body[data-theme="catppuccin-latte"]) {
         --background-color: #e6e9ef;
         --text-color: #4c4f69;
         --accent-color: #1e66f5;
@@ -81,7 +81,7 @@
     }
 
     // Catppuccin Frappé theme - A less vibrant alternative using subdued colors for a muted aesthetic
-    body[data-theme="catppuccin-frappe"] {
+    &:has(body[data-theme="catppuccin-frappe"]) {
         --background-color: #292c3c;
         --text-color: #c6d0f5;
         --accent-color: #8caaee;
@@ -89,7 +89,7 @@
     }
 
     // Catppuccin Macchiato theme - Medium contrast with gentle colors creating a soothing atmosphere
-    body[data-theme="catppuccin-macchiato"] {
+    &:has(body[data-theme="catppuccin-macchiato"]) {
         --background-color: #1e2030;
         --text-color: #cad3f5;
         --accent-color: #8aadf4;
@@ -97,7 +97,7 @@
     }
 
     // Catppuccin Mocha theme - The Original — Our darkest variant offering a cozy feeling with color-rich accents
-    body[data-theme="catppuccin-mocha"] {
+    &:has(body[data-theme="catppuccin-mocha"]) {
         --background-color: #181825;
         --text-color: #cdd6f4;
         --accent-color: #89b4fa;
