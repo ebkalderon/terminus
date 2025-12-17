@@ -26,7 +26,7 @@ close_responsive_menu_on_resize = true
 # "catppuccin-frappe", "catppuccin-macchiato", "catppuccin-mocha".
 color_scheme = "terminus"
 
-# Enable dynamic color scheme switcher in site navigation bar (require JS).
+# Enable dynamic color scheme switcher in site navigation bar (requires JS).
 color_scheme_switcher = false
 
 # Add "copy to clipboard" button to all fenced code blocks (requires JS).
