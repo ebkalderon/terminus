@@ -12,6 +12,10 @@ class ThemeSwitcher {
       "gruvbox-dark": "🍂 Gruvbox",
       "oled-abyss": "🌑 OLED Abyss",
       "solar-flare": "☀️ Solar Flare",
+      "catppuccin-latte": "🙀 Catppuccin Latte",
+      "catppuccin-frappe": "😸 Catppuccin Frappé",
+      "catppuccin-macchiato": "😻 Catppuccin Macchiato",
+      "catppuccin-mocha": "😼 Catppuccin Mocha",
     };
 
     this.currentTheme = this.getStoredTheme();
