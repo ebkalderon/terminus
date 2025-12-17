@@ -141,8 +141,7 @@
     {%- endif %}
 </head>
 
-{% set default_theme = config.extra.color_scheme | default(value = "terminus") -%}
-<body class="layout-{{ config.extra.layout }}" {%- if config.extra.color_scheme_switcher %} data-theme="{{ default_theme }}" {%- endif -%}>
+<body class="layout-{{ config.extra.layout }}" data-theme="{{ config.extra.color_scheme | default(value = "terminus") }}">
     <header class="header">
         {% filter indent -%}{%- filter indent -%}
         {%- block header -%}
