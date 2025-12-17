@@ -1,9 +1,8 @@
 {%- import "macros/feed.html" as feed_macros -%}
 {%- import "macros/post.html" as post_macros -%}
-{% set configured_theme = config.extra.color_scheme | default(value = "terminus") -%}
 
 <!doctype html>
-<html lang="{{ lang }}" {%- if not config.extra.color_scheme_switcher %} data-theme="{{ configured_theme }}"{%- endif -%}>
+<html lang="{{ lang }}">
 
 <head>
     <meta charset="utf-8">
@@ -142,7 +141,7 @@
     {%- endif %}
 </head>
 
-<body class="layout-{{ config.extra.layout }}" {%- if config.extra.color_scheme_switcher %} data-theme="{{ configured_theme }}" {%- endif -%}>
+<body class="layout-{{ config.extra.layout }}" data-theme="{{ config.extra.color_scheme | default(value = "terminus") }}">
     <header class="header">
         {% filter indent -%}{%- filter indent -%}
         {%- block header -%}
