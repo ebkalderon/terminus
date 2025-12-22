@@ -1,0 +1,10 @@
+
+{%- if config.extra.katex -%}
+<katex>
+    {{ body }}
+</katex>
+{%- else -%}
+<div>
+    KaTex not enable. If you want to use katex please enable it
+</div>
+{%- endif -%}

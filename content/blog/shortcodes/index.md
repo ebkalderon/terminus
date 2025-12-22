@@ -196,3 +196,30 @@ Markdown will of course be rendered.
 
 {%/* end */%}
 ```
+
+## KaTex Shortcode
+
+You can enable KaTex support in the `config.toml`:
+
+```toml
+# More config ...
+[extra]
+katex = true
+# More config ...
+```
+
+After that you can start using katex with the `katex` shortcode.
+
+### Example
+
+{% katex() %}
+$ c = \sqrt{a^2 + b^2} $
+{% end %}
+
+### Usage
+
+```jinja
+{%/* katex() */%}
+$ c = \sqrt{a^2 + b^2} $
+{%/* end */%}
+```
