@@ -80,7 +80,7 @@ katex = true
 enable = true
 allowed_domains = [
     { directive = "connect-src", domains = ["'self'", "cloudflareinsights.com"] },
-    { directive = "script-src", domains = ["'self'", "static.cloudflareinsights.com", "'sha256-+1BxVrWsyMtmQ098Wbb0z5ytv1vhn+R6x6oV7RtydU0='"] },
+    { directive = "script-src", domains = ["'self'", "static.cloudflareinsights.com"] },
 ]
 
 [extra.responsive_images]
