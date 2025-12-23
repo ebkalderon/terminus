@@ -206,7 +206,7 @@ You can enable KaTex support in the `config.toml`:
 katex = true
 ```
 
-After that you can start using katex with the `katex` shortcode.
+After that, you can start using KaTeX with the `katex` shortcode.
 
 ### Example
 
