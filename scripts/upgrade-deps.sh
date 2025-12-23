@@ -45,7 +45,7 @@ echo "Appending auto-render extension to ${KATEX_MIN_JS_PATH}..."
 cat "${KATEX_DOWNLOAD_DIR}/contrib/auto-render.min.js" >> "${KATEX_MIN_JS_PATH}"
 cat <<'EOF' | tr -d '[:space:]' >> "${KATEX_MIN_JS_PATH}"
     document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
+        renderMathInElement(document.getElementById("main"), {
             delimiters: [
                 {left: "$$", right: "$$", display: true},
                 {left: "$", right: "$", display: false},
