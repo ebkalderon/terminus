@@ -56,8 +56,7 @@ cat <<'EOF' | tr -d '[:space:]' >> "${KATEX_MIN_JS_PATH}"
                 {left: "\\begin{gather}", right: "\\end{gather}", display: true},
                 {left: "\\begin{CD}", right: "\\end{CD}", display: true},
                 {left: "\\[", right: "\\]", display: true}
-            ],
-            throwOnError : false
+            ]
         });
     });
 EOF
