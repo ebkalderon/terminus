@@ -40,14 +40,10 @@
     <script src="{{ get_url(path="js/theme-switcher.js", cachebust=true) }}" defer></script>
     {%- endif %}
 
-    {%- if config.extra.katex -%}
-    <!-- Load Katex -->
+    {%- if config.extra.katex %}
     <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css", cachebust=true) }}">
-    <script defer src="{{ get_url(path="js/katex.min.js", cachebust=true) }}"></script>
-    <script defer src="{{ get_url(path="js/auto-render.min.js", cachebust=true) }}"></script>
-    <script defer src="{{ get_url(path="js/katex-auto-load.js", cachebust=true) }}"></script>
-    <!-- End Load Katex -->
-    {%- endif -%}
+    <script src="{{ get_url(path="js/katex.min.js", cachebust=true) }}" defer></script>
+    {%- endif %}
 
     {# Canonical and alternate links -#}
     {% if current_url -%}

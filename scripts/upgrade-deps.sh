@@ -41,5 +41,21 @@ set +x
 echo "Patching KaTeX fonts directory in ${KATEX_MIN_CSS_PATH}..."
 sed -i 's,url(fonts/,url(../fonts/katex/,g' "${KATEX_MIN_CSS_PATH}"
 
+echo "Appending auto-render extension to ${KATEX_MIN_JS_PATH}..."
+cat "${KATEX_DOWNLOAD_DIR}/contrib/auto-render.min.js" >> "${KATEX_MIN_JS_PATH}"
+cat <<'EOF' | tr -d '[:space:]' >> "${KATEX_MIN_JS_PATH}"
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false},
+                {left: "\\(", right: "\\)", display: false},
+                {left: "\\[", right: "\\]", display: true},
+            ],
+            throwOnError : false,
+        });
+    });
+EOF
+
 echo "Upgraded KaTeX from ${KATEX_CURRENT_VERSION} to ${KATEX_LATEST_RELEASE_VERSION}!"
 exit 0
