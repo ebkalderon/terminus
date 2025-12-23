@@ -202,10 +202,8 @@ Markdown will of course be rendered.
 You can enable KaTex support in the `config.toml`:
 
 ```toml
-# More config ...
 [extra]
 katex = true
-# More config ...
 ```
 
 After that you can start using katex with the `katex` shortcode.
