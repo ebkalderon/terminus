@@ -40,6 +40,15 @@
     <script src="{{ get_url(path="js/theme-switcher.js", cachebust=true) }}" defer></script>
     {%- endif %}
 
+    {%- if config.extra.katex -%}
+    <!-- Load Katex -->
+    <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css", cachebust=true) }}">
+    <script defer src="{{ get_url(path="js/katex.min.js", cachebust=true) }}"></script>
+    <script defer src="{{ get_url(path="js/auto-render.min.js", cachebust=true) }}"></script>
+    <script defer src="{{ get_url(path="js/katex-auto-load.js", cachebust=true) }}"></script>
+    <!-- End Load Katex -->
+    {%- endif -%}
+
     {# Canonical and alternate links -#}
     {% if current_url -%}
     <link rel="canonical" href="{{ current_url | safe }}">
@@ -139,6 +148,7 @@
     {%- if config.extra.fediverse_creator %}
     <meta name="fediverse:creator" content="{{ config.extra.fediverse_creator }}">
     {%- endif %}
+
 </head>
 
 <body class="layout-{{ config.extra.layout }}" data-theme="{{ config.extra.color_scheme | default(value = "terminus") }}">

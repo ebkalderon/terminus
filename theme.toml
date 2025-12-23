@@ -19,6 +19,9 @@ repo = "https://github.com/panr/hugo-theme-terminal"
 # Automatically close responsive hamburger menu on window resize (requires JS).
 close_responsive_menu_on_resize = true
 
+# Enable KaTeX support for all posts (requires JS).
+katex = false
+
 # Customize the overall color scheme of the site.
 #
 # Supported color schemes: "terminus", "tokyo-night", "solarized-dark", "nord",
