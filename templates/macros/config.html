@@ -1,0 +1,12 @@
+{%- macro get(setting, default_global_value="") -%}
+    {%- if page.ancestors -%}
+        {%- for ancestor in page.ancestors | reverse -%}
+            {%- set section_data = get_section(path=ancestor, metadata_only=true) -%}
+            {%- if section_data is defined and setting in section_data.extra -%}
+                {%- set_global ancestor_setting_enabled = section_data.extra[setting] -%}
+                {%- break -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+    {{- page.extra[setting] or section.extra[setting] or ancestor_setting_enabled or config.extra[setting] or default_global_value -}}
+{%- endmacro -%}

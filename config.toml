@@ -74,8 +74,6 @@ socials = [
     { name = "keyoxide", url = "https://keyoxide.org/d5ad5bd47835b0f0b0c3046c00ab4c0942dcba25" },
 ]
 
-katex = true
-
 [extra.content_security_policy]
 enable = true
 allowed_domains = [

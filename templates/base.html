@@ -1,3 +1,4 @@
+{%- import "macros/config.html" as config_macros -%}
 {%- import "macros/feed.html" as feed_macros -%}
 {%- import "macros/post.html" as post_macros -%}
 
@@ -39,8 +40,7 @@
     {%- if config.extra.color_scheme_switcher %}
     <script src="{{ get_url(path="js/theme-switcher.js", cachebust=true) }}" defer></script>
     {%- endif %}
-
-    {%- if config.extra.katex %}
+    {%- if config_macros::get(setting="katex", default_global_value=false) == "true" %}
     <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css", cachebust=true) }}">
     <script src="{{ get_url(path="js/katex.min.js", cachebust=true) }}" defer></script>
     {%- endif %}
