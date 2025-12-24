@@ -27,15 +27,15 @@ changes.
 ## Features
 
 - [x] Perfect baseline Lighthouse score (Performance, Accessibility, Best Practices and SEO).
-- [x] [Social media icons in footer](./theme.toml#L67-L70)
+- [x] [Social media icons in footer](./theme.toml#L70-L73)
 - [x] [Custom shortcodes](https://ebkalderon.github.io/terminus/blog/shortcodes/)
 - [x] Copy button on code blocks
 - [ ] [Comprehensive documentation] (still working on it!)
 - [ ] Searchable archive page
 - [ ] Projects portfolio page
 - [ ] Site navigation submenus
-- [x] Customizable [color schemes](./theme.toml#L22-L30)
-- [ ] [KaTeX](https://katex.org/) support for mathematical notation
+- [x] Customizable [color schemes](./theme.toml#L22-L27)
+- [x] [KaTeX](https://katex.org/) support for mathematical notation
 
 [Comprehensive documentation]: https://ebkalderon.github.io/terminus/
 
