@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros/taxonomy.html" as macros %}
 
 {%- block title -%}
 {{ taxonomy.name | title }} | {{ config.title }}
@@ -11,7 +12,7 @@
         <ul class="taxonomy-list{%- if num_terms > 16 %} three-column{%- elif num_terms > 8 %} two-column{%- endif -%}">
             {%- for term in terms %}
             {%- set page_count = [term.page_count ~ " post", term.page_count | pluralize] | join %}
-            <li><a href="{{ term.permalink | safe }}">{{ term.name }}</a> ({{ page_count }})</li>
+            <li><a href="{{ term.permalink | safe }}">{{ macros::prettify(term=term.name) }}</a> ({{ page_count }})</li>
             {%- endfor %}
         </ul>
 {%- endblock -%}

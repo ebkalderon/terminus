@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% import "page.html" as macros %}
+{% import "macros/taxonomy.html" as macros %}
 
 {%- block title -%}
 {{ term.name | title }} | {{ config.title }}
@@ -23,7 +23,7 @@
 
 {%- block main -%}
 {%- filter indent -%}{%- filter indent -%}
-<h1>Posts for: {{ term.name }}</h1>
+<h1>Posts for: {{ macros::prettify(term=term.name) }}</h1>
 {%- for page in paginator.pages | default(value=term.pages) %}
 {{ post_macros::excerpt(page=page) }}
 {%- endfor %}

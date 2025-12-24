@@ -1,0 +1,9 @@
+{%- macro prettify(term) -%}
+    {%- if taxonomy.name == "categories" -%}
+        {{- "{" ~ term ~ "}" | safe -}}
+    {%- elif taxonomy.name == "tags" -%}
+        {{- "#" ~ term | safe -}}
+    {%- else -%}
+        {{- term | safe -}}
+    {%- endif -%}
+{%- endmacro -%}
