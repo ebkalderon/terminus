@@ -2,6 +2,11 @@ name: zola
 
 on:
   push:
+    paths-ignore:
+    - .gitignore
+    - LICENSE
+    - README.md
+    - screenshot.png
     branches:
     - main
   pull_request:
