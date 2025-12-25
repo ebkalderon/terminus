@@ -1,14 +1,14 @@
 +++
 title = "Math Typesetting"
-description = "Learn how to render beautiful mathematical formulas to your site with KaTeX."
+description = "Learn how to render beautiful mathematical formulas on your site with KaTeX."
 date = 2025-12-23
-authors = ["Eyal Kalderon", "John Smith"]
+authors = ["Eyal Kalderon"]
+
+[taxonomies]
+tags = ["showcase", "markdown", "katex"]
 
 [extra]
 katex = true
-
-[taxonomies]
-tags = ["showcase", "markdown"]
 +++
 
 Terminus supports [$\KaTeX$](https://katex.org/), a fast, easy-to-use
