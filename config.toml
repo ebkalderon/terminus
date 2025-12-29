@@ -52,7 +52,6 @@ github_alerts = true
 
 [extra]
 close_responsive_menu_on_resize = true
-copy_button = true
 favicon_emoji = "👨‍💻"
 fediverse_creator = "@ebkalderon@hachyderm.io"
 layout = "center"

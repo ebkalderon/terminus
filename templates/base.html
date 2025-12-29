@@ -34,7 +34,7 @@
     {%- if config.extra.close_responsive_menu_on_resize %}
     <script src="{{ get_url(path="js/auto-close-popover-on-resize.js", cachebust=true) }}" defer></script>
     {%- endif %}
-    {%- if page.extra.copy_button | default(value=section.extra.copy_button | default(value=config.extra.copy_button)) %}
+    {%- if config_macros::get(setting="copy_button", default_global_value=false) == "true" %}
     <script src="{{ get_url(path="js/copy-code-to-clipboard.js", cachebust=true) }}" defer></script>
     {%- endif %}
     {%- if config.extra.color_scheme_switcher %}
