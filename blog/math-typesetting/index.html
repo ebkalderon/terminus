@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src-attr 'unsafe-inline'; connect-src 'self' cloudflareinsights.com; script-src 'self' static.cloudflareinsights.com">
+
+    <title>Math Typesetting | Terminus</title>
+
+    <link rel="preload" href="https://eyalkalderon.com/terminus/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://eyalkalderon.com/terminus/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://eyalkalderon.com/terminus/css/style.css?h=985e14647f0eced3086a">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <script src="https://eyalkalderon.com/terminus/js/auto-close-popover-on-resize.js?h=4ef87d6fc7b98b22e044" defer></script>
+    <script src="https://eyalkalderon.com/terminus/js/copy-code-to-clipboard.js?h=b34dc626be3e4c8a0f55" defer></script>
+    <link rel="stylesheet" href="https://eyalkalderon.com/terminus/css/katex.min.css?h=e388f62b1a45f2aa9793">
+    <script src="https://eyalkalderon.com/terminus/js/katex.min.js?h=472e52bafbf0d134ffa9" defer></script>
+
+    <link rel="canonical" href="https://eyalkalderon.com/terminus/blog/math-typesetting/">
+    <link rel="alternate" type="application/atom+xml" href="https://eyalkalderon.com/terminus/atom.xml" title="Terminus">
+    
+    <meta name="author" content="Eyal Kalderon">
+    <meta name="description" content="Learn how to render beautiful mathematical formulas on your site with KaTeX.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#211f1a">
+    <meta name="color-scheme" content="dark">
+
+    <meta property="og:title" content="Math Typesetting">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eyalkalderon.com/terminus/blog/math-typesetting/">
+    <meta property="og:description" content="Learn how to render beautiful mathematical formulas on your site with KaTeX.">
+    <meta property="og:site_name" content="Terminus">
+    <meta property="og:updated_time" content="2025-12-29T04:41:02.001910364+00:00">
+    <meta property="article:published_time" content="2025-12-23T00:00:00+00:00">
+    <meta property="article:tag" content="showcase">
+    <meta property="article:tag" content="markdown">
+    <meta property="article:tag" content="katex">
+    <meta name="fediverse:creator" content="@ebkalderon@hachyderm.io">
+
+</head>
+
+<body class="layout-center" data-theme="terminus">
+    <header class="header">
+        <div class="header-container">
+            <span class="header-logo-container">
+                <a href="https://eyalkalderon.com/terminus">
+                    <span class="logo">Terminus</span>
+                </a>
+            </span>
+        </div>
+        <nav class="main-menu" aria-label="Main Menu">
+            <a class="skip-to-content" href="#main">Skip to main content</a>
+            <button class="main-menu-dropdown-button" popovertarget="nav-menu">Menu</button>
+            <ul id="nav-menu" class="main-menu-items" aria-label="Site Navigation" popover>
+                <li><a href="https://eyalkalderon.com/terminus/blog/">blog</a></li>
+                <li><a href="https://eyalkalderon.com/terminus/archive/">archive</a></li>
+                <li><a href="https://eyalkalderon.com/terminus/tags/">tags</a></li>
+                <li><a href="https://eyalkalderon.com/terminus/projects/">projects</a></li>
+                <li><a href="https://github.com/ebkalderon/terminus" target="_blank">github</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <article class="post content">
+            <header>
+                <h1 class="post-title">
+                    <a href="https://eyalkalderon.com/terminus/blog/math-typesetting/">Math Typesetting</a>
+                </h1>
+                <ul class="post-meta hidden">
+                    <li title="Published on 2025-12-23"><time datetime="2025-12-23">2025.12.23</time></li>
+                    <li role="separator" aria-hidden="true">::</li>
+                    <li title="Authors">Eyal Kalderon</li>
+                    <li role="separator" aria-hidden="true">::</li>
+                    <li title="180 words"><time datetime="PT1M">1 min</time> read</li>
+                </ul>
+                <div class="post-tags">
+                    <span>#<a rel="tag" href="https://eyalkalderon.com/terminus/tags/showcase/">showcase</a></span>
+                    <span>#<a rel="tag" href="https://eyalkalderon.com/terminus/tags/markdown/">markdown</a></span>
+                    <span>#<a rel="tag" href="https://eyalkalderon.com/terminus/tags/katex/">katex</a></span>
+                </div>
+            </header>
+
+<p>Terminus supports <a href="https://katex.org/">$\KaTeX$</a>, a fast, easy-to-use
+JavaScript library for TeX math rendering on the Web.</p>
+<section class="alert info" role="note" aria-labelledby="0Zsxg17u">
+    <div class="alert-icon alert-icon-info"></div>
+    <div class="alert-content" role="presentation">
+        <strong id="0Zsxg17u" class="alert-title" aria-hidden="true">TODO</strong>
+        <p>Will elaborate more later...</p>
+
+    </div>
+</section>
+<h2 id="usage">Usage<a class="post-anchor" href="#usage" aria-label="Anchor link for: usage"><span aria-hidden="true">#</span></a>
+</h2>
+<p>To enable $\KaTeX$ support site-wide, add this to your site's <code>config.toml</code>:</p>
+<pre data-lang="toml" style="background-color:#272822;color:#f8f8f2;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[extra]
+</span><span style="color:#f92672;">katex </span><span>= </span><span style="color:#ae81ff;">true
+</span></code></pre>
+<p>Alternatively, $\KaTeX$ support may be enabled selectively on individual pages
+(e.g. <code>content/blog/my-page.md</code>) or on an entire section of your site (e.g.
+<code>content/blog/_index.md</code>) by adding the above to your frontmatter instead. For
+instance:</p>
+<pre data-lang="markdown" data-name="content/blog/my-page.md" style="background-color:#272822;color:#f8f8f2;" class="language-markdown "><code class="language-markdown" data-lang="markdown" data-name="content/blog/my-page.md"><span>+++
+</span><span>title = &quot;My Page&quot;
+</span><span>date = 2026-01-01
+</span><span>
+</span><span>[extra]
+</span><span>katex = true
+</span><span>+++
+</span><span>
+</span><span>This is some Markdown containing an inline $\KaTeX$ formula!
+</span></code></pre>
+<h2 id="examples">Examples<a class="post-anchor" href="#examples" aria-label="Anchor link for: examples"><span aria-hidden="true">#</span></a>
+</h2>
+<pre data-lang="tex" style="background-color:#272822;color:#f8f8f2;" class="language-tex "><code class="language-tex" data-lang="tex"><span style="color:#e6db74;">$$
+</span><span style="color:#66d9ef;">\displaystyle \frac</span><span>{</span><span style="color:#ae81ff;">1</span><span>}{</span><span style="color:#66d9ef;">\Bigl</span><span style="color:#ae81ff;">(</span><span style="color:#66d9ef;">\sqrt</span><span>{</span><span style="color:#f92672;">\phi </span><span style="color:#66d9ef;">\sqrt</span><span>{</span><span style="color:#ae81ff;">5</span><span>}}</span><span style="color:#f92672;">-\phi</span><span style="color:#66d9ef;">\Bigr</span><span style="color:#ae81ff;">) </span><span>e</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#66d9ef;">\frac</span><span style="color:#ae81ff;">25 </span><span style="color:#f92672;">\pi</span><span>}} </span><span style="color:#f92672;">= </span><span style="color:#ae81ff;">1</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\frac</span><span>{e</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">2</span><span style="color:#f92672;">\pi</span><span>}} {</span><span style="color:#ae81ff;">1</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\frac</span><span>{e</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">4</span><span style="color:#f92672;">\pi</span><span>}} {</span><span style="color:#ae81ff;">1</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\frac</span><span>{e</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">6</span><span style="color:#f92672;">\pi</span><span>}} {</span><span style="color:#ae81ff;">1</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\frac</span><span>{e</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#f92672;">-</span><span style="color:#ae81ff;">8</span><span style="color:#f92672;">\pi</span><span>}} {</span><span style="color:#ae81ff;">1</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\cdots</span><span>} } } }
+</span><span style="color:#e6db74;">$$
+</span></code></pre>
+<p>$$
+\displaystyle \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} = 1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}} {1+\frac{e^{-8\pi}} {1+\cdots} } } }
+$$</p>
+<pre data-lang="tex" style="background-color:#272822;color:#f8f8f2;" class="language-tex "><code class="language-tex" data-lang="tex"><span style="color:#e6db74;">$$
+</span><span>&quot;</span><span style="color:#66d9ef;">\displaystyle \left</span><span style="color:#ae81ff;">( </span><span style="color:#66d9ef;">\sum</span><span style="color:#f92672;">_</span><span>{k</span><span style="color:#f92672;">=</span><span style="color:#ae81ff;">1</span><span>}</span><span style="color:#f92672;">^</span><span>n a</span><span style="color:#f92672;">_</span><span>k b</span><span style="color:#f92672;">_</span><span>k </span><span style="color:#66d9ef;">\right</span><span style="color:#ae81ff;">)</span><span style="color:#f92672;">^</span><span style="color:#ae81ff;">2 </span><span style="color:#66d9ef;">\leq \left</span><span style="color:#ae81ff;">( </span><span style="color:#66d9ef;">\sum</span><span style="color:#f92672;">_</span><span>{k</span><span style="color:#f92672;">=</span><span style="color:#ae81ff;">1</span><span>}</span><span style="color:#f92672;">^</span><span>n a</span><span style="color:#f92672;">_</span><span>k</span><span style="color:#f92672;">^</span><span style="color:#ae81ff;">2 </span><span style="color:#66d9ef;">\right</span><span style="color:#ae81ff;">) </span><span style="color:#66d9ef;">\left</span><span style="color:#ae81ff;">( </span><span style="color:#66d9ef;">\sum</span><span style="color:#f92672;">_</span><span>{k</span><span style="color:#f92672;">=</span><span style="color:#ae81ff;">1</span><span>}</span><span style="color:#f92672;">^</span><span>n b</span><span style="color:#f92672;">_</span><span>k</span><span style="color:#f92672;">^</span><span style="color:#ae81ff;">2 </span><span style="color:#66d9ef;">\right</span><span style="color:#ae81ff;">)
+</span><span style="color:#e6db74;">$$
+</span></code></pre>
+<p>$$
+"\displaystyle \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+$$</p>
+<pre data-lang="tex" style="background-color:#272822;color:#f8f8f2;" class="language-tex "><code class="language-tex" data-lang="tex"><span style="color:#e6db74;">$$
+</span><span style="color:#66d9ef;">\displaystyle </span><span>{</span><span style="color:#ae81ff;">1 </span><span style="color:#f92672;">+  </span><span style="color:#66d9ef;">\frac</span><span>{q</span><span style="color:#f92672;">^</span><span style="color:#ae81ff;">2</span><span>}{</span><span style="color:#ae81ff;">(1</span><span style="color:#f92672;">-</span><span>q</span><span style="color:#ae81ff;">)</span><span>}</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\frac</span><span>{q</span><span style="color:#f92672;">^</span><span style="color:#ae81ff;">6</span><span>}{</span><span style="color:#ae81ff;">(1</span><span style="color:#f92672;">-</span><span>q</span><span style="color:#ae81ff;">)(1</span><span style="color:#f92672;">-</span><span>q</span><span style="color:#f92672;">^</span><span style="color:#ae81ff;">2)</span><span>}</span><span style="color:#f92672;">+</span><span style="color:#66d9ef;">\cdots </span><span>}</span><span style="color:#f92672;">= </span><span style="color:#66d9ef;">\prod</span><span style="color:#f92672;">_</span><span>{j</span><span style="color:#f92672;">=</span><span style="color:#ae81ff;">0</span><span>}</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#66d9ef;">\infty</span><span>}</span><span style="color:#66d9ef;">\frac</span><span>{</span><span style="color:#ae81ff;">1</span><span>}{</span><span style="color:#ae81ff;">(1</span><span style="color:#f92672;">-</span><span>q</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#ae81ff;">5</span><span>j</span><span style="color:#f92672;">+</span><span style="color:#ae81ff;">2</span><span>}</span><span style="color:#ae81ff;">)(1</span><span style="color:#f92672;">-</span><span>q</span><span style="color:#f92672;">^</span><span>{</span><span style="color:#ae81ff;">5</span><span>j</span><span style="color:#f92672;">+</span><span style="color:#ae81ff;">3</span><span>}</span><span style="color:#ae81ff;">)</span><span>}, </span><span style="color:#66d9ef;">\quad\quad \text</span><span>{for }</span><span style="color:#66d9ef;">\lvert </span><span>q</span><span style="color:#66d9ef;">\rvert</span><span style="color:#f92672;">&lt;</span><span style="color:#ae81ff;">1</span><span>.
+</span><span style="color:#e6db74;">$$
+</span></code></pre>
+<p>$$
+\displaystyle {1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots }= \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})}, \quad\quad \text{for }\lvert q\rvert&lt;1.
+$$</p>
+
+        </article>
+        <nav class="post-navigation">
+            <header class="post-navigation-title">
+                <h2>Read More Posts</h2>
+                <hr>
+            </header>
+            <div class="post-navigation-buttons">
+                <a rel="prev" href="https://eyalkalderon.com/terminus/blog/shortcodes/" aria-label="Prev article">
+                    <span aria-hidden="true">[</span>Shortcodes<span aria-hidden="true">]&nbsp;&gt;</span>
+                </a>
+            </div>
+        </nav>
+    </main>
+    <footer class="footer">
+        <address class="socials">
+            <ul>
+                <li>
+                    <a class="social-link" href="https://eyalkalderon.com/terminus/atom.xml" title="atom feed" aria-label="atom feed">
+                        <svg role="img" aria-label="feed icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/atom.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="mailto:hello@example.com" title="email" aria-label="email">
+                        <svg role="img" aria-label="email icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/email.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://github.com/ebkalderon" title="github" aria-label="github">
+                        <svg role="img" aria-label="github icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/github.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://www.linkedin.com/in/ebkalderon" title="linkedin" aria-label="linkedin">
+                        <svg role="img" aria-label="linkedin icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/linkedin.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://hachyderm.io/@ebkalderon" title="mastodon" aria-label="mastodon">
+                        <svg role="img" aria-label="mastodon icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/mastodon.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://keyoxide.org/d5ad5bd47835b0f0b0c3046c00ab4c0942dcba25" title="keyoxide" aria-label="keyoxide">
+                        <svg role="img" aria-label="keyoxide icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/keyoxide.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </address>
+        <p class="copyright">
+            <span>© <time>2025</time> Eyal Kalderon</span>
+            <span>Powered by <a href="https://www.getzola.org">Zola</a></span>
+            <span>Theme by <a href="https://eyalkalderon.com">ebkalderon</a></span>
+        </p>
+    </footer>
+</body>
+
+</html>

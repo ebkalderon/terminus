@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src-attr 'unsafe-inline'; connect-src 'self' cloudflareinsights.com; script-src 'self' static.cloudflareinsights.com">
+
+    <title>Markdown Syntax Guide | Terminus</title>
+
+    <link rel="preload" href="https://eyalkalderon.com/terminus/fonts/FiraCode-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://eyalkalderon.com/terminus/fonts/FiraCode-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://eyalkalderon.com/terminus/css/style.css?h=985e14647f0eced3086a">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <script src="https://eyalkalderon.com/terminus/js/auto-close-popover-on-resize.js?h=4ef87d6fc7b98b22e044" defer></script>
+    <script src="https://eyalkalderon.com/terminus/js/copy-code-to-clipboard.js?h=b34dc626be3e4c8a0f55" defer></script>
+
+    <link rel="canonical" href="https://eyalkalderon.com/terminus/blog/markdown/">
+    <link rel="alternate" type="application/atom+xml" href="https://eyalkalderon.com/terminus/atom.xml" title="Terminus">
+    
+    <meta name="author" content="Eyal Kalderon">
+    <meta name="description" content="This is an article description with some Markdown.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#211f1a">
+    <meta name="color-scheme" content="dark">
+
+    <meta property="og:title" content="Markdown Syntax Guide">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://eyalkalderon.com/terminus/blog/markdown/">
+    <meta property="og:description" content="This is an article description with some Markdown.">
+    <meta property="og:site_name" content="Terminus">
+    <meta property="og:updated_time" content="2025-12-29T04:41:02.001663723+00:00">
+    <meta property="article:published_time" content="2025-05-18T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-06-17T00:00:00+00:00">
+    <meta property="article:section" content="hello">
+    <meta property="article:tag" content="showcase">
+    <meta property="article:tag" content="markdown">
+    <meta name="fediverse:creator" content="@ebkalderon@hachyderm.io">
+
+</head>
+
+<body class="layout-center" data-theme="terminus">
+    <header class="header">
+        <div class="header-container">
+            <span class="header-logo-container">
+                <a href="https://eyalkalderon.com/terminus">
+                    <span class="logo">Terminus</span>
+                </a>
+            </span>
+        </div>
+        <nav class="main-menu" aria-label="Main Menu">
+            <a class="skip-to-content" href="#main">Skip to main content</a>
+            <button class="main-menu-dropdown-button" popovertarget="nav-menu">Menu</button>
+            <ul id="nav-menu" class="main-menu-items" aria-label="Site Navigation" popover>
+                <li><a href="https://eyalkalderon.com/terminus/blog/">blog</a></li>
+                <li><a href="https://eyalkalderon.com/terminus/archive/">archive</a></li>
+                <li><a href="https://eyalkalderon.com/terminus/tags/">tags</a></li>
+                <li><a href="https://eyalkalderon.com/terminus/projects/">projects</a></li>
+                <li><a href="https://github.com/ebkalderon/terminus" target="_blank">github</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main">
+        <article class="post content">
+            <header>
+                <h1 class="post-title">
+                    <a href="https://eyalkalderon.com/terminus/blog/markdown/">Markdown Syntax Guide</a>
+                </h1>
+                <ul class="post-meta hidden">
+                    <li title="Published on 2025-05-18, last updated 2025-06-17"><time datetime="2025-05-18">2025.05.18</time>&nbsp;[Updated: <time datetime="2025-06-17">2025.06.17</time>]</li>
+                    <li role="separator" aria-hidden="true">::</li>
+                    <li title="607 words"><time datetime="PT4M">4 min</time> read</li>
+                </ul>
+                <div class="post-tags">
+                    <span>&lbrace;<a rel="tag" href="https://eyalkalderon.com/terminus/categories/hello/">hello</a>&rbrace;</span>
+                    <span role="separator">::</span>
+                    <span>#<a rel="tag" href="https://eyalkalderon.com/terminus/tags/showcase/">showcase</a></span>
+                    <span>#<a rel="tag" href="https://eyalkalderon.com/terminus/tags/markdown/">markdown</a></span>
+                </div>
+            </header>
+
+<p>This article offers a sample of basic Markdown syntax that can be used in Zola
+content files, also it shows whether basic HTML elements are decorated with CSS
+in a Zola theme.</p>
+<h2 id="headings">Headings<a class="post-anchor" href="#headings" aria-label="Anchor link for: headings"><span aria-hidden="true">#</span></a>
+</h2>
+<p>The following HTML <code>&lt;h1&gt;</code>—<code>&lt;h6&gt;</code> elements represent six levels of section
+headings. <code>&lt;h1&gt;</code> is the highest section level while <code>&lt;h6&gt;</code> is the lowest.</p>
+<h1 id="h1">H1<a class="post-anchor" href="#h1" aria-label="Anchor link for: h1"><span aria-hidden="true">#</span></a>
+</h1>
+<h2 id="h2">H2<a class="post-anchor" href="#h2" aria-label="Anchor link for: h2"><span aria-hidden="true">#</span></a>
+</h2>
+<h3 id="h3">H3<a class="post-anchor" href="#h3" aria-label="Anchor link for: h3"><span aria-hidden="true">#</span></a>
+</h3>
+<h4 id="h4">H4<a class="post-anchor" href="#h4" aria-label="Anchor link for: h4"><span aria-hidden="true">#</span></a>
+</h4>
+<h5 id="h5">H5<a class="post-anchor" href="#h5" aria-label="Anchor link for: h5"><span aria-hidden="true">#</span></a>
+</h5>
+<h6 id="h6">H6<a class="post-anchor" href="#h6" aria-label="Anchor link for: h6"><span aria-hidden="true">#</span></a>
+</h6>
+<h2 id="paragraph">Paragraph<a class="post-anchor" href="#paragraph" aria-label="Anchor link for: paragraph"><span aria-hidden="true">#</span></a>
+</h2>
+<p>Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum,
+voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma
+dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as
+cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin
+porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur?
+Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit
+ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda
+veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore
+eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata
+tiustia prat.</p>
+<p>Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne
+sapicia is sinveli squiatum, core et que aut hariosam ex eat.</p>
+<h2 id="blockquotes">Blockquotes<a class="post-anchor" href="#blockquotes" aria-label="Anchor link for: blockquotes"><span aria-hidden="true">#</span></a>
+</h2>
+<p>The blockquote element represents content that is quoted from another source,
+optionally with a citation which must be within a <code>footer</code> or <code>cite</code> element,
+and optionally with in-line changes such as annotations and abbreviations.</p>
+<h4 id="blockquote-without-attribution">Blockquote without attribution<a class="post-anchor" href="#blockquote-without-attribution" aria-label="Anchor link for: blockquote-without-attribution"><span aria-hidden="true">#</span></a>
+</h4>
+<blockquote>
+<p>Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+<strong>Note</strong> that you can use <em>Markdown syntax</em> within a <del>blockquote</del>.</p>
+</blockquote>
+<h4 id="blockquote-with-attribution">Blockquote with attribution<a class="post-anchor" href="#blockquote-with-attribution" aria-label="Anchor link for: blockquote-with-attribution"><span aria-hidden="true">#</span></a>
+</h4>
+<blockquote>
+<p>Don't communicate by sharing memory, share memory by communicating.</p>
+<p>— <cite>Rob Pike<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">1</a></sup></cite></p>
+</blockquote>
+<h4 id="github-style-alerts">GitHub-style alerts<a class="post-anchor" href="#github-style-alerts" aria-label="Anchor link for: github-style-alerts"><span aria-hidden="true">#</span></a>
+</h4>
+<p>Alerts, also sometimes known as callouts or admonitions, are a Markdown
+extension based on the blockquote syntax that you can use to emphasize critical
+information. <strong>Requires Zola 0.21.0 or newer.</strong></p>
+<blockquote class="markdown-alert-note">
+<p>Some <strong>content</strong> with <em>Markdown</em> <code>syntax</code>. Here is <a href="https://eyalkalderon.com/terminus/blog/markdown/#github-style-alerts">a <code>link</code></a>.</p>
+</blockquote>
+<blockquote class="markdown-alert-tip">
+<p>Some <strong>content</strong> with <em>Markdown</em> <code>syntax</code>. Here is <a href="https://eyalkalderon.com/terminus/blog/markdown/#github-style-alerts">a <code>link</code></a>.</p>
+</blockquote>
+<blockquote class="markdown-alert-important">
+<p>Some <strong>content</strong> with <em>Markdown</em> <code>syntax</code>. Here is <a href="https://eyalkalderon.com/terminus/blog/markdown/#github-style-alerts">a <code>link</code></a>.</p>
+</blockquote>
+<blockquote class="markdown-alert-warning">
+<p>Some <strong>content</strong> with <em>Markdown</em> <code>syntax</code>. Here is <a href="https://eyalkalderon.com/terminus/blog/markdown/#github-style-alerts">a <code>link</code></a>.</p>
+</blockquote>
+<blockquote class="markdown-alert-caution">
+<p>Some <strong>content</strong> with <em>Markdown</em> <code>syntax</code>. Here is <a href="https://eyalkalderon.com/terminus/blog/markdown/#github-style-alerts">a <code>link</code></a>.</p>
+</blockquote>
+<h2 id="buttons-and-links">Buttons and links<a class="post-anchor" href="#buttons-and-links" aria-label="Anchor link for: buttons-and-links"><span aria-hidden="true">#</span></a>
+</h2>
+<p><button>Button</button>
+<a href="">Link</a></p>
+<h2 id="tables">Tables<a class="post-anchor" href="#tables" aria-label="Anchor link for: tables"><span aria-hidden="true">#</span></a>
+</h2>
+<p>Tables aren't part of the core Markdown spec, but Zola supports them out of the
+box.</p>
+<table><thead><tr><th>Name</th><th>Age</th></tr></thead><tbody>
+<tr><td>Bob</td><td>27</td></tr>
+<tr><td>Alice</td><td>23</td></tr>
+</tbody></table>
+<h4 id="inline-markdown-within-tables">Inline Markdown within tables<a class="post-anchor" href="#inline-markdown-within-tables" aria-label="Anchor link for: inline-markdown-within-tables"><span aria-hidden="true">#</span></a>
+</h4>
+<table><thead><tr><th>Italics</th><th>Bold</th><th>Code</th></tr></thead><tbody>
+<tr><td><em>italics</em></td><td><strong>bold</strong></td><td><code>code</code></td></tr>
+</tbody></table>
+<h2 id="list-types">List Types<a class="post-anchor" href="#list-types" aria-label="Anchor link for: list-types"><span aria-hidden="true">#</span></a>
+</h2>
+<h4 id="ordered-list">Ordered List<a class="post-anchor" href="#ordered-list" aria-label="Anchor link for: ordered-list"><span aria-hidden="true">#</span></a>
+</h4>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+<h4 id="unordered-list">Unordered List<a class="post-anchor" href="#unordered-list" aria-label="Anchor link for: unordered-list"><span aria-hidden="true">#</span></a>
+</h4>
+<ul>
+<li>List item</li>
+<li>Another item</li>
+<li>And another item</li>
+</ul>
+<h4 id="nested-unordered-list">Nested Unordered List<a class="post-anchor" href="#nested-unordered-list" aria-label="Anchor link for: nested-unordered-list"><span aria-hidden="true">#</span></a>
+</h4>
+<ul>
+<li>Fruit
+<ul>
+<li>Apple</li>
+<li>Orange</li>
+<li>Banana</li>
+</ul>
+</li>
+<li>Dairy
+<ul>
+<li>Milk</li>
+<li>Cheese</li>
+</ul>
+</li>
+<li>Third item
+<ul>
+<li>Sub One</li>
+<li>Sub Two
+<ul>
+<li>Sub Three</li>
+<li>Sub Four</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="nested-ordered-list">Nested Ordered List<a class="post-anchor" href="#nested-ordered-list" aria-label="Anchor link for: nested-ordered-list"><span aria-hidden="true">#</span></a>
+</h4>
+<ol>
+<li>Fruit
+<ul>
+<li>Apple</li>
+<li>Orange</li>
+<li>Banana</li>
+</ul>
+</li>
+<li>Dairy
+<ol>
+<li>Milk</li>
+<li>Cheese</li>
+</ol>
+</li>
+<li>Third item
+<ol>
+<li>Sub One</li>
+<li>Sub Two
+<ol>
+<li>Sub Three</li>
+<li>Sub Four</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="task-list">Task List<a class="post-anchor" href="#task-list" aria-label="Anchor link for: task-list"><span aria-hidden="true">#</span></a>
+</h4>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Completed item</li>
+<li><input disabled="" type="checkbox"/>
+Incomplete item
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Nested completed item</li>
+<li><input disabled="" type="checkbox"/>
+Nested incomplete item</li>
+</ul>
+</li>
+</ul>
+<h2 id="preformatted-text">Preformatted Text<a class="post-anchor" href="#preformatted-text" aria-label="Anchor link for: preformatted-text"><span aria-hidden="true">#</span></a>
+</h2>
+<pre style="background-color:#272822;color:#f8f8f2;"><code><span>This text is preformatted!
+</span><span>   This hanging indent is preserved.
+</span></code></pre>
+<h2 id="code-blocks">Code Blocks<a class="post-anchor" href="#code-blocks" aria-label="Anchor link for: code-blocks"><span aria-hidden="true">#</span></a>
+</h2>
+<h3 id="regular">Regular<a class="post-anchor" href="#regular" aria-label="Anchor link for: regular"><span aria-hidden="true">#</span></a>
+</h3>
+<pre data-lang="rust" style="background-color:#272822;color:#f8f8f2;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="font-style:italic;color:#66d9ef;">fn </span><span style="color:#a6e22e;">main</span><span>() {
+</span><span>    println!(</span><span style="color:#e6db74;">&quot;Hello, world!&quot;</span><span>);
+</span><span>}
+</span></code></pre>
+<h3 id="with-line-numbers">With Line Numbers<a class="post-anchor" href="#with-line-numbers" aria-label="Anchor link for: with-line-numbers"><span aria-hidden="true">#</span></a>
+</h3>
+<pre data-linenos data-lang="rust" data-name="~/incredibly/long/file/path/src/main.rs" style="background-color:#272822;color:#f8f8f2;" class="language-rust "><code class="language-rust" data-lang="rust" data-name="~/incredibly/long/file/path/src/main.rs"><table><tbody><tr><td>1</td><td><span style="color:#f92672;">use </span><span>std::collections::HashMap;
+</span></td></tr><tr><td>2</td><td><span>
+</span></td></tr><tr><td>3</td><td><span>#[derive(Debug)]
+</span></td></tr><tr><td>4</td><td><span style="font-style:italic;color:#66d9ef;">struct </span><span>TwinPeaksCharacter {
+</span></td></tr><tr><td>5</td><td><span>    name: String,
+</span></td></tr><tr><td>6</td><td><span>    coffee_rating: </span><span style="font-style:italic;color:#66d9ef;">f32</span><span>,
+</span></td></tr><tr><td>7</td><td><span>    pie_preference: String,
+</span></td></tr><tr><td>8</td><td><span>}
+</span></td></tr><tr><td>9</td><td><span>
+</span></td></tr><tr><td><mark style="background-color:#3e3d32;">10</mark></td><td><mark style="background-color:#3e3d32;"><span style="font-style:italic;color:#66d9ef;">fn </span><span style="color:#a6e22e;">main</span><span>() {
+</span></mark></td></tr><tr><td>11</td><td><span>    </span><span style="font-style:italic;color:#66d9ef;">let </span><span style="color:#f92672;">mut</span><span> black_lodge </span><span style="color:#f92672;">= </span><span>HashMap::new();
+</span></td></tr><tr><td>12</td><td><span>
+</span></td></tr><tr><td>13</td><td><span>    black_lodge.</span><span style="color:#66d9ef;">insert</span><span>(</span><span style="color:#e6db74;">&quot;agent&quot;</span><span>, TwinPeaksCharacter {
+</span></td></tr><tr><td>14</td><td><span>        name: </span><span style="font-style:italic;color:#66d9ef;">String</span><span>::from(</span><span style="color:#e6db74;">&quot;Dale Cooper&quot;</span><span>),
+</span></td></tr><tr><td>15</td><td><span>        coffee_rating: </span><span style="color:#ae81ff;">9999.99</span><span>,
+</span></td></tr><tr><td>16</td><td><span>        pie_preference: </span><span style="font-style:italic;color:#66d9ef;">String</span><span>::from(</span><span style="color:#e6db74;">&quot;Damn Fine Cherry&quot;</span><span>),
+</span></td></tr><tr><td>17</td><td><span>    });
+</span></td></tr><tr><td>18</td><td><span>
+</span></td></tr><tr><td>19</td><td><span>    black_lodge.</span><span style="color:#66d9ef;">insert</span><span>(</span><span style="color:#e6db74;">&quot;giant&quot;</span><span>, TwinPeaksCharacter {
+</span></td></tr><tr><td>20</td><td><span>        name: </span><span style="font-style:italic;color:#66d9ef;">String</span><span>::from(</span><span style="color:#e6db74;">&quot;The Fireman&quot;</span><span>),
+</span></td></tr><tr><td>21</td><td><span>        coffee_rating: </span><span style="color:#ae81ff;">42.424242</span><span>,
+</span></td></tr><tr><td>22</td><td><span>        pie_preference: </span><span style="font-style:italic;color:#66d9ef;">String</span><span>::from(</span><span style="color:#e6db74;">&quot;Garmonbozia&quot;</span><span>),
+</span></td></tr><tr><td>23</td><td><span>    });
+</span></td></tr><tr><td>24</td><td><span>
+</span></td></tr><tr><td>25</td><td><span>    </span><span style="color:#75715e;">// Calculate total appreciation of damn fine coffee
+</span></td></tr><tr><td>26</td><td><span>    </span><span style="font-style:italic;color:#66d9ef;">let</span><span> total_coffee: </span><span style="font-style:italic;color:#66d9ef;">f32 </span><span style="color:#f92672;">=</span><span> black_lodge.</span><span style="color:#66d9ef;">values</span><span>()
+</span></td></tr><tr><td>27</td><td><span>        .</span><span style="color:#66d9ef;">map</span><span>(|</span><span style="font-style:italic;color:#fd971f;">character</span><span>| character.coffee_rating)
+</span></td></tr><tr><td>28</td><td><span>        .</span><span style="color:#66d9ef;">sum</span><span>();
+</span></td></tr><tr><td>29</td><td><span>
+</span></td></tr><tr><td>30</td><td><span>    println!(</span><span style="color:#e6db74;">&quot;☕ Total coffee appreciation: </span><span style="color:#ae81ff;">{:.2}</span><span style="color:#e6db74;"> cups&quot;</span><span>, total_coffee);
+</span></td></tr><tr><td>31</td><td><span>}
+</span></td></tr></tbody></table></code></pre>
+<h2 id="other-elements-abbr-sub-sup-kbd-details-mark">Other Elements — abbr, sub, sup, kbd, details, mark<a class="post-anchor" href="#other-elements-abbr-sub-sup-kbd-details-mark" aria-label="Anchor link for: other-elements-abbr-sub-sup-kbd-details-mark"><span aria-hidden="true">#</span></a>
+</h2>
+<p><abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.</p>
+<p>H<sub>2</sub>O</p>
+<p>X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup></p>
+<p>Press <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd> to end the
+session.</p>
+<details>
+<summary>Something wicked this way comes</summary>
+<p><strong>Boo!</strong> 👻</p>
+<p>Ha ha, scared ya!</p>
+</details>
+<p>Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and
+other small creatures.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-1">
+<p>The above quote is excerpted from Rob Pike's
+<a href="https://www.youtube.com/watch?v=PAAkCSZUG1c">talk</a> during Gopherfest,
+November 18, 2015. <a href="#fr-1-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+        </article>
+        <nav class="post-navigation">
+            <header class="post-navigation-title">
+                <h2>Read More Posts</h2>
+                <hr>
+            </header>
+            <div class="post-navigation-buttons">
+                <a rel="next" href="https://eyalkalderon.com/terminus/blog/shortcodes/" aria-label="Next article">
+                    <span aria-hidden="true">&lt;&nbsp;[</span>Shortcodes<span aria-hidden="true">]</span>
+                </a>
+            </div>
+        </nav>
+    </main>
+    <footer class="footer">
+        <address class="socials">
+            <ul>
+                <li>
+                    <a class="social-link" href="https://eyalkalderon.com/terminus/atom.xml" title="atom feed" aria-label="atom feed">
+                        <svg role="img" aria-label="feed icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/atom.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="mailto:hello@example.com" title="email" aria-label="email">
+                        <svg role="img" aria-label="email icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/email.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://github.com/ebkalderon" title="github" aria-label="github">
+                        <svg role="img" aria-label="github icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/github.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://www.linkedin.com/in/ebkalderon" title="linkedin" aria-label="linkedin">
+                        <svg role="img" aria-label="linkedin icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/linkedin.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://hachyderm.io/@ebkalderon" title="mastodon" aria-label="mastodon">
+                        <svg role="img" aria-label="mastodon icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/mastodon.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" rel="me" href="https://keyoxide.org/d5ad5bd47835b0f0b0c3046c00ab4c0942dcba25" title="keyoxide" aria-label="keyoxide">
+                        <svg role="img" aria-label="keyoxide icon">
+                            <use aria-hidden="true" href="https://eyalkalderon.com/terminus/images/social_icons/keyoxide.svg#icon" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </address>
+        <p class="copyright">
+            <span>© <time>2025</time> Eyal Kalderon</span>
+            <span>Powered by <a href="https://www.getzola.org">Zola</a></span>
+            <span>Theme by <a href="https://eyalkalderon.com">ebkalderon</a></span>
+        </p>
+    </footer>
+</body>
+
+</html>

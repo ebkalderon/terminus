@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Terminus - shortcodes</title>
+    <subtitle>Demo website for the Terminus theme for Zola</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://eyalkalderon.com/terminus/tags/shortcodes/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://eyalkalderon.com/terminus"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-06-07T00:00:00+00:00</updated>
+    <id>https://eyalkalderon.com/terminus/tags/shortcodes/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Shortcodes</title>
+        <published>2025-06-07T00:00:00+00:00</published>
+        <updated>2025-06-07T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            Eyal Kalderon
+          </name>
+        </author>
+        
+        <author>
+          <name>
+            John Smith
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://eyalkalderon.com/terminus/blog/shortcodes/"/>
+        <id>https://eyalkalderon.com/terminus/blog/shortcodes/</id>
+        
+        <summary type="html">&lt;p&gt;This theme includes some useful custom shortcodes that you can use to enhance
+your posts. Whether you want to display a gallery of images, or format a
+professional-looking reference section, these custom shortcodes have got you
+covered.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+</feed>
