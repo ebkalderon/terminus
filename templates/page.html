@@ -15,7 +15,13 @@
 {%- block main -%}
 {%- filter indent -%}{%- filter indent -%}
 <article class="post content">
+    {%- if not page.extra.hide_post_meta %}
     {{ post_macros::header(page=page, heading="h1") | indent | safe }}
+    {%- else %}
+    <header>
+        <h1 class="post-title">{{ page.title }}</h1>
+    </header>
+    {%- endif %}
 {%- endfilter %}{%- endfilter %}
 
 {{ page.content | safe }}
