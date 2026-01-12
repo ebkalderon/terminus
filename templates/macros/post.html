@@ -19,33 +19,50 @@
     <{{ heading }} class="post-title">
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
     </{{ heading }}>
+    {%- if not page.extra.hide_post_meta %}
+    {%- set show_date = page.extra.show_date | default(value=config.extra.show_date | default(value=true)) %}
+    {%- set show_author = page.extra.show_author | default(value=config.extra.show_author | default(value=config.extra.show_default_author | default(value=false))) %}
+    {%- set show_reading_time = page.extra.show_reading_time | default(value=config.extra.show_reading_time | default(value=true)) %}
     <ul class="post-meta hidden">
         {% if page.draft -%}
         <li class="draft-label">DRAFT</li>
         {% endif -%}
 
+        {%- if show_date %}
         <li title="Published on {{ page.date }}{%- if page.updated %}, last updated {{ page.updated }}{%- endif -%}">
             {{- post_macros::date(value=page.date) }}
             {%- if page.updated %}&nbsp;[Updated: {{ post_macros::date(value=page.updated) }}]{%- endif -%}
         </li>
+        {%- endif -%}
 
-        {%- if page.authors %}
+        {%- if show_author -%}
+            {%- if page.authors -%}
+            {%- if show_date %}
         <li role="separator" aria-hidden="true">::</li>
+            {%- endif %}
         <li title="Authors">
-            {%- for author in page.authors -%}
-            {{ author }}{%- if not loop.last -%}, {% endif -%}
-            {%- endfor -%}
-        </li>
-        {%- elif config.author and config.extra.show_default_author %}
+                {%- for author in page.authors -%}
+                {{ author }}{%- if not loop.last -%}, {% endif -%}
+                {%- endfor -%}
+            </li>
+            {%- elif config.author -%}
+            {%- if show_date %}
         <li role="separator" aria-hidden="true">::</li>
+            {%- endif %}
         <li title="Author">{{ config.author }}</li>
-        {%- endif %}
-        <li role="separator" aria-hidden="true">::</li>
+            {%- endif -%}
+        {%- endif -%}
 
+        {%- if show_reading_time -%}
+        {%- if show_date or show_author %}
+        <li role="separator" aria-hidden="true">::</li>
+        {%- endif -%}
         {%- set reading_time = page.reading_time ~ " min" | replace(from="0 min", to="<1 min") -%}
         {%- set word_count = [page.word_count ~ " word", page.word_count | pluralize] | join %}
         <li title="{{ word_count }}"><time datetime="PT{{ page.reading_time }}M">{{ reading_time }}</time> read</li>
+        {%- endif %}
     </ul>
+    {%- endif %}
 
     {%- if page.taxonomies %}
     <div class="post-tags">

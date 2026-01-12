@@ -55,7 +55,17 @@ close_responsive_menu_on_resize = true
 favicon_emoji = "👨‍💻"
 fediverse_creator = "@ebkalderon@hachyderm.io"
 layout = "center"
+
+# Post metadata display settings (global defaults)
+# These can be overridden per-page using page.extra.* settings
 show_default_author = false
+# Show publication/update dates
+show_date = true
+# Show author names (from page.authors or config.author)
+# This overrides show_default_author when set to true
+show_author = false
+# Show estimated reading time
+show_reading_time = true
 
 main_menu = [
     { name = "blog", url = "blog", trailing_slash = true },
