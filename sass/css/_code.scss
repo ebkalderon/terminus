@@ -1,13 +1,3 @@
-// FIXME: Refactor this giant mess of CSS to use flexbox and/or relative
-// elements only once Zola outputs proper HTML for code block headings and/or a
-// "copy to clipboard" button. Until then, we make do with `::before`/`::after`
-// pseudo-elements and many hacks (absolute positioning, negative margins).
-//
-// Links to relevant Zola issues:
-//
-// https://github.com/getzola/zola/issues/1851
-// https://github.com/getzola/zola/issues/2586
-
 :root {
     --code-border: color-mix(in srgb, var(--text-color) 10%, transparent);
 }
@@ -16,8 +6,24 @@ $header-padding-vertical: 6px;
 $header-border-thickness: 1px;
 $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
 
+// Mandatory Giallo CSS (see https://www.getzola.org/documentation/content/syntax-highlighting/)
+.giallo-l {
+    flex: 0 0 100%;
+    margin-inline: -10px;
+    padding-inline: 10px;
+}
+.giallo-ln {
+    display: inline-block;
+    user-select: none;
+    margin-inline-end: 20px;
+    min-width: 2ch;
+    text-align: end;
+    color: $line-number-color;
+}
+
 .copy-button {
     position: absolute;
+    z-index: 1;
     top: $header-padding-vertical;
     right: 10px;
     padding: 3px 8px;
@@ -32,29 +38,44 @@ $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
     }
 }
 
-pre[data-lang] {
+pre.giallo {
     display: block;
     position: relative;
     padding: 0;
     overflow-y: hidden;
 
-    &::before {
+    // Monokai (and some other themes) emit background-color on whitespace-only
+    // spans. Strip it so spaces don't render as colored blocks. Exclude .giallo-l
+    // spans, which carry the highlight background for marked lines.
+    span:not(.giallo-l)[style*="background-color"] {
+        background-color: transparent !important;
+    }
+
+    // Language header bar, driven by the data-lang attribute on <code>.
+    code[data-lang]:not([data-lang="plain"])::before {
         content: attr(data-lang);
         display: block;
         padding: $header-padding-vertical 10px;
+        margin: -10px -10px 10px -10px;
         border-bottom: $header-border-thickness solid var(--code-border);
         color: $line-number-color;
         font-size: calc(var(--font-size) * 0.8);
         text-transform: uppercase;
         line-height: 21px;
+        position: sticky;
+        width: calc(100% + 20px);
+        left: -10px;
     }
 
     code[data-lang] {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
         overflow-x: auto;
         padding: 10px;
 
-        &[data-name]::before {
+        // Filename label, positioned in the header bar area.
+        &[data-name]::after {
             content: attr(data-name);
             position: absolute;
             top: 0;
@@ -68,37 +89,11 @@ pre[data-lang] {
             overflow: hidden;
             text-overflow: ellipsis;
         }
+    }
 
-        &:has(.copy-button)::before {
-            @media screen {
-                right: calc(4.5rem + 10px);
-            }
-        }
-
-        mark {
-            margin-inline: -10px;
-            padding-inline: 10px;
-            color: unset;
-        }
-
-        table {
-            margin-block: 0;
-            width: 100%;
-            border-collapse: collapse;
-
-            td,
-            th,
-            tr {
-                border: none;
-                padding: 0;
-            }
-
-            tr td:first-child {
-                color: $line-number-color;
-                text-align: end;
-                user-select: none;
-                padding-inline-end: 20px;
-            }
+    &:has(.copy-button) code[data-name]::after {
+        @media screen {
+            right: calc(4.5rem + 10px);
         }
     }
 }
