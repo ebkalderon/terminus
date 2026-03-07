@@ -15,8 +15,8 @@
         {%- set allowed_domains = allowed_domains | concat(with=img_src) -%}
     {%- endif -%}
 
-    {#- Allow inline CSS if Zola syntax highlighting is enabled -#}
-    {%- if config.markdown.highlight_code == true -%}
+    {#- Allow inline CSS if Zola syntax highlighting uses inline styles -#}
+    {%- if config.markdown.highlighting.style == "inline" -%}
         {%- set style_src = load_data(literal=`{"directive": "style-src-attr", "domains": ["'unsafe-inline'"]}`, format="json") -%}
         {%- set allowed_domains = allowed_domains | concat(with=style_src) -%}
     {%- endif -%}

@@ -3,7 +3,7 @@ description = "A dark duotone retro theme for Zola"
 tags = ["dark", "blog", "minimal", "personal", "responsive", "seo"]
 license = "MIT"
 homepage = "https://github.com/ebkalderon/terminus"
-min_version = "0.20.0"
+min_version = "0.22.0"
 demo = "https://ebkalderon.github.io/terminus/"
 
 [author]
