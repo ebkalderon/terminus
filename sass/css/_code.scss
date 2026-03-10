@@ -8,10 +8,9 @@ $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
 
 // Mandatory Giallo CSS (see https://www.getzola.org/documentation/content/syntax-highlighting/)
 .giallo-l {
-    flex: 0 0 100%;
-    margin-inline: -10px;
     padding-inline: 10px;
 }
+
 .giallo-ln {
     display: inline-block;
     user-select: none;
@@ -38,7 +37,7 @@ $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
     }
 }
 
-pre.giallo {
+pre.giallo:not(:has(> code[data-lang="plain"])) {
     display: block;
     position: relative;
     padding: 0;
@@ -51,28 +50,27 @@ pre.giallo {
         background-color: transparent !important;
     }
 
-    // Language header bar, driven by the data-lang attribute on <code>.
-    code[data-lang]:not([data-lang="plain"])::before {
-        content: attr(data-lang);
-        display: block;
-        padding: $header-padding-vertical 10px;
-        margin: -10px -10px 10px -10px;
-        border-bottom: $header-border-thickness solid var(--code-border);
-        color: $line-number-color;
-        font-size: calc(var(--font-size) * 0.8);
-        text-transform: uppercase;
-        line-height: 21px;
-        position: sticky;
-        width: calc(100% + 20px);
-        left: -10px;
-    }
-
     code[data-lang] {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         overflow-x: auto;
-        padding: 10px;
+        padding-bottom: 10px;
+
+        // Language header bar, driven by the data-lang attribute on <code>.
+        &::before {
+            content: attr(data-lang);
+            position: sticky;
+            left: 0;
+            width: 100%;
+            padding: $header-padding-vertical 10px;
+            border-bottom: $header-border-thickness solid var(--code-border);
+            margin-bottom: 10px;
+            color: $line-number-color;
+            font-size: calc(var(--font-size) * 0.8);
+            text-transform: uppercase;
+            line-height: 21px;
+        }
 
         // Filename label, positioned in the header bar area.
         &[data-name]::after {
@@ -80,13 +78,12 @@ pre.giallo {
             position: absolute;
             top: 0;
             right: 0;
-            display: block;
-            padding: $header-padding-vertical 10px;
+            overflow: hidden;
             max-width: 60%;
+            padding: $header-padding-vertical 10px;
             color: $line-number-color;
             font-size: calc(var(--font-size) * 0.8);
             line-height: 21px;
-            overflow: hidden;
             text-overflow: ellipsis;
         }
     }
