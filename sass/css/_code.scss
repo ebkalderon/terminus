@@ -56,6 +56,7 @@ pre.giallo:not(:has(> code[data-lang="plain"])) {
         flex-wrap: wrap;
         overflow-x: auto;
         padding-bottom: 10px;
+        overscroll-behavior-x: none;
 
         // Language header bar, driven by the data-lang attribute on <code>.
         &::before {
