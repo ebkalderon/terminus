@@ -6,27 +6,13 @@ $header-padding-vertical: 6px;
 $header-border-thickness: 1px;
 $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
 
-// Mandatory Giallo CSS (see https://www.getzola.org/documentation/content/syntax-highlighting/)
-.giallo-l {
-    padding-inline: 10px;
-}
-
-.giallo-ln {
-    display: inline-block;
-    user-select: none;
-    margin-inline-end: 20px;
-    min-width: 2ch;
-    text-align: end;
-    color: $line-number-color;
-}
-
 .copy-button {
     position: absolute;
     z-index: 1;
     top: $header-padding-vertical;
     right: 10px;
-    padding: 3px 8px;
     width: 4.5rem;
+    padding: 3px 8px;
     border: 1px solid color-mix(in srgb, var(--accent-color) 15%, transparent);
     font-size: calc(var(--font-size) * 0.8);
     font-weight: normal;
@@ -54,8 +40,8 @@ pre.giallo:not(:has(> code[data-lang="plain"])) {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        overflow-x: auto;
         padding-bottom: 10px;
+        overflow-x: auto;
         overscroll-behavior-x: none;
 
         // Language header bar, driven by the data-lang attribute on <code>.
@@ -86,6 +72,20 @@ pre.giallo:not(:has(> code[data-lang="plain"])) {
             font-size: calc(var(--font-size) * 0.8);
             line-height: 21px;
             text-overflow: ellipsis;
+        }
+
+        // Mandatory Giallo styling (https://www.getzola.org/documentation/content/syntax-highlighting/)
+        .giallo-l {
+            padding-inline: 10px;
+        }
+
+        .giallo-ln {
+            display: inline-block;
+            min-width: 2ch;
+            margin-inline-end: 20px;
+            color: $line-number-color;
+            text-align: end;
+            user-select: none;
         }
     }
 
