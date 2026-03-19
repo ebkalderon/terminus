@@ -23,18 +23,11 @@ $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
     }
 }
 
-pre.giallo:not(:has(> code[data-lang="plain"])) {
+pre.giallo:not(:has(code[data-lang="plain"])) {
     display: block;
     position: relative;
     padding: 0;
     overflow-y: hidden;
-
-    // Monokai (and some other themes) emit background-color on whitespace-only
-    // spans. Strip it so spaces don't render as colored blocks. Exclude .giallo-l
-    // spans, which carry the highlight background for marked lines.
-    span:not(.giallo-l)[style*="background-color"] {
-        background-color: transparent !important;
-    }
 
     code[data-lang] {
         display: flex;
@@ -63,7 +56,6 @@ pre.giallo:not(:has(> code[data-lang="plain"])) {
         &[data-name]::after {
             content: attr(data-name);
             position: absolute;
-            top: 0;
             right: 0;
             overflow: hidden;
             max-width: 60%;
@@ -77,6 +69,13 @@ pre.giallo:not(:has(> code[data-lang="plain"])) {
         // Mandatory Giallo styling (https://www.getzola.org/documentation/content/syntax-highlighting/)
         .giallo-l {
             padding-inline: 10px;
+
+            // Monokai (and some other themes) emit `background-color` on
+            // whitespace-only spans. Strip it so spaces don't render as
+            // colored blocks.
+            span[style*="background-color"] {
+                background-color: unset !important;
+            }
         }
 
         .giallo-ln {
