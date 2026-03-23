@@ -78,8 +78,10 @@ socials = [
 [extra.content_security_policy]
 enable = true
 allowed_domains = [
+    { directive = "base-uri", domains = ["'self'"] },
     { directive = "connect-src", domains = ["'self'", "cloudflareinsights.com"] },
-    { directive = "script-src", domains = ["'self'", "static.cloudflareinsights.com"] },
+    { directive = "form-action", domains = ["'self'"] },
+    { directive = "script-src", domains = ["'self'", "static.cloudflareinsights.com", "'sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg=='"] },
 ]
 
 [extra.responsive_images]
