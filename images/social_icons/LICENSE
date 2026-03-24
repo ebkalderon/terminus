@@ -1,0 +1,11 @@
+Most icons in this directory are downloaded from [Font Awesome]. They are part
+of the [free offer] and are licensed under [CC BY 4.0].
+
+[Font Awesome]: https://fontawesome.com/
+[free offer]: https://fontawesome.com/license/free
+[CC BY 4.0]: https://creativecommons.org/licenses/by/4.0/
+
+Exceptions:
+- Atom, licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) by [Eyal Kalderon](https://eyalkalderon.com/). Source (prior to modification in Inkscape): https://commons.wikimedia.org/wiki/File:Application_atom%2Bxml.svg
+- Keybase, licensed under [CC0](https://creativecommons.org/publicdomain/zero/1.0/) by [Simple Icons](https://simpleicons.org/). Source: https://github.com/simple-icons/simple-icons/blob/develop/icons/keybase.svg
+- Keyoxide, licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) by the [Keyoxide Project](https://codeberg.org/keyoxide/keyoxide-artwork). Source: https://codeberg.org/keyoxide/keyoxide-web/src/commit/569fcf1/static-src/files/img/keyoxide.svg
