@@ -1,3 +1,9 @@
 <a href="{{ get_url(path='/', lang=lang) }}">
+    {% if config.extra.header_logo %}
+    <span class="logo"><img
+            style="width: {{ config.extra.header_logo_width | default(value='auto') }}; height: {{ config.extra.header_logo_height | default(value='auto') }}"
+            src="{{ config.extra.header_logo }}" /></span>
+    {% else %}
     <span class="logo">{{ config.extra.header_title | default(value=config.title) | safe }}</span>
+    {% endif %}
 </a>
