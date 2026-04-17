@@ -53,7 +53,7 @@ copyright = "© $YEAR $AUTHOR :: Powered by [Zola](https://www.getzola.org) :: T
 # header_title = "My custom title"
 
 # Sets a custom logo using an image file. Can be an SVG image.
-# header_logo = "/images/logo/logo.svg"
+# header_logo = "images/logo/logo.svg"
 # To preserve aspect ratio, only specify either the width or the height of the image. The other
 # one will be automatically parsed as 'auto'.
 # For compatiblity with different screen sizes, use relative values and specify the width.
