@@ -1,9 +1,9 @@
 <a href="{{ get_url(path='/', lang=lang) }}">
-    {% if config.extra.header_logo %}
-    <span class="logo"><img
-            style="width: {{ config.extra.header_logo_width | default(value='auto') }}; height: {{ config.extra.header_logo_height | default(value='auto') }}"
-            src="{{ get_url(path=config.extra.header_logo, cachebust=true) }}" /></span>
-    {% else %}
-    <span class="logo">{{ config.extra.header_title | default(value=config.title) | safe }}</span>
-    {% endif %}
+    <span class="logo">
+        {%- if config.extra.header_logo -%}
+            <img class="logo-img" src="{{ get_url(path=config.extra.header_logo, cachebust=true) }}" alt="{{ config.extra.header_title | default(value=config.title) | safe }}">
+        {%- else -%}
+            {{ config.extra.header_title | default(value=config.title) | safe }}
+        {%- endif -%}
+    </span>
 </a>
