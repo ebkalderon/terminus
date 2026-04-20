@@ -54,11 +54,6 @@ copyright = "© $YEAR $AUTHOR :: Powered by [Zola](https://www.getzola.org) :: T
 
 # Sets a custom logo using an image file. Can be an SVG image.
 # header_logo = "images/logo/logo.svg"
-# To preserve aspect ratio, only specify either the width or the height of the image. The other
-# one will be automatically parsed as 'auto'.
-# For compatiblity with different screen sizes, use relative values and specify the width.
-# header_logo_width = "16vw"
-# header_logo_height = "auto"
 
 # Enable KaTeX support for all posts (requires JS).
 katex = false
