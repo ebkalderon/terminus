@@ -43,6 +43,12 @@
     text-decoration: none;
 }
 
+.logo-img {
+    display: inline;
+    height: var(--line-height);
+    margin: 0px;
+}
+
 @media print {
     .header {
         display: none;
