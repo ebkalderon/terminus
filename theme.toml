@@ -29,6 +29,13 @@ color_scheme = "terminus"
 # Enable dynamic color scheme switcher in site navigation bar (requires JS).
 color_scheme_switcher = false
 
+# Add global stylesheets to support user-defined customisation.
+#
+# Global styles added through stylesheets here may be overridden on individual pages or sections 
+# by specifying corresponding styles and setting them up for use through
+# `page.extra.stylesheets` or `section.extra.stylesheets`, respectively.
+# stylesheets = []
+
 # Add "copy to clipboard" button to all fenced code blocks (requires JS).
 #
 # Global setting may be overridden on individual pages or sections by setting
