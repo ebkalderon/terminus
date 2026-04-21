@@ -29,6 +29,13 @@ color_scheme = "terminus"
 # Enable dynamic color scheme switcher in site navigation bar (requires JS).
 color_scheme_switcher = false
 
+# Add global stylesheets to support user-defined customisation.
+#
+# Global styles added through stylesheets here may be overridden on individual pages or sections 
+# by specifying corresponding styles and setting them up for use through
+# `page.extra.stylesheets` or `section.extra.stylesheets`, respectively.
+# stylesheets = []
+
 # Add "copy to clipboard" button to all fenced code blocks (requires JS).
 #
 # Global setting may be overridden on individual pages or sections by setting
@@ -52,6 +59,9 @@ copyright = "© $YEAR $AUTHOR :: Powered by [Zola](https://www.getzola.org) :: T
 # Sets the header text to a value other than the contents of `config.title`.
 # header_title = "My custom title"
 
+# Sets a custom logo using an image file. Can be an SVG image.
+# header_logo = "images/logo/logo.svg"
+
 # Enable KaTeX support for all posts (requires JS).
 katex = false
 
@@ -65,7 +75,7 @@ show_default_author = true
 #     { name = "internal link 1", url = "resume.pdf" },
 #     { name = "internal link 2", url = "blog", trailing_slash = true },
 #     { name = "external link", url = "https://github.com", new_tab = true },
-# }
+# ]
 
 # socials = [
 #     { name = "email", url = "mailto:hello@example.com" },

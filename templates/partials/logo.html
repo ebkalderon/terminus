@@ -1,3 +1,9 @@
 <a href="{{ get_url(path='/', lang=lang) }}">
-    <span class="logo">{{ config.extra.header_title | default(value=config.title) | safe }}</span>
+    <span class="logo">
+        {%- if config.extra.header_logo -%}
+            <img class="logo-img" src="{{ get_url(path=config.extra.header_logo, cachebust=true) }}" alt="{{ config.extra.header_title | default(value=config.title) | safe }}">
+        {%- else -%}
+            {{ config.extra.header_title | default(value=config.title) | safe }}
+        {%- endif -%}
+    </span>
 </a>
