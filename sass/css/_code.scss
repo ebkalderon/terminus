@@ -10,7 +10,7 @@ $line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
     position: absolute;
     z-index: 1;
     top: $header-padding-vertical;
-    right: 10px;
+    inset-inline-end: 10px;
     width: 4.5rem;
     padding: 3px 8px;
     border: 1px solid color-mix(in srgb, var(--accent-color) 15%, transparent);
@@ -28,6 +28,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
     position: relative;
     padding: 0;
     overflow-y: hidden;
+    direction: ltr;
 
     code[data-lang] {
         display: flex;
@@ -41,7 +42,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
         &::before {
             content: attr(data-lang);
             position: sticky;
-            left: 0;
+            inset-inline-start: 0;
             width: 100%;
             padding: $header-padding-vertical 10px;
             border-bottom: $header-border-thickness solid var(--code-border);
@@ -56,7 +57,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
         &[data-name]::after {
             content: attr(data-name);
             position: absolute;
-            right: 0;
+            inset-inline-end: 0;
             overflow: hidden;
             max-width: 60%;
             padding: $header-padding-vertical 10px;
@@ -90,7 +91,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
 
     &:has(.copy-button) code[data-name]::after {
         @media screen {
-            right: calc(4.5rem + 10px);
+            inset-inline-end: calc(4.5rem + 10px);
         }
     }
 }

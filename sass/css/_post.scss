@@ -10,7 +10,7 @@
             &:not(:has(input))::before {
                 content: '⦿';
                 position: absolute;
-                left: -20px;
+                inset-inline-start: -20px;
                 color: var(--accent-color);
             }
 
@@ -48,7 +48,7 @@
 .post {
     padding: 30px 0;
     width: 100%;
-    text-align: left;
+    text-align: start;
 
     &:not(:last-of-type) {
         border-bottom: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
@@ -95,7 +95,7 @@ ul.post-meta {
 
         &.draft-label {
             display: block;
-            float: right;
+            float: inline-end;
             margin-top: -2px;
             padding-block: 2px;
             padding-inline: 8px;
@@ -208,8 +208,7 @@ h6 {
         hr {
             background: var(--accent-color);
             position: absolute;
-            left: 0;
-            right: 0;
+            inset-inline: 0;
             width: 100%;
             margin-top: 15px;
             z-index: 0;
@@ -225,7 +224,6 @@ h6 {
         padding-bottom: 30px;
 
         >a {
-            display: inline;
             text-align: center;
             text-decoration: none;
         }

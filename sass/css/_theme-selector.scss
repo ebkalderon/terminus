@@ -4,7 +4,7 @@
 
   .theme-selector {
     position: relative;
-    margin-left: auto; // Right align
+    margin-inline-start: auto; // Right align
 
     .theme-trigger {
       text-decoration: none;
@@ -43,7 +43,7 @@
     .theme-dropdown {
       position: absolute;
       top: 100%;
-      right: 0;
+      inset-inline-end: 0;
       z-index: 100;
       display: none;
       margin: 0; // Remove gap that breaks hover

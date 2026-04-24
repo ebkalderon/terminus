@@ -48,7 +48,7 @@ body {
         padding: 40px;
         max-width: $max-layout-width;
         min-height: 100vh;
-        border-right: 1px solid color-mix(in srgb, var(--accent-color) 10%, transparent);
+        border-inline-end: 1px solid color-mix(in srgb, var(--accent-color) 10%, transparent);
 
         @media (max-width: 684px) {
             padding: 20px;
@@ -272,6 +272,7 @@ pre {
     overflow: auto;
     border-radius: var(--radius);
     border: 1px solid color-mix(in srgb, var(--text-color) 10%, transparent);
+    direction: ltr;
 
     code {
         background: unset;
@@ -319,7 +320,7 @@ blockquote {
         content: '>';
         display: block;
         position: absolute;
-        left: 0;
+        inset-inline-start: 0;
         color: var(--accent-color);
     }
 
@@ -344,7 +345,7 @@ table {
     th {
         border-style: solid;
         color: var(--text-color);
-        text-align: left;
+        text-align: start;
         text-transform: uppercase;
         letter-spacing: 0.04em;
     }
@@ -382,8 +383,7 @@ details {
             content: '';
             border: 0.35rem solid transparent;
             border-top-color: var(--accent-color);
-            margin-inline-start: 0.3em;
-            margin-inline-end: 0.75rem;
+            margin-inline: 0.3em 0.75rem;
             transform: rotate(-90deg);
             transition: transform 0.1s ease-out;
         }

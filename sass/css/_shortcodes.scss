@@ -8,7 +8,7 @@ figure.mastodon-post {
         content: '> From Mastodon:';
         position: absolute;
         top: 20px;
-        left: 20px;
+        inset-inline-start: 20px;
         display: block;
         color: var(--accent-color);
         font-weight: bold;

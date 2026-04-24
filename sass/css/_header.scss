@@ -23,7 +23,7 @@
         display: block;
         margin-inline-start: 8px;
         width: 100%;
-        background: repeating-linear-gradient(90deg, var(--accent-color), var(--accent-color) 2px, transparent 0, transparent 10px);
+        background: repeating-linear-gradient(to right, var(--accent-color), var(--accent-color) 2px, transparent 0, transparent 10px);
     }
 
     a {
