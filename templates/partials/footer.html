@@ -1,15 +1,17 @@
 {%- if config.generate_feeds or config.extra.socials -%}
 <address class="socials">
     <ul>
-        {%- if config.generate_feeds -%}
+        {%- if config.generate_feeds and config.extra.feed_icon -%}
         {%- for feed in config.feed_filenames %}
         <li>
             <a class="social-link" href="{{ get_url(path=feed) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed" aria-label="{{ feed | trim_end_matches(pat=".xml") }} feed">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    {% if feed == "atom.xml" -%}
-                    <use href="{{ get_url(path="images/social_icons/atom.svg") | safe }}#icon" />
+                    {% if config.feed_filenames | length > 1 and feed is containing("atom") -%}
+                    <use href="{{ get_url(path="images/social_icons/atom.svg") }}#icon" />
+                    {%- elif config.extra.feed_icon == true -%}
+                    <use href="{{ get_url(path="images/social_icons/rss.svg") }}#icon" />
                     {%- else -%}
-                    <use href="{{ get_url(path="images/social_icons/rss.svg") | safe }}#icon" />
+                    <use href="{{ get_url(path="images/social_icons/" ~ config.extra.feed_icon ~ ".svg") }}#icon" />
                     {%- endif %}
                 </svg>
             </a>
@@ -20,7 +22,7 @@
         <li>
             <a class="social-link" rel="me" href="{{ social.url | safe }}" title="{{ social.name }}" aria-label="{{ social.name }}">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <use href="{{ get_url(path="images/social_icons/" ~ social.name ~ ".svg") | safe }}#icon" />
+                    <use href="{{ get_url(path="images/social_icons/" ~ social.name ~ ".svg") }}#icon" />
                 </svg>
             </a>
         </li>

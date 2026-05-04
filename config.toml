@@ -32,7 +32,6 @@ taxonomies = [
 build_search_index = true
 
 [markdown]
-
 # When set to "true", emoji aliases translated to their corresponding
 # Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
 render_emoji = true
@@ -56,6 +55,7 @@ theme = "monokai"
 close_responsive_menu_on_resize = true
 favicon_emoji = "👨‍💻"
 fediverse_creator = "@ebkalderon@hachyderm.io"
+feed_icon = true
 layout = "center"
 show_default_author = false
 

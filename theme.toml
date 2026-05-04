@@ -52,6 +52,16 @@ copyright = "© $YEAR $AUTHOR :: Powered by [Zola](https://www.getzola.org) :: T
 # favicon = "images/favicon.png"
 # favicon_emoji = "👨‍💻"
 
+# Show RSS feed icon in the site footer alongside any `socials` defined below.
+#
+# Set to `true` to use the default "rss" icon, or specify a custom icon name
+# (e.g. "atom"). The icon must exist in `static/social_icons/` (without the
+# `.svg` extension).
+#
+# Note: If multiple feed filenames are defined, Atom feeds and RSS feeds will
+# be shown with different icons to remain distinguishable from one another.
+feed_icon = true
+
 # Enable Mastodon link attribution. See here for details:
 # https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/
 # fediverse_creator = "@user@mastodon.social"
