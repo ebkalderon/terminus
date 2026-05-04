@@ -125,7 +125,7 @@
     {% elif page.summary -%}
     {%- set inline_summary = page.summary | linebreaksbr | replace(from="<br>", to=" ") | striptags -%}
     <meta property="og:description" content="{{ inline_summary | trim_end_matches(pat=".") | safe }}…">
-    {%- elif section.description -%}
+    {% elif section.description -%}
     <meta property="og:description" content="{{ section.description | markdown(inline=true) | striptags }}">
     {% elif config.description -%}
     <meta property="og:description" content="{{ config.description }}">
@@ -149,7 +149,6 @@
     {%- if config.extra.fediverse_creator %}
     <meta name="fediverse:creator" content="{{ config.extra.fediverse_creator }}">
     {%- endif %}
-
 </head>
 
 <body class="layout-{{ config.extra.layout }}" data-theme="{{ config.extra.color_scheme | default(value = "terminus") }}">
