@@ -76,6 +76,13 @@
     }
 }
 
+.draft-label {
+    padding-block: 2px;
+    padding-inline: 8px;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
 ul.post-meta {
     list-style: none;
     display: block;
@@ -97,10 +104,6 @@ ul.post-meta {
             display: block;
             float: inline-end;
             margin-top: -2px;
-            padding-block: 2px;
-            padding-inline: 8px;
-            background-color: var(--accent-color);
-            color: var(--background-color);
         }
     }
 }

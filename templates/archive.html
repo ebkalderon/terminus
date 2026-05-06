@@ -1,0 +1,33 @@
+{% extends "section.html" %}
+
+{%- block main -%}
+{%- filter indent -%}{%- filter indent -%}
+{%- if section.content -%}
+<header class="content {%- if section.extra.framed %} framed{%- endif -%}">
+    {{ section.content | indent | safe }}
+</header>
+{% else -%}
+<h1>{{ section.title | safe }}</h1>
+{% endif -%}
+
+{%- set section = get_section(path=section.extra.section_path | default(value="/blog/_index.md"), lang=lang) -%}
+
+{% for year, pages in section.pages | sort(attribute="date") | reverse | group_by(attribute="year") -%}
+<section class="archive-year">
+    <h2 id="{{ year }}"><time>{{ year }}</time><a class="post-anchor" href="#{{ year }}" aria-label="Posts from {{ year }}"><span aria-hidden="true">#</span></a></h2>
+    <ul>
+        {%- for page in pages %}
+        <li>
+            <time datetime="{{ page.date }}" title="Published on {{ page.date }}{%- if page.updated %}, last updated {{ page.updated }}{%- endif -%}">{{ page.date | date(format="%d-%h") }}</time>
+            <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+            {%- if page.draft %}
+            <span class="draft-label">DRAFT</span>
+            {%- endif %}
+        </li>
+        {%- endfor %}
+    </ul>
+</section>
+{% endfor -%}
+
+{% endfilter %}{% endfilter %}
+{%- endblock -%}
