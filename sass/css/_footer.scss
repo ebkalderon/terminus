@@ -48,8 +48,8 @@
         margin: 0;
         color: color-mix(in srgb, var(--text-color) 65%, transparent);
 
-        &>* {
-            text-wrap: nowrap;
+        &>span {
+            display: inline-block;
 
             &:not(:first-child)::before {
                 content: ':: ';
