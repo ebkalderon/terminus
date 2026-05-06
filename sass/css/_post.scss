@@ -220,14 +220,13 @@ h6 {
 
     &-buttons {
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-flow: row wrap;
         gap: 10px;
+        justify-content: center;
         padding-bottom: 30px;
+        text-align: center;
 
         >a {
-            text-align: center;
             text-decoration: none;
         }
     }
