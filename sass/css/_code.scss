@@ -69,6 +69,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
 
         // Mandatory Giallo styling (https://www.getzola.org/documentation/content/syntax-highlighting/)
         .giallo-l {
+            min-height: var(--line-height);
             padding-inline: 10px;
 
             // Monokai (and some other themes) emit `background-color` on
