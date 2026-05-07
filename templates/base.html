@@ -134,7 +134,7 @@
     {%- if page.taxonomies and page.taxonomies.categories %}
     <meta property="article:section" content="{{ page.taxonomies.categories[0] }}">
     {%- endif -%}
-    {%- if page.taxonomies and page.taxonomies.tags -%}
+    {%- if page.taxonomies and page.taxonomies.tags %}
     {%- for tag in page.taxonomies.tags %}
     <meta property="article:tag" content="{{ tag }}">
     {%- endfor -%}
