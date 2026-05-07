@@ -18,7 +18,7 @@
     <ul>
         {%- for page in pages %}
         <li>
-            <time datetime="{{ page.date }}" title="Published on {{ page.date }}{%- if page.updated %}, last updated {{ page.updated }}{%- endif -%}">{{ page.date | date(format="%d-%h") }}</time>
+            <time datetime="{{ page.date }}" title="Published on {{ page.date | date(format="%F") }}{%- if page.updated %}, last updated {{ page.updated | date(format="%F") }}{%- endif -%}">{{ page.date | date(format="%d-%h") }}</time>
             <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
             {%- if page.draft %}
             <span class="draft-label">DRAFT</span>

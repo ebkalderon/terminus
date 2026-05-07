@@ -24,7 +24,7 @@
         <li class="draft-label">DRAFT</li>
         {% endif -%}
 
-        <li title="Published on {{ page.date }}{%- if page.updated %}, last updated {{ page.updated }}{%- endif -%}">
+        <li title="Published on {{ page.date | date(format="%F") }}{%- if page.updated %}, last updated {{ page.updated | date(format="%F") }}{%- endif -%}">
             {{- post_macros::date(value=page.date) }}
             {%- if page.updated %}&nbsp;[Updated: {{ post_macros::date(value=page.updated) }}]{%- endif -%}
         </li>
