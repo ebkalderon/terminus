@@ -205,7 +205,8 @@ fn main() {
     });
 
     // Calculate total appreciation of damn fine coffee
-    let total_coffee: f32 = black_lodge.values()
+    let total_coffee: f32 = black_lodge
+        .values()
         .map(|character| character.coffee_rating)
         .sum();
 
