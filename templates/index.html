@@ -11,7 +11,7 @@
 {#- Display partial content from "featured section", e.g. "/blog/". -#}
 {#- Otherwise, render as a normal Zola homepage (only show posts under "/"). -#}
 {%- if section.extra.section_path -%}
-    {%- set blog_section = get_section(path=section.extra.section_path) -%}
+    {%- set blog_section = get_section(path=section.extra.section_path, lang=lang) -%}
     {%- set num_top_posts = section.extra.max_posts | default(value=blog_section.pages | length) -%}
     {%- if blog_section.paginate_reversed == true -%}
         {%- set top_posts = blog_section.pages | reverse | slice(end=num_top_posts) -%}
