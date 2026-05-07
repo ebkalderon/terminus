@@ -139,6 +139,17 @@
     <meta property="article:tag" content="{{ tag }}">
     {%- endfor -%}
     {%- endif -%}
+    {%- if page.authors %}
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="{{ page.authors | join(sep=", ") }}">
+    {%- elif page and config.author %}
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="{{ config.author }}">
+    {%- endif -%}
+    {%- if page.reading_time %}
+    <meta name="twitter:label2" content="Reading time">
+    <meta name="twitter:data2" content="{{ page.reading_time ~ " min" | replace(from="0 min", to="<1 min") }}">
+    {%- endif -%}
     {%- if config.extra.fediverse_creator %}
     <meta name="fediverse:creator" content="{{ config.extra.fediverse_creator }}">
     {%- endif %}
