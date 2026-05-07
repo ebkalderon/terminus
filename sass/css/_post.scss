@@ -126,7 +126,7 @@ h3,
 h4,
 h5,
 h6 {
-    .post-anchor {
+    .post-anchor:has(>span) {
         margin-inline-start: 10px;
         opacity: 0%;
         color: var(--accent-color);
