@@ -47,9 +47,14 @@ github_alerts = true
 # See https://www.getzola.org/documentation/content/syntax-highlighting/ for details.
 style = "inline"
 
+# Eyal: Use a slightly patched version of the Monokai theme that plays more nicely with Rust.
+# Long term solution is to improve the Rust grammar used by VSCode/Giallo, which is lacking:
+# https://github.com/dustypomerleau/rust-syntax
+extra_themes = ["syntaxes/monokai-classic.json"]
+
 # The theme to use for code highlighting.
 # See https://github.com/getzola/giallo?tab=readme-ov-file#themes for the list of allowed values.
-theme = "monokai"
+theme = "monokai-classic"
 
 [extra]
 close_responsive_menu_on_resize = true
