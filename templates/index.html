@@ -30,7 +30,7 @@
 
 {%- if paginator and paginator.number_pagers > 1 %}
 {% include "partials/pagination.html" %}
-{%- elif blog_section.paginate_by and blog_section.paginate_by < blog_section.pages | length %}
+{%- elif blog_section.paginate_by and blog_section.pages | length > section.extra.max_posts | default(value=blog_section.paginate_by) %}
 <nav class="pagination">
     <ul>
         <li><a href="{{ blog_section.permalink | safe }}" aria-label="all posts">[all posts]&nbsp;&gt;</a></li>
