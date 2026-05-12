@@ -81,7 +81,7 @@
     <meta property="og:title" content="{{ page_title }}">
     {% elif current_path -%}
     {%- set page_title = page.title | default(value=section.title | default(value=taxonomy.name | capitalize | default(value=config.title))) -%}
-    <meta property="og:title" content="{{ page_title | replace(from='"', to="&quot;") | safe }}">
+    <meta property="og:title" content="{{ page_title | replace(from='"', to="&quot;") | replace(from="&", to="&amp;") | safe }}">
     {% endif -%}
 
     {% if page -%}
@@ -103,7 +103,7 @@
     <meta property="og:image:type" content="{{ image_meta.mime | safe }}">
     {% if page.extra.social_media_image.alt_text or section.extra.social_media_image.alt_text -%}
     {%- set alt_text = page.extra.social_media_image.alt_text | default(value=section.extra.social_media_image.alt_text) -%}
-    <meta property="og:image:alt" content="{{ alt_text | replace(from='"', to="&quot;") | safe }}">
+    <meta property="og:image:alt" content="{{ alt_text | replace(from='"', to="&quot;") | replace(from="&", to="&amp;") | safe }}">
     {% endif -%}
     <meta name="twitter:card" content="summary_large_image">
     {% endif -%}
