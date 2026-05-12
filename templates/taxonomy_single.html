@@ -15,7 +15,7 @@
                 {%- set singular_name = taxonomy.name | trim_end_matches(pat="s") -%}
             {%- endif -%}
             {%- set feed_title = config.title ~ " | Posts in the '" ~ term.name ~ "' " ~ singular_name -%}
-            {%- set feed_filename = taxonomy.name ~ "/" ~ term.name ~ "/" ~ filename -%}
+            {%- set feed_filename = current_path ~ filename -%}
             {{ feed_macros::link_alternate(filename=feed_filename, title=feed_title) }}
         {% endfor -%}
     {%- endif -%}
