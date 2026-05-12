@@ -23,21 +23,12 @@
 
 {%- block main -%}
 {%- filter indent -%}{%- filter indent -%}
+
 <h1>Posts for: {{ macros::prettify(term=term.name) }}</h1>
-{%- for page in paginator.pages | default(value=term.pages) %}
+{% for page in paginator.pages | default(value=term.pages) -%}
 {{ post_macros::excerpt(page=page) }}
-{%- endfor %}
-{%- if paginator and paginator.number_pagers > 1 %}
-<nav class="pagination">
-    <ul>
-        {%- if paginator.previous %}
-        <li><a rel="prev" href="{{ paginator.previous | safe }}" aria-label="newer posts">&lt;&nbsp;[newer posts]</a></li>
-        {%- endif %}
-        {%- if paginator.next %}
-        <li><a rel="next" href="{{ paginator.next | safe }}" aria-label="older posts">[older posts]&nbsp;&gt;</a></li>
-        {%- endif %}
-    </ul>
-</nav>
-{%- endif %}
-{% endfilter %}{% endfilter %}
+{% endfor -%}
+{% include "partials/pagination.html" %}
+
+{%- endfilter -%}{%- endfilter -%}
 {%- endblock -%}

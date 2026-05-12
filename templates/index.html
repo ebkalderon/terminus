@@ -2,11 +2,12 @@
 
 {%- block main -%}
 {%- filter indent -%}{%- filter indent -%}
+
 {%- if section.content -%}
 <header class="content {%- if section.extra.framed %} framed{%- endif -%}">
     {{ section.content | indent | safe }}
 </header>
-{% endif -%}
+{%- endif -%}
 
 {#- Display partial content from "featured section", e.g. "/blog/". -#}
 {#- Otherwise, render as a normal Zola homepage (only show posts under "/"). -#}
@@ -23,27 +24,19 @@
     {%- set top_posts = blog_section.pages -%}
 {%- endif -%}
 
-{% for page in paginator.pages | default(value=top_posts) -%}
+{%- for page in paginator.pages | default(value=top_posts) %}
 {{ post_macros::excerpt(page=page) }}
-{% endfor -%}
+{%- endfor -%}
 
 {%- if paginator and paginator.number_pagers > 1 %}
-<nav class="pagination">
-    <ul>
-        {%- if paginator.previous %}
-        <li><a rel="prev" href="{{ paginator.previous | safe }}" aria-label="newer posts">&lt;&nbsp;[newer posts]</a></li>
-        {%- endif %}
-        {%- if paginator.next %}
-        <li><a rel="next" href="{{ paginator.next | safe }}" aria-label="older posts">[older posts]&nbsp;&gt;</a></li>
-        {%- endif %}
-    </ul>
-</nav>
+{% include "partials/pagination.html" %}
 {%- elif blog_section.paginate_by and blog_section.paginate_by < blog_section.pages | length %}
 <nav class="pagination">
     <ul>
         <li><a href="{{ blog_section.permalink | safe }}" aria-label="all posts">[all posts]&nbsp;&gt;</a></li>
     </ul>
 </nav>
-{%- endif %}
+{%- endif -%}
+
 {%- endfilter -%}{%- endfilter -%}
 {%- endblock -%}

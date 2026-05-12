@@ -1,0 +1,12 @@
+{%- if paginator and paginator.number_pagers > 1 -%}
+<nav class="pagination">
+    <ul>
+        {%- if paginator.previous %}
+        <li><a rel="prev" href="{{ paginator.previous | safe }}" aria-label="newer posts">&lt;&nbsp;[newer posts]</a></li>
+        {%- endif %}
+        {%- if paginator.next %}
+        <li><a rel="next" href="{{ paginator.next | safe }}" aria-label="older posts">[older posts]&nbsp;&gt;</a></li>
+        {%- endif %}
+    </ul>
+</nav>
+{%- endif -%}
