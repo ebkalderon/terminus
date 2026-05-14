@@ -1,10 +1,10 @@
 :root {
     --code-border: color-mix(in srgb, var(--text-color) 10%, transparent);
+    --code-comment: color-mix(in srgb, var(--text-color) 53%, transparent);
 }
 
 $header-padding-vertical: 6px;
 $header-border-thickness: 1px;
-$line-number-color: color-mix(in srgb, var(--text-color) 53%, transparent);
 
 .copy-button {
     position: absolute;
@@ -31,6 +31,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
     direction: ltr;
 
     code[data-lang] {
+        --code-comment: color-mix(in srgb, currentColor 53%, transparent);
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -47,7 +48,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
             padding: $header-padding-vertical 10px;
             border-bottom: $header-border-thickness solid var(--code-border);
             margin-bottom: 10px;
-            color: $line-number-color;
+            color: var(--code-comment);
             font-size: calc(var(--font-size) * 0.8);
             text-transform: uppercase;
             line-height: 21px;
@@ -61,7 +62,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
             overflow: hidden;
             max-width: 60%;
             padding: $header-padding-vertical 10px;
-            color: $line-number-color;
+            color: var(--code-comment);
             font-size: calc(var(--font-size) * 0.8);
             line-height: 21px;
             text-overflow: ellipsis;
@@ -84,7 +85,7 @@ pre.giallo:not(:has(code[data-lang="plain"])) {
             display: inline-block;
             min-width: 2ch;
             margin-inline-end: 20px;
-            color: $line-number-color;
+            color: var(--code-comment);
             text-align: end;
             user-select: none;
         }
