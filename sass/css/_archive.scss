@@ -5,5 +5,19 @@
 
     ul {
         margin-block-start: 1rem;
+        list-style: none;
+
+        li {
+            &:not(:last-of-type) {
+                margin-bottom: 3px;
+            }
+
+            &::before {
+                content: '⦿';
+                position: absolute;
+                inset-inline-start: -20px;
+                color: var(--accent-color);
+            }
+        }
     }
 }
