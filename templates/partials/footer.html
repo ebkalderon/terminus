@@ -4,7 +4,7 @@
         {%- if config.generate_feeds and config.extra.feed_icon -%}
         {%- for feed in config.feed_filenames %}
         <li>
-            <a class="social-link" href="{{ get_url(path=feed) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed">
+            <a class="social-link" href="{{ get_url(path=feed, lang=lang) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed">
                 <svg role="img" aria-label="{{ feed | trim_end_matches(pat=".xml") }} feed">
                     {% if config.feed_filenames | length > 1 and feed is containing("atom") -%}
                     <use href="{{ get_url(path="images/social_icons/atom.svg") }}#icon" aria-hidden="true" />

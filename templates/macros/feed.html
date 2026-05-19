@@ -7,5 +7,5 @@
         {%- set type = 'type="application/feed+json" ' -%}
     {%- endif -%}
     {%- set title = title | replace(from='"', to="&quot;") | replace(from="&", to="&amp;") -%}
-    <link rel="alternate" {{ type | default(value="") | safe -}} href="{{ get_url(path=filename) }}" title="{{ title | safe }}">
+    <link rel="alternate" {{ type | default(value="") | safe -}} href="{{ get_url(path=filename, lang=lang) }}" title="{{ title | safe }}">
 {%- endmacro -%}

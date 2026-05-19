@@ -47,6 +47,7 @@
     {% if current_url -%}
     <link rel="canonical" href="{{ current_url | safe }}">
     {% endif -%}
+    {%- block translations -%}{%- endblock -%}
     {%- if config.generate_feeds %}
     {%- for feed in config.feed_filenames -%}
     {{ feed_macros::link_alternate(filename=feed, title=config.title) }}

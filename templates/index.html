@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{%- block translations -%}
+    {%- for translation in section.translations -%}
+    <link rel="alternate" hreflang="{{ translation.lang }}" href="{{ translation.permalink | safe }}">
+    {% endfor -%}
+{%- endblock -%}
+
 {%- block main -%}
 {%- filter indent -%}{%- filter indent -%}
 
