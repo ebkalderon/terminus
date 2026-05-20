@@ -39,6 +39,11 @@ render_emoji = true
 # Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
 bottom_footnotes = true
 
+# Whether to set decoding="async" and loading="lazy" for all images
+# When turned on, the alt text must be plain text.
+# For example, `![xx](...)` is ok but `![*x*x](...)` isn’t ok
+lazy_async_image = true
+
 # When set to "true", support for GitHub-style alerts, a.k.a. callouts or admonitions, is enabled in the Markdown parser.
 github_alerts = true
 
