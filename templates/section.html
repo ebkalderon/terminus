@@ -26,7 +26,7 @@
     {{ section.content | indent | safe }}
 </header>
 {%- endif -%}
-{%- for page in paginator.pages | default(value=term.pages) -%}
+{%- for page in paginator.pages | default(value=section.pages) -%}
 {{ post_macros::excerpt(page=page) }}
 {% endfor -%}
 {% include "partials/pagination.html" %}
