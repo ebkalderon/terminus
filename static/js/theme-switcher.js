@@ -16,6 +16,7 @@ class ThemeSwitcher {
       "catppuccin-frappe": "😸 Catppuccin Frappé",
       "catppuccin-macchiato": "😻 Catppuccin Macchiato",
       "catppuccin-mocha": "😼 Catppuccin Mocha",
+      "synthwave-84": "🎹 SynthWave '84",
     };
 
     this.currentTheme = this.getStoredTheme();
