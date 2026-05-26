@@ -103,4 +103,15 @@
         --accent-color: #89b4fa;
         --footnote-color: rgba(186, 194, 222, 0.7);
     }
+
+    // SynthWave '84 theme
+    // Inspired by the SynthWave '84 VS Code theme by Robb Owen
+    // (https://github.com/robb0wen/synthwave-vscode)
+    &:has(body[data-theme="synthwave-84"]) {
+        --background-color: #262335;
+        --text-color: #ffffff;
+        --accent-color: #ff7edb;
+        --footnote-color: rgba(255, 255, 255, 0.6);
+    }
+
 }
