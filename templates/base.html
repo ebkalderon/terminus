@@ -153,7 +153,10 @@
     {%- endif -%}
     {%- if config.extra.fediverse_creator %}
     <meta name="fediverse:creator" content="{{ config.extra.fediverse_creator }}">
-    {%- endif %}
+    {%- endif -%}
+
+    {%- block head -%}
+    {%- endblock %}
 </head>
 
 <body class="layout-{{ config.extra.layout }}" data-theme="{{ config.extra.color_scheme | default(value = "terminus") }}">
