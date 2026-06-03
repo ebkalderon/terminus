@@ -43,7 +43,7 @@
         <li role="separator" aria-hidden="true">::</li>
 
         {%- set reading_time = page.reading_time ~ " min" | replace(from="0 min", to="<1 min") -%}
-        {%- set word_count = [page.word_count ~ " word", page.word_count | pluralize] | join %}
+        {%- set word_count = [page.word_count | num_format(locale=lang), " word", page.word_count | pluralize] | join %}
         <li title="{{ word_count }}"><time datetime="PT{{ page.reading_time }}M">{{ reading_time }}</time> read</li>
     </ul>
 
