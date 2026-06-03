@@ -118,7 +118,7 @@
     <meta property="og:description" content="{{ page.description | markdown(inline=true) | striptags }}">
     {% elif page.summary -%}
     {%- set inline_summary = page.summary | linebreaksbr | replace(from="<br>", to=" ") | striptags -%}
-    <meta property="og:description" content="{{ inline_summary | trim_end_matches(pat=".") | safe }}…">
+    <meta property="og:description" content="{{ inline_summary | trim_end_matches(pat=".") | replace(from='"', to="&quot;") | replace(from="&", to="&amp;") | safe }}…">
     {% elif section.description -%}
     <meta property="og:description" content="{{ section.description | markdown(inline=true) | striptags }}">
     {% elif config.description -%}

@@ -6,9 +6,9 @@
 
 {%- block description -%}
     {%- if section.description %}
-    <meta name="description" content="{{ section.description | markdown(inline=true) | striptags | safe }}">
+    <meta name="description" content="{{ section.description | markdown(inline=true) | striptags }}">
     {%- elif config.description %}
-    <meta name="description" content="{{ config.description | safe }}">
+    <meta name="description" content="{{ config.description }}">
     {%- endif %}
 {%- endblock -%}
 
