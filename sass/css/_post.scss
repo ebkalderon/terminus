@@ -1,27 +1,25 @@
-.content {
-    ul:not(.post-meta) {
-        li:not(:last-of-type) {
-            margin-bottom: 3px;
+.content ul li {
+    list-style: '⦿ ';
+
+    ul li {
+        list-style: '■ ';
+
+        ul li {
+            list-style: '► ';
         }
+    }
 
-        li:has(input) {
-            list-style: none;
+    &:not(:last-of-type) {
+        margin-bottom: 3px;
+    }
 
-            input {
-                margin-inline-start: -4ch;
-            }
-        }
+    &:has(>input[type="checkbox"]) {
+        list-style: none;
 
-        li:not(:has(input)) {
-            list-style: '⦿ ';
-
-            ul li {
-                list-style: '■ ';
-
-                ul li {
-                    list-style: '► ';
-                }
-            }
+        &>input[type="checkbox"] {
+            padding: 0.75em;
+            margin-block: 0 0.2em;
+            margin-inline: -2.25em 0;
         }
     }
 }
@@ -86,10 +84,7 @@ ul.post-meta {
 
     >li {
         display: inline;
-
-        &::before {
-            content: '';
-        }
+        list-style: none;
 
         &[role="separator"] {
             user-select: none;
