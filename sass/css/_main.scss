@@ -4,6 +4,7 @@ $max-layout-width: 864px;
     --font-size: 1rem;
     --line-height: 1.54em;
     --radius: 0;
+    --external-link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath d='M11 5h-6v14h14v-6'/%3E%3Cpath d='M13 11l7 -7'/%3E%3Cpath d='M21 3h-6M21 3v6'/%3E%3C/g%3E%3C/svg%3E");
 
     @media (max-width: 684px) {
         --font-size: 0.95rem;
@@ -69,6 +70,18 @@ body {
 
 main {
     overflow-wrap: break-word;
+
+    a.external:not(:has(img, svg, video, picture, figure))::after {
+        content: '' / '(external link)';
+        display: inline-block;
+        height: 0.8em;
+        width: 0.8em;
+        margin-inline-start: 0.1em;
+        vertical-align: -0.05em;
+        background-color: currentColor;
+        mask: var(--external-link-icon);
+        mask-size: cover;
+    }
 }
 
 h1 {

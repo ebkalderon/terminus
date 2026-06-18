@@ -36,6 +36,9 @@ build_search_index = true
 # Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
 render_emoji = true
 
+# CSS class to add to external links (comment line below to disable)
+external_links_class = "external"
+
 # Whether footnotes are rendered in the GitHub-style (at the bottom, with back references) or plain (in the place, where they are defined)
 bottom_footnotes = true
 
