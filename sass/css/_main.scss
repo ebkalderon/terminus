@@ -156,6 +156,7 @@ button {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
+    border-color: var(--accent-color);
     outline: 1px solid var(--accent-color);
     outline-offset: 2px;
 }
@@ -168,13 +169,13 @@ input {
     color: var(--text-color);
     appearance: none;
 
+    &:active {
+        box-shadow: none;
+    }
+
     &[type="checkbox"] {
         vertical-align: middle;
         box-shadow: inset 0 0 0 3px var(--background-color);
-
-        &:active {
-            box-shadow: none;
-        }
 
         &:checked {
             background: var(--accent-color);
