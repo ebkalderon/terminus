@@ -154,6 +154,9 @@
     {%- if config.extra.fediverse_creator %}
     <meta name="fediverse:creator" content="{{ config.extra.fediverse_creator }}">
     {%- endif -%}
+    {%- if config.extra.google_analytics_id -%}
+    {% include "partials/google_analytics.html" %}
+    {%- endif -%}
 
     {%- block head -%}
     {%- endblock %}
