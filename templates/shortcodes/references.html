@@ -4,6 +4,8 @@
 {#- https://github.com/welpo/tabi/blob/84c67ab/templates/shortcodes/references.html -#}
 {#- Copyright (c) 2025 Óscar Fernández -#}
 
-<section class="references-list">
-    {{ body | markdown | indent | safe }}
-</section>
+{%- component ui.references() -%}
+    <section class="references-list">
+        {{ body | markdown | indent | safe }}
+    </section>
+{%- endcomponent -%}

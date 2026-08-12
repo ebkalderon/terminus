@@ -1,4 +1,4 @@
-{%- macro get(setting, default_global_value="") -%}
+{%- component config.get(setting: string, default_global_value="") -%}
     {%- if page.ancestors -%}
         {%- for ancestor in page.ancestors | reverse -%}
             {%- set section_data = get_section(path=ancestor, metadata_only=true) -%}
@@ -9,4 +9,4 @@
         {%- endfor -%}
     {%- endif -%}
     {{- page.extra[setting] or section.extra[setting] or ancestor_setting_enabled or config.extra[setting] or default_global_value -}}
-{%- endmacro -%}
+{%- endcomponent config.get -%}

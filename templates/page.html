@@ -21,14 +21,14 @@
 {%- endblock -%}
 
 {%- block main -%}
-{%- filter indent -%}{%- filter indent -%}
+{%- filter indent(width=8) -%}
 <article class="post content">
-    {{ post_macros::header(page=page, heading="h1") | indent | safe }}
-{%- endfilter %}{%- endfilter %}
+{{ <post.header(page=page, heading="h1") /> | indent | safe }}
+{%- endfilter -%}
 
 {{ page.content | safe }}
 
-{%- filter indent -%}{%- filter indent %}
+{%- filter indent(width=8) %}
 </article>
 {%- if page.lower or page.higher %}
 <nav class="post-navigation">
@@ -54,5 +54,5 @@
 </nav>
 {%- endif %}
 {% include "partials/comments.html" -%}
-{% endfilter %}{% endfilter %}
+{% endfilter %}
 {%- endblock -%}

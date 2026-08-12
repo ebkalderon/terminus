@@ -7,7 +7,7 @@
 {%- endblock -%}
 
 {%- block main -%}
-{%- filter indent -%}{%- filter indent -%}
+{%- filter indent(width=8) -%}
 
 {%- if section.content -%}
 <header class="content {%- if section.extra.framed %} framed{%- endif -%}">
@@ -31,7 +31,7 @@
 {%- endif -%}
 
 {%- for page in paginator.pages | default(value=top_posts) %}
-{{ post_macros::excerpt(page=page) }}
+{{ <post.excerpt page={page} /> }}
 {%- endfor -%}
 
 {%- if paginator and paginator.number_pagers > 1 %}
@@ -44,5 +44,5 @@
 </nav>
 {%- endif -%}
 
-{%- endfilter -%}{%- endfilter -%}
+{%- endfilter -%}
 {%- endblock -%}

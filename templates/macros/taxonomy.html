@@ -1,4 +1,4 @@
-{%- macro prettify(term) -%}
+{%- component taxonomy.prettify(term) -%}
     {%- if taxonomy.name == "categories" -%}
         {{- "{" ~ term ~ "}" | safe -}}
     {%- elif taxonomy.name == "tags" -%}
@@ -6,4 +6,4 @@
     {%- else -%}
         {{- term | safe -}}
     {%- endif -%}
-{%- endmacro -%}
+{%- endcomponent taxonomy.prettify -%}

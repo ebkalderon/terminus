@@ -1,6 +1,6 @@
-{%- macro excerpt(page) -%}
+{%- component post.excerpt(page) -%}
 <article class="post">
-    {{ post_macros::header(page=page, heading="h2", is_excerpt=true) | indent | safe }}
+    {{ <post.header page={page} heading="h2" is_excerpt={true} /> | indent | safe }}
 
     {%- set permalink = page.permalink -%}
 
@@ -12,9 +12,9 @@
     {%- endif %}
     <a class="read-more" href="{{ permalink | safe }}" aria-label="Read more about {{ page.title }}">read more →</a>
 </article>
-{%- endmacro -%}
+{%- endcomponent post.excerpt -%}
 
-{%- macro header(page, heading, is_excerpt=false) -%}
+{%- endcomponent post.header(page, heading, is_excerpt=false) -%}
 <header>
     <{{ heading }} class="post-title">
         <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
@@ -25,8 +25,8 @@
         {% endif -%}
 
         <li title="Published on {{ page.date | date(format="%F") }}{%- if page.updated %}, last updated {{ page.updated | date(format="%F") }}{%- endif -%}">
-            {{- post_macros::date(value=page.date) }}
-            {%- if page.updated %}&nbsp;[Updated: {{ post_macros::date(value=page.updated) }}]{%- endif -%}
+            {{- <post.date value={page.date} /> -}}
+            {%- if page.updated %}&nbsp;[Updated: {{ date(value=page.updated) }}]{%- endif -%}
         </li>
 
         {%- if page.authors %}
@@ -65,8 +65,8 @@
     </div>
     {%- endif %}
 </header>
-{%- endmacro -%}
+{%- endcomponent post.header -%}
 
-{%- macro date(value) -%}
+{%- component post.date(value) -%}
 <time datetime="{{ value }}">{{ value | date(format="%Y.%m.%d") }}</time>
-{%- endmacro -%}
+{%- endcomponent post.date -%}

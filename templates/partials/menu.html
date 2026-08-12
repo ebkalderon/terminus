@@ -3,7 +3,7 @@
     <button class="main-menu-dropdown-button" popovertarget="nav-menu">Menu</button>
     <ul id="nav-menu" class="main-menu-items" aria-label="Site Navigation" popover>
         {%- for item in config.extra.main_menu -%}
-        {%- if item.url is starting_with("http") -%}
+        {%- if item.url is starting_with(pat="http") -%}
             {%- set url = item.url -%}
         {%- else -%}
             {%- set trailing_slash = item.trailing_slash | default(value=false) -%}

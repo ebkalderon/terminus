@@ -1,7 +1,3 @@
-{%- import "macros/config.html" as config_macros -%}
-{%- import "macros/feed.html" as feed_macros -%}
-{%- import "macros/post.html" as post_macros -%}
-
 <!doctype html>
 <html lang="{{ lang }}">
 
@@ -21,7 +17,7 @@
     {%- if config.extra.favicon %}
     {% set image_meta = get_image_metadata(path=config.extra.favicon) -%}
     <link rel="icon" type="{{ image_meta.mime | safe }}" href="{{ get_url(path=config.extra.favicon) }}">
-    {%- if image_meta.mime is ending_with("png") %}
+    {%- if image_meta.mime is ending_with(pat="png") %}
     {% set resized_image = resize_image(path=config.extra.favicon, width=180, height=180, op="fit") -%}
     <link rel="apple-touch-icon" href="{{ resized_image.url | safe }}">
     {%- endif -%}
@@ -32,13 +28,13 @@
     {%- if config.extra.close_responsive_menu_on_resize %}
     <script src="{{ get_url(path="js/auto-close-popover-on-resize.js", cachebust=true) }}" defer></script>
     {%- endif %}
-    {%- if config_macros::get(setting="copy_button", default_global_value=false) == "true" %}
+    {%- if <config.get setting="copy_button" default_global_value={false} /> == "true" %}
     <script src="{{ get_url(path="js/copy-code-to-clipboard.js", cachebust=true) }}" defer></script>
     {%- endif %}
     {%- if config.extra.color_scheme_switcher %}
     <script src="{{ get_url(path="js/theme-switcher.js", cachebust=true) }}" defer></script>
     {%- endif %}
-    {%- if config_macros::get(setting="katex", default_global_value=false) == "true" %}
+    {%- if <config.get setting="katex" default_global_value={false} /> == "true" %}
     <link rel="stylesheet" href="{{ get_url(path="css/katex.min.css", cachebust=true) }}">
     <script src="{{ get_url(path="js/katex.min.js", cachebust=true) }}" defer></script>
     {%- endif %}
@@ -50,10 +46,10 @@
     {%- block translations -%}{%- endblock -%}
     {%- if config.generate_feeds %}
     {%- for feed in config.feed_filenames -%}
-    {{ feed_macros::link_alternate(filename=feed, title=config.title) }}
+    {{ <feed.link_alternate filename={feed} title={config.title} /> }}
     {% endfor -%}
-    {%- block feeds -%}{%- endblock -%}
     {% endif %}
+    {%- block feeds -%}{%- endblock -%} {#- HACK! https://github.com/Keats/tera/issues/992#issuecomment-5261040674 -#}
 
     {#- Standard meta tags -#}
     {%- if page.authors -%}
@@ -161,21 +157,21 @@
 
 <body class="layout-{{ config.extra.layout }}" data-theme="{{ config.extra.color_scheme | default(value = "terminus") }}">
     <header class="header">
-        {% filter indent -%}{%- filter indent -%}
+        {% filter indent(width=8) -%}
         {%- block header -%}
         {% include "partials/header.html" %}
         {%- endblock -%}
-        {%- endfilter -%}{%- endfilter %}
+        {%- endfilter %}
     </header>
     <main id="main">
         {% block main %}{% endblock %}
     </main>
     <footer class="footer">
-        {% filter indent -%}{%- filter indent -%}
+        {% filter indent(width=8) -%}
         {%- block footer -%}
         {% include "partials/footer.html" %}
         {%- endblock -%}
-        {%- endfilter -%}{%- endfilter %}
+        {%- endfilter %}
     </footer>
 </body>
 
