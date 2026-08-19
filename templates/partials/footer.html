@@ -1,10 +1,16 @@
-{%- if config.generate_feeds or config.extra.socials -%}
+{%- set generate_feeds = config.generate_feeds or section.generate_feeds -%}
+{%- if generate_feeds or config.extra.socials -%}
 <address class="socials">
     <ul>
-        {%- if config.generate_feeds and config.extra.feed_icon -%}
+        {%- if generate_feeds and config.extra.feed_icon -%}
         {%- for feed in config.feed_filenames %}
+        {%- if section.generate_feeds -%}
+        {%- set feed_path = section.path ~ feed -%}
+        {%- else -%}
+        {%- set feed_path = feed -%}
+        {%- endif -%}
         <li>
-            <a class="social-link" href="{{ get_url(path=feed, lang=lang) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed">
+            <a class="social-link" href="{{ get_url(path=feed_path, lang=lang) }}" title="{{ feed | trim_end_matches(pat=".xml") }} feed">
                 <svg role="img" aria-label="{{ feed | trim_end_matches(pat=".xml") }} feed">
                     {% if config.feed_filenames | length > 1 and feed is containing("atom") -%}
                     <use href="{{ get_url(path="images/social_icons/atom.svg") }}#icon" aria-hidden="true" />
