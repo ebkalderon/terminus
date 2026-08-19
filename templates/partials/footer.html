@@ -1,7 +1,8 @@
-{%- if config.generate_feeds or config.extra.socials -%}
+{%- set generate_feeds = config.generate_feeds or section.generate_feeds -%}
+{%- if generate_feeds or config.extra.socials -%}
 <address class="socials">
     <ul>
-        {%- if (config.generate_feeds or section.generate_feeds) and config.extra.feed_icon -%}
+        {%- if generate_feeds and config.extra.feed_icon -%}
         {%- for feed in config.feed_filenames %}
         {%- if section.generate_feeds -%}
         {%- set feed_path = section.path ~ feed -%}
