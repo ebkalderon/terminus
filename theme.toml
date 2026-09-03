@@ -4,7 +4,7 @@ tags = ["dark", "blog", "minimal", "personal", "responsive", "seo"]
 license = "MIT"
 homepage = "https://github.com/ebkalderon/terminus"
 min_version = "0.22.0"
-demo = "https://ebkalderon.github.io/terminus/"
+demo = "https://eyalkalderon.com/terminus/"
 
 [author]
 name = "Eyal Kalderon"
